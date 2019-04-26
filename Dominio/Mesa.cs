@@ -8,8 +8,11 @@ namespace Dominio
 {
     class Mesa
     {
+        public int numero { get; set; }
         public List<Pedido> pedidos { get; set; }
-        public List<Mesero> meseros { get; set; }
+        public Mesero mesero { get; set; }
+        public int cantComensales { get; set; }
+        public bool ocuapado { get; set; }
 
     }
 }

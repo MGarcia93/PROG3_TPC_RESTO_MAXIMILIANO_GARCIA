@@ -1,0 +1,13 @@
+C:\Users\elrengero73\source\repos\tpc_resto_maximiliano_garcia\PresentacionWinForm\obj\Debug\PresentacionWinForm.frmResto.resources
+C:\Users\elrengero73\source\repos\tpc_resto_maximiliano_garcia\PresentacionWinForm\obj\Debug\PresentacionWinForm.Properties.Resources.resources
+C:\Users\elrengero73\source\repos\tpc_resto_maximiliano_garcia\PresentacionWinForm\obj\Debug\PresentacionWinForm.csproj.GenerateResource.cache
+C:\Users\elrengero73\source\repos\tpc_resto_maximiliano_garcia\PresentacionWinForm\obj\Debug\PresentacionWinForm.csproj.CoreCompileInputs.cache
+C:\Users\elrengero73\source\repos\tpc_resto_maximiliano_garcia\PresentacionWinForm\bin\Debug\PresentacionWinForm.exe.config
+C:\Users\elrengero73\source\repos\tpc_resto_maximiliano_garcia\PresentacionWinForm\bin\Debug\PresentacionWinForm.exe
+C:\Users\elrengero73\source\repos\tpc_resto_maximiliano_garcia\PresentacionWinForm\bin\Debug\PresentacionWinForm.pdb
+C:\Users\elrengero73\source\repos\tpc_resto_maximiliano_garcia\PresentacionWinForm\obj\Debug\PresentacionWinForm.exe
+C:\Users\elrengero73\source\repos\tpc_resto_maximiliano_garcia\PresentacionWinForm\obj\Debug\PresentacionWinForm.pdb
+C:\Users\elrengero73\source\repos\tpc_resto_maximiliano_garcia\PresentacionWinForm\obj\Debug\PresentacionWinForm.frmCerrarPedido.resources
+C:\Users\elrengero73\source\repos\tpc_resto_maximiliano_garcia\PresentacionWinForm\obj\Debug\PresentacionWinForm.frmGenerarPedido.resources
+C:\Users\elrengero73\source\repos\tpc_resto_maximiliano_garcia\PresentacionWinForm\obj\Debug\PresentacionWinForm.frmLogin.resources
+C:\Users\elrengero73\source\repos\tpc_resto_maximiliano_garcia\PresentacionWinForm\obj\Debug\PresentacionWinForm.frmPedidosAbiertos.resources
