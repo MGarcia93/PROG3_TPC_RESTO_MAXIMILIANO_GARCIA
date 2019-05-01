@@ -11,6 +11,6 @@ namespace Dominio
         public string nombre { get; set; }
         public string apellido { get; set; }
         public int edad { get; set; }
-        public int permiso { get; set; }
+        public Permiso permiso { get; set; }
     }
 }

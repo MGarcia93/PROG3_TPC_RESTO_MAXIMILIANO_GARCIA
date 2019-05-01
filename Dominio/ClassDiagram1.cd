@@ -1,76 +1,232 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Dominio.Estado" Collapsed="true">
-    <Position X="7.5" Y="0.75" Width="1.5" />
+  <Class Name="Dominio.Almacen">
+    <Position X="11.25" Y="7.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Estado.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Almacen.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="stock" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Dominio.Bebida">
+    <Position X="6" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAABAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bebida.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="categoria" />
+      <Property Name="marca" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Dominio.Categoria">
+    <Position X="4" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Categoria.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dominio.Gerente" Collapsed="true">
-    <Position X="0.5" Y="2.75" Width="1.5" />
+  <Class Name="Dominio.Cliente">
+    <Position X="0.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Cliente.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dominio.Comida">
+    <Position X="1.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Comida.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="tipoPlato" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Dominio.EstadoPedido" Collapsed="true">
+    <Position X="7.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EstadoPedido.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dominio.Gerente">
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Gerente.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dominio.Insumo" Collapsed="true">
-    <Position X="7.5" Y="3" Width="1.5" />
+  <Class Name="Dominio.Insumo">
+    <Position X="4.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAABAAAAAAAAAAAAAEAAAAAAAAAEAAAAAAAAAAAAgA=</HashCode>
       <FileName>Insumo.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="tipo" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Dominio.Marca">
+    <Position X="8.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Marca.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dominio.Mesa">
-    <Position X="2.75" Y="2" Width="1.5" />
+    <Position X="8.5" Y="0.75" Width="1.5" />
+    <AssociationLine Name="pedidos" Type="Dominio.Pedido" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.5" Y="1.829" />
+        <Point X="7.438" Y="1.829" />
+        <Point X="7.438" Y="2.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="mesero" Type="Dominio.Mesero" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10" Y="1.375" />
+        <Point X="10.375" Y="1.375" />
+        <Point X="10.375" Y="0.125" />
+        <Point X="4.438" Y="0.125" />
+        <Point X="4.438" Y="0.5" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAIABAAAAEAAgAAAAA=</HashCode>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAIAAAAAAEAAoAAAAA=</HashCode>
       <FileName>Mesa.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="estado" />
+      <Property Name="mesero" />
+    </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="pedidos" />
-      <Property Name="meseros" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Dominio.Mesero">
-    <Position X="2.5" Y="4.5" Width="1.5" />
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <InheritanceLine Type="Dominio.Personal" FixedFromPoint="true">
+      <Path>
+        <Point X="2.875" Y="1.5" />
+        <Point X="2.875" Y="0.999" />
+        <Point X="3.75" Y="0.999" />
+      </Path>
+    </InheritanceLine>
+    <AssociationLine Name="mesas" Type="Dominio.Mesa" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.25" Y="0.875" />
+        <Point X="7.886" Y="0.875" />
+        <Point X="7.886" Y="0.895" />
+        <Point X="8.5" Y="0.895" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="pedidos" Type="Dominio.Pedido" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.375" Y="1.497" />
+        <Point X="4.375" Y="2.625" />
+        <Point X="6.25" Y="2.625" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Mesero.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
+      <Property Name="mesas" />
       <Property Name="pedidos" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Dominio.Pedido">
-    <Position X="5.5" Y="2.75" Width="1.5" />
+    <Position X="6.25" Y="2.5" Width="1.5" />
+    <AssociationLine Name="mesero" Type="Dominio.Mesero" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.5" Y="2.5" />
+        <Point X="6.5" Y="1.422" />
+        <Point X="5.662" Y="1.422" />
+        <Point X="5.662" Y="1.25" />
+        <Point X="5.25" Y="1.25" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <HashCode>AAAACAAAAQAAAAAAAAAAAAAAgAAAAAAAAAEAAIAAAgA=</HashCode>
       <FileName>Pedido.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="estado" />
+      <Property Name="mesero" />
+      <Property Name="mesa" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="insumos" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="Dominio.Personal" Collapsed="true">
-    <Position X="0.5" Y="4.25" Width="1.5" />
+  <Class Name="Dominio.Permiso">
+    <Position X="3.25" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAQAAACAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Permiso.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dominio.Persona">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAACAAAAAAAAAAAAAAAAAAAIAEAAAAAA=</HashCode>
+      <FileName>Persona.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="permiso" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Dominio.Personal">
+    <Position X="2" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Personal.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dominio.Jornada">
-    <Position X="3.25" Y="0.5" Width="1.5" />
+  <Class Name="Dominio.TipoInsumo" Collapsed="true">
+    <Position X="2.5" Y="6" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Jornada.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>TipoInsumo.cs</FileName>
     </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="mesas" />
-    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Dominio.TipoPlato">
+    <Position X="1" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>TipoPlato.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dominio.EstadoMesa">
+    <Position X="9" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>EstadoMesa.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dominio.DetallePedido">
+    <Position X="6.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ARAAAAAAAABAAAAAAAAAAAAAAAAAABAAAAAAAAAAAgA=</HashCode>
+      <FileName>DetallePedido.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="producto" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Dominio.Almacenamiento">
+    <Position X="9.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Almacenamiento.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="producto" />
+    </ShowAsAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

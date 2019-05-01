@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    class Comida
+    class Comida:Insumo
     {
+        public string descripcion { get; set; }
         public TipoPlato tipoPlato { get; set; }
     }
 }

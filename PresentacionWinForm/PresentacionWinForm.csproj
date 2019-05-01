@@ -45,17 +45,95 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmCerrarPedido.cs">
+    <Compile Include="frmPedidoAgregar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCerrarPedido.Designer.cs">
-      <DependentUpon>frmCerrarPedido.cs</DependentUpon>
+    <Compile Include="frmPedidoAgregar.Designer.cs">
+      <DependentUpon>frmPedidoAgregar.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmGenerarPedido.cs">
+    <Compile Include="frmBebidaAgregar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmGenerarPedido.Designer.cs">
-      <DependentUpon>frmGenerarPedido.cs</DependentUpon>
+    <Compile Include="frmBebidaAgregar.Designer.cs">
+      <DependentUpon>frmBebidaAgregar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBebidaEliminar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBebidaEliminar.Designer.cs">
+      <DependentUpon>frmBebidaEliminar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBebidaLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBebidaLista.Designer.cs">
+      <DependentUpon>frmBebidaLista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBebidaModificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBebidaModificar.Designer.cs">
+      <DependentUpon>frmBebidaModificar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMarcaAgregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMarcaAgregar.Designer.cs">
+      <DependentUpon>frmMarcaAgregar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMesaDesasignar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMesaDesasignar.Designer.cs">
+      <DependentUpon>frmMesaDesasignar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPersonalAgregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPersonalAgregar.Designer.cs">
+      <DependentUpon>frmPersonalAgregar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPlatoAgregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPlatoAgregar.Designer.cs">
+      <DependentUpon>frmPlatoAgregar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMesaAsignar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMesaAsignar.Designer.cs">
+      <DependentUpon>frmMesaAsignar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPedidoCerrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPedidoCerrar.Designer.cs">
+      <DependentUpon>frmPedidoCerrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPersonalEliminar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPersonalEliminar.Designer.cs">
+      <DependentUpon>frmPersonalEliminar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPedidoGenerar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPedidoGenerar.Designer.cs">
+      <DependentUpon>frmPedidoGenerar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMesaLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMesaLista.Designer.cs">
+      <DependentUpon>frmMesaLista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPersonalLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPersonalLista.Designer.cs">
+      <DependentUpon>frmPersonalLista.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -63,11 +141,29 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPedidosAbiertos.cs">
+    <Compile Include="frmPersonalModificar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPedidosAbiertos.Designer.cs">
-      <DependentUpon>frmPedidosAbiertos.cs</DependentUpon>
+    <Compile Include="frmPersonalModificar.Designer.cs">
+      <DependentUpon>frmPersonalModificar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPlatoLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPlatoLista.Designer.cs">
+      <DependentUpon>frmPlatoLista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPlatoModificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPlatoModificar.Designer.cs">
+      <DependentUpon>frmPlatoModificar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPedidosLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPedidosLista.Designer.cs">
+      <DependentUpon>frmPedidosLista.cs</DependentUpon>
     </Compile>
     <Compile Include="frmResto.cs">
       <SubType>Form</SubType>
@@ -75,22 +171,88 @@
     <Compile Include="frmResto.Designer.cs">
       <DependentUpon>frmResto.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmResumenRecaudadoMesa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmResumenRecaudadoMesa.Designer.cs">
+      <DependentUpon>frmResumenRecaudadoMesa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmResumenRecaudadoMesero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmResumenRecaudadoMesero.Designer.cs">
+      <DependentUpon>frmResumenRecaudadoMesero.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmCerrarPedido.resx">
-      <DependentUpon>frmCerrarPedido.cs</DependentUpon>
+    <EmbeddedResource Include="frmBebidaAgregar.resx">
+      <DependentUpon>frmBebidaAgregar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmGenerarPedido.resx">
-      <DependentUpon>frmGenerarPedido.cs</DependentUpon>
+    <EmbeddedResource Include="frmBebidaEliminar.resx">
+      <DependentUpon>frmBebidaEliminar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBebidaLista.resx">
+      <DependentUpon>frmBebidaLista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBebidaModificar.resx">
+      <DependentUpon>frmBebidaModificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMarcaAgregar.resx">
+      <DependentUpon>frmMarcaAgregar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMesaDesasignar.resx">
+      <DependentUpon>frmMesaDesasignar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPedidoAgregar.resx">
+      <DependentUpon>frmPedidoAgregar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPersonalAgregar.resx">
+      <DependentUpon>frmPersonalAgregar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPersonalEliminar.resx">
+      <DependentUpon>frmPersonalEliminar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPlatoAgregar.resx">
+      <DependentUpon>frmPlatoAgregar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMesaAsignar.resx">
+      <DependentUpon>frmMesaAsignar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPedidoCerrar.resx">
+      <DependentUpon>frmPedidoCerrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPedidoGenerar.resx">
+      <DependentUpon>frmPedidoGenerar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMesaLista.resx">
+      <DependentUpon>frmMesaLista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPersonalLista.resx">
+      <DependentUpon>frmPersonalLista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPedidosAbiertos.resx">
-      <DependentUpon>frmPedidosAbiertos.cs</DependentUpon>
+    <EmbeddedResource Include="frmPersonalModificar.resx">
+      <DependentUpon>frmPersonalModificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPlatoLista.resx">
+      <DependentUpon>frmPlatoLista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPlatoModificar.resx">
+      <DependentUpon>frmPlatoModificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPedidosLista.resx">
+      <DependentUpon>frmPedidosLista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmResto.resx">
       <DependentUpon>frmResto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmResumenRecaudadoMesa.resx">
+      <DependentUpon>frmResumenRecaudadoMesa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmResumenRecaudadoMesero.resx">
+      <DependentUpon>frmResumenRecaudadoMesero.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -119,6 +281,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="imagenes\icono.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AccesoDatos\AccesoDatos.csproj">
+      <Project>{9021fdca-76b2-4674-845f-fb111b963c6b}</Project>
+      <Name>AccesoDatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dominio\Dominio.csproj">
+      <Project>{f50cf6e5-c814-4fbd-981d-79cba310c564}</Project>
+      <Name>Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Negocio\Negocio.csproj">
+      <Project>{81cbe767-0cf4-48ac-ba8d-ae0d553ef98d}</Project>
+      <Name>Negocio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

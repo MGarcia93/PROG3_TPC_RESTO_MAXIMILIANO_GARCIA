@@ -8,6 +8,6 @@ namespace Dominio
 {
     class Almacen
     {
-        public List<Insumo> stock { get; set; }
+        public List<Almacenamiento> stock { get; set; }
     }
 }

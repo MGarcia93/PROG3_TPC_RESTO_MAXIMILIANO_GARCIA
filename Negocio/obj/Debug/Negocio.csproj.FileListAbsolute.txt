@@ -1,0 +1,2 @@
+C:\Users\maxim\Desktop\Prog3\tpc_resto\Negocio\obj\Debug\Negocio.csprojAssemblyReference.cache
+C:\Users\maxim\Desktop\Prog3\tpc_resto\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
