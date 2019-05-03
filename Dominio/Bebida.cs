@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    class Bebida:Insumo
+    public class Bebida:Insumo
     {
         public Marca marca { get; set; }
         public Categoria categoria { get; set; }

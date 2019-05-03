@@ -124,6 +124,7 @@
             this.Name = "frmMarcaAgregar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAgregarMarca";
+            this.Load += new System.EventHandler(this.FrmMarcaAgregar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

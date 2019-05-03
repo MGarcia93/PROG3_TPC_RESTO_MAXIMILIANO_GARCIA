@@ -96,7 +96,7 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
-            // frmPersonalListar
+            // frmPersonalLista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -108,9 +108,10 @@
             this.Controls.Add(this.dgvPersonal);
             this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmPersonalListar";
+            this.Name = "frmPersonalLista";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "frmListarPersonal";
+            this.Load += new System.EventHandler(this.FrmPersonalLista_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersonal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

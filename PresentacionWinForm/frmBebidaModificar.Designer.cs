@@ -138,6 +138,7 @@
             this.cbxCategoria.Name = "cbxCategoria";
             this.cbxCategoria.Size = new System.Drawing.Size(180, 28);
             this.cbxCategoria.TabIndex = 15;
+            this.cbxCategoria.SelectedIndexChanged += new System.EventHandler(this.CbxCategoria_SelectedIndexChanged);
             // 
             // lblCategoria
             // 
@@ -181,6 +182,7 @@
             this.Controls.Add(this.lblTitulo);
             this.Name = "frmBebidaModificar";
             this.Text = "Modificar";
+            this.Load += new System.EventHandler(this.FrmBebidaModificar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

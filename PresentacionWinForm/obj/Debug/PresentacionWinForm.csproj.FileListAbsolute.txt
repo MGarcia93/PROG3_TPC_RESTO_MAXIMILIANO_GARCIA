@@ -43,3 +43,10 @@ C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWinForm\obj\Debug\Presentacio
 C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWinForm\obj\Debug\PresentacionWinForm.frmPedidosLista.resources
 C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWinForm\obj\Debug\PresentacionWinForm.frmResumenRecaudadoMesa.resources
 C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWinForm\obj\Debug\PresentacionWinForm.frmResumenRecaudadoMesero.resources
+C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWinForm\bin\Debug\AccesoDatos.dll
+C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWinForm\bin\Debug\Dominio.dll
+C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWinForm\bin\Debug\Negocio.dll
+C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWinForm\bin\Debug\AccesoDatos.pdb
+C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWinForm\bin\Debug\Dominio.pdb
+C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWinForm\bin\Debug\Negocio.pdb
+C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWinForm\obj\Debug\PresentacionWinForm.csproj.CopyComplete

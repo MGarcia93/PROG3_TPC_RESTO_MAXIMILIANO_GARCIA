@@ -37,11 +37,13 @@
             this.cbxTipo = new System.Windows.Forms.ComboBox();
             this.lblTipo = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(299, 306);
+            this.btnCancelar.Location = new System.Drawing.Point(299, 368);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 40);
@@ -52,7 +54,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(73, 306);
+            this.btnAgregar.Location = new System.Drawing.Point(73, 368);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(100, 40);
@@ -62,7 +64,7 @@
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(160, 239);
+            this.txtPrecio.Location = new System.Drawing.Point(160, 301);
             this.txtPrecio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(148, 26);
@@ -71,7 +73,7 @@
             // lblPrecio
             // 
             this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Location = new System.Drawing.Point(24, 244);
+            this.lblPrecio.Location = new System.Drawing.Point(24, 306);
             this.lblPrecio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(53, 20);
@@ -80,7 +82,7 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(160, 158);
+            this.txtDescripcion.Location = new System.Drawing.Point(160, 220);
             this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
@@ -90,7 +92,7 @@
             // lblDescriocion
             // 
             this.lblDescriocion.AutoSize = true;
-            this.lblDescriocion.Location = new System.Drawing.Point(24, 178);
+            this.lblDescriocion.Location = new System.Drawing.Point(24, 240);
             this.lblDescriocion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDescriocion.Name = "lblDescriocion";
             this.lblDescriocion.Size = new System.Drawing.Size(92, 20);
@@ -127,13 +129,31 @@
             this.lblTitulo.TabIndex = 9;
             this.lblTitulo.Text = "Modificar Plato";
             // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(24, 164);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(65, 20);
+            this.lblNombre.TabIndex = 18;
+            this.lblNombre.Text = "Nombre";
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(160, 158);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(340, 26);
+            this.txtNombre.TabIndex = 19;
+            // 
             // frmPlatoModificar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(537, 387);
+            this.ClientSize = new System.Drawing.Size(559, 435);
+            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.txtPrecio);
@@ -147,6 +167,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmPlatoModificar";
             this.Text = "Modificar";
+            this.Load += new System.EventHandler(this.FrmPlatoModificar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,5 +184,7 @@
         private System.Windows.Forms.ComboBox cbxTipo;
         private System.Windows.Forms.Label lblTipo;
         private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.TextBox txtNombre;
     }
 }

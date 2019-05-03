@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dominio;
+using Negocio;
 
 namespace PresentacionWinForm
 {
@@ -19,6 +21,19 @@ namespace PresentacionWinForm
 
         private void FrmAgregarPlato_Load(object sender, EventArgs e)
         {
+            TipoPlatoNegocio tiposPlatos = new TipoPlatoNegocio();
+            try
+            {
+                cbxTipo.DataSource = tiposPlatos.listaTipoPlato();
+                cbxTipo.DisplayMember = "descripcion";
+                cbxTipo.ValueMember = "id";
+
+            }
+            catch (Exception ex)
+            {
+
+                 throw ex;
+            }
 
         }
 

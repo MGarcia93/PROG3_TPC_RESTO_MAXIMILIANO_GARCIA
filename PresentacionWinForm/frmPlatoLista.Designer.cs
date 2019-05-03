@@ -111,6 +111,7 @@
             this.Name = "frmPlatoLista";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "frmPlatoListar";
+            this.Load += new System.EventHandler(this.FrmPlatoLista_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlato)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

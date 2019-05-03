@@ -148,7 +148,7 @@ namespace PresentacionWinForm
             frmMesaLista mesas = new frmMesaLista();
             mesas.MdiParent = this;
             mesas.Show();
-            frmMesaAsignar asignar = new frmMesaAsignar();
+            frmBebidaModificar asignar = new frmBebidaModificar();
             asignar.ShowDialog();
         }
 

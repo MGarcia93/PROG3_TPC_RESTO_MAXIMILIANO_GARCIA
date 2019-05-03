@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    class Mesero:Personal
+    public class Mesero :Personal
     {
         public List<Pedido> pedidos { get; set; }
         public List<Mesa> mesas { get; set; }

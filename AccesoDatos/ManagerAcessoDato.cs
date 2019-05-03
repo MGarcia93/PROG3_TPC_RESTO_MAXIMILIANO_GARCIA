@@ -7,9 +7,9 @@ using System.Data.SqlClient;
 
 namespace AccesoDatos
 {
-    class ManagerAcessoDato
+    public class ManagerAcessoDato
     {
-        public static string cadenaConexion = "data source=(local); initial catalog=TPC_Garcia_Maximiliano; integrated security=sspi";
+        public static string cadenaConexion = "data source=DESKTOP-FUGKT4R\\SQLEXPRESS; initial catalog=TPC_Garcia_Maximiliano; integrated security=sspi";
         private SqlCommand comando;
         private SqlConnection conexion;
         private SqlDataReader lector;

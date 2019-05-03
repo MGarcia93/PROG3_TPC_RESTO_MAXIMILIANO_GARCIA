@@ -1,4 +1,10 @@
-CREATE DATABASE TPC_Garcia_Maximiliano
+
+
+use master 
+go
+ drop database if exists [TPC_Garcia_Maximiliano]
+ go
+ CREATE DATABASE TPC_Garcia_Maximiliano
 GO
 USE TPC_Garcia_Maximiliano
 go
@@ -51,7 +57,13 @@ descripcion varchar(50) not null unique
 go
 CREATE TABLE marcas(
 id int primary key not null identity(1,1),
-descripcion varchar(50) not null unique
+descripcion varchar(50) not null unique,
+)
+
+CREATE TABLE marcasXcategorias(
+idCategoria int not null foreign key references categoriasBebidas(id),
+idMarca int not null foreign key references Marcas(id),
+constraint pk_marcaxcategoria primary key(idCategoria,idMarca)
 )
 
 go
@@ -143,7 +155,6 @@ nombre  varchar(20) not null,
 pass varchar(255) not null,
 idPermiso int not null foreign key references permisos(id)
 )
-
 go
 insert into estadosPedidos(descripcion) values('Abierto'),('Cerrado')
 
@@ -157,6 +168,8 @@ insert into tiposPlatos(descripcion) values('Plato principal'),('Entrada'),('Pos
 go 
 insert into categoriasBebidas(descripcion) values('Jugo'),('Vino'),('Gaseosa'),('Licor'),('Agua')
 go
-insert into marcas (descripcion) values ('Coca-Cola'),('Norton'),('Absolut'),('Del valle')
+insert into marcas (descripcion) values ('Coca-Cola'),('Norton'),('Absolut'),('villa del sur')
 go 
 insert into permisos(descripcion) values('total'),('mesero'),('cliente')
+go 
+insert into marcasXcategorias(idCategoria,idMarca) values (3,1),(2,2),(4,3),(2,4),(5,4)

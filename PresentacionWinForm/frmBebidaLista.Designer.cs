@@ -32,9 +32,9 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.dvgBebida = new System.Windows.Forms.DataGridView();
+            this.dgvBebida = new System.Windows.Forms.DataGridView();
             this.lblTitulo = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dvgBebida)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBebida)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSalir
@@ -77,14 +77,14 @@
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
-            // dvgBebida
+            // dgvBebida
             // 
-            this.dvgBebida.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dvgBebida.Location = new System.Drawing.Point(19, 74);
-            this.dvgBebida.Name = "dvgBebida";
-            this.dvgBebida.RowTemplate.Height = 28;
-            this.dvgBebida.Size = new System.Drawing.Size(1172, 508);
-            this.dvgBebida.TabIndex = 11;
+            this.dgvBebida.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBebida.Location = new System.Drawing.Point(19, 74);
+            this.dgvBebida.Name = "dgvBebida";
+            this.dgvBebida.RowTemplate.Height = 28;
+            this.dgvBebida.Size = new System.Drawing.Size(1172, 508);
+            this.dgvBebida.TabIndex = 11;
             // 
             // lblTitulo
             // 
@@ -105,13 +105,14 @@
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.dvgBebida);
+            this.Controls.Add(this.dgvBebida);
             this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmBebidaLista";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Lista";
-            ((System.ComponentModel.ISupportInitialize)(this.dvgBebida)).EndInit();
+            this.Load += new System.EventHandler(this.FrmBebidaLista_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBebida)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,7 +124,7 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.DataGridView dvgBebida;
+        private System.Windows.Forms.DataGridView dgvBebida;
         private System.Windows.Forms.Label lblTitulo;
     }
 }

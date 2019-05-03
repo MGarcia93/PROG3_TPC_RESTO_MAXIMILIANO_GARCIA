@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dominio;
 
 namespace PresentacionWinForm
 {
     public partial class frmMesaLista : Form
     {
+        List<Mesa> listado = new List<Mesa>();
         public frmMesaLista()
         {
             InitializeComponent();
@@ -19,8 +21,13 @@ namespace PresentacionWinForm
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            frmMesaAsignar mesa = new frmMesaAsignar();
+            frmBebidaModificar mesa = new frmBebidaModificar();
             mesa.ShowDialog();
+        }
+
+        private void FrmMesaLista_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

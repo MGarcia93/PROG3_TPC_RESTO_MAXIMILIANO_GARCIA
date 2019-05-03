@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.dgwPedidos = new System.Windows.Forms.DataGridView();
+            this.dgvPedidos = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnCerrar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwPedidos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -48,15 +48,15 @@
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Pedidos Abiertos";
             // 
-            // dgwPedidos
+            // dgvPedidos
             // 
-            this.dgwPedidos.AllowUserToAddRows = false;
-            this.dgwPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwPedidos.Location = new System.Drawing.Point(30, 149);
-            this.dgwPedidos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dgwPedidos.Name = "dgwPedidos";
-            this.dgwPedidos.Size = new System.Drawing.Size(1158, 495);
-            this.dgwPedidos.TabIndex = 1;
+            this.dgvPedidos.AllowUserToAddRows = false;
+            this.dgvPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPedidos.Location = new System.Drawing.Point(30, 149);
+            this.dgvPedidos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvPedidos.Name = "dgvPedidos";
+            this.dgvPedidos.Size = new System.Drawing.Size(1158, 495);
+            this.dgvPedidos.TabIndex = 1;
             // 
             // button1
             // 
@@ -102,7 +102,7 @@
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dgwPedidos);
+            this.Controls.Add(this.dgvPedidos);
             this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -110,7 +110,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPedidosAbiertos";
             this.Load += new System.EventHandler(this.FrmPedidosLista_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgwPedidos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,7 +119,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.DataGridView dgwPedidos;
+        private System.Windows.Forms.DataGridView dgvPedidos;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscar;

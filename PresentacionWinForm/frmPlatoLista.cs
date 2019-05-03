@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dominio;
+using Negocio;
 
 namespace PresentacionWinForm
 {
     public partial class frmPlatoLista : Form
     {
+        List<Comida> listado = new List<Comida>();
+
         public frmPlatoLista()
         {
             InitializeComponent();
@@ -38,6 +42,11 @@ namespace PresentacionWinForm
         private void BtnSalir_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FrmPlatoLista_Load(object sender, EventArgs e)
+        {
+            dgvPlato.DataSource = listado;
         }
     }
 }

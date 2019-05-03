@@ -71,6 +71,7 @@
             this.cbxCategoria.Name = "cbxCategoria";
             this.cbxCategoria.Size = new System.Drawing.Size(180, 28);
             this.cbxCategoria.TabIndex = 2;
+            this.cbxCategoria.SelectedIndexChanged += new System.EventHandler(this.CbxCategoria_SelectedIndexChanged);
             // 
             // lblMarca
             // 
@@ -181,6 +182,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmBebidaAgregar";
             this.Text = "frmAgregarBebida";
+            this.Load += new System.EventHandler(this.FrmBebidaAgregar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
