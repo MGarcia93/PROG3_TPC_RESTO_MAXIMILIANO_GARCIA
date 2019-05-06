@@ -40,5 +40,21 @@ namespace PresentacionWinForm
                 throw ex;
             }
         }
+
+        private void TxtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            txtPrecio.BackColor = TextBox.DefaultBackColor;
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                txtPrecio.BackColor = Color.Red;
+
+            }
+            if (e.KeyChar == 44 && txtPrecio.Text.IndexOf(",") == -1)
+            {
+                txtPrecio.BackColor = TextBox.DefaultBackColor;
+                e.Handled = false;
+            }
+        }
     }
 }

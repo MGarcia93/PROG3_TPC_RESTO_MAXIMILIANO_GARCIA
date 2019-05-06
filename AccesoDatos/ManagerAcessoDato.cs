@@ -68,18 +68,21 @@ namespace AccesoDatos
             }
         }
 
-        public void ejecutarAccion()
+        public int ejecutarAccion()
         {
             try
             {
                 comando.Connection = conexion;
-                comando.ExecuteNonQuery();
+                return comando.ExecuteNonQuery();
+                
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
+
+
         public int ejecutarAccionReturn()
         {
             try

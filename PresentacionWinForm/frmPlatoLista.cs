@@ -46,7 +46,10 @@ namespace PresentacionWinForm
 
         private void FrmPlatoLista_Load(object sender, EventArgs e)
         {
+            ComidaNegocio comida = new ComidaNegocio();
+            listado = comida.listar();
             dgvPlato.DataSource = listado;
         }
+
     }
 }

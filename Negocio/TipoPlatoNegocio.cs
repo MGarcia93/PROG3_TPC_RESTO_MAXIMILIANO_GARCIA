@@ -39,6 +39,31 @@ namespace Negocio
                 acessoDatos.cerrarConexion();
             }
         }
+        
+        public TipoPlato traer(int id)
+        {
+            TipoPlato tipo = new TipoPlato();
+            ManagerAcessoDato acessoDato = new ManagerAcessoDato();
+            try
+            {
+                acessoDato.setearConsulta("select descripcion from tiposPlatos where id=" + id);
+                acessoDato.abrirConexion();
+                acessoDato.ejecutarConsulta();
+                acessoDato.Lector.Read();
+                tipo.id = id;
+                tipo.descripcion = (string)acessoDato.Lector["descripcion"];
+                return tipo;
 
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                acessoDato.cerrarConexion();
+            }
+        }
     }
 }
