@@ -4,3 +4,9 @@ C:\Users\maxim\Desktop\Prog3\tpc_resto\Dominio\obj\Debug\Dominio.csprojAssemblyR
 C:\Users\maxim\Desktop\Prog3\tpc_resto\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
 C:\Users\maxim\Desktop\Prog3\tpc_resto\Dominio\obj\Debug\Dominio.dll
 C:\Users\maxim\Desktop\Prog3\tpc_resto\Dominio\obj\Debug\Dominio.pdb
+D:\programacion\porg3\resto\PROG3_TPC_RESTO_MAXIMILIANO_GARCIA\Dominio\bin\Debug\Dominio.dll
+D:\programacion\porg3\resto\PROG3_TPC_RESTO_MAXIMILIANO_GARCIA\Dominio\bin\Debug\Dominio.pdb
+D:\programacion\porg3\resto\PROG3_TPC_RESTO_MAXIMILIANO_GARCIA\Dominio\obj\Debug\Dominio.csprojAssemblyReference.cache
+D:\programacion\porg3\resto\PROG3_TPC_RESTO_MAXIMILIANO_GARCIA\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+D:\programacion\porg3\resto\PROG3_TPC_RESTO_MAXIMILIANO_GARCIA\Dominio\obj\Debug\Dominio.dll
+D:\programacion\porg3\resto\PROG3_TPC_RESTO_MAXIMILIANO_GARCIA\Dominio\obj\Debug\Dominio.pdb

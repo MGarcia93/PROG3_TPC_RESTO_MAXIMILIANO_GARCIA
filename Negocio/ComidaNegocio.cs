@@ -24,10 +24,10 @@ namespace Negocio
                 {
                     plato = new Comida();
                     plato.descripcion = (string) accesoDatos.Lector["descripcion"].ToString();
-                    plato.id =(int)accesoDatos.Lector["id"];
+                    plato.id = (int)accesoDatos.Lector["id"];
                     plato.nombre = (string)accesoDatos.Lector["nombre"].ToString();
                     plato.precio = (decimal)accesoDatos.Lector["precio"];
-                    plato.tipoPlato=
+                    plato.tipoPlato = TipoPlatoNegocio.traer((int)accesoDatos.Lector["idTipo"]);
                     listado.Add(plato);
                 }
                 return listado;

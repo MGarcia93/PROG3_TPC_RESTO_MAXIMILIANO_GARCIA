@@ -59,6 +59,7 @@ namespace PresentacionWinForm
             if (negocio.agregar(comida))
             {
                 MessageBox.Show("se agrego correctamente");
+                this.Close();
             }
             else
             {

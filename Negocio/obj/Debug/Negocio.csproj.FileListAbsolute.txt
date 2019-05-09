@@ -9,3 +9,14 @@ C:\Users\maxim\Desktop\Prog3\tpc_resto\Negocio\bin\Debug\Dominio.pdb
 C:\Users\maxim\Desktop\Prog3\tpc_resto\Negocio\obj\Debug\Negocio.csproj.CopyComplete
 C:\Users\maxim\Desktop\Prog3\tpc_resto\Negocio\obj\Debug\Negocio.dll
 C:\Users\maxim\Desktop\Prog3\tpc_resto\Negocio\obj\Debug\Negocio.pdb
+D:\programacion\porg3\resto\PROG3_TPC_RESTO_MAXIMILIANO_GARCIA\Negocio\obj\Debug\Negocio.csprojAssemblyReference.cache
+D:\programacion\porg3\resto\PROG3_TPC_RESTO_MAXIMILIANO_GARCIA\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+D:\programacion\porg3\resto\PROG3_TPC_RESTO_MAXIMILIANO_GARCIA\Negocio\obj\Debug\Negocio.dll
+D:\programacion\porg3\resto\PROG3_TPC_RESTO_MAXIMILIANO_GARCIA\Negocio\obj\Debug\Negocio.pdb
+D:\programacion\porg3\resto\PROG3_TPC_RESTO_MAXIMILIANO_GARCIA\Negocio\bin\Debug\Negocio.dll
+D:\programacion\porg3\resto\PROG3_TPC_RESTO_MAXIMILIANO_GARCIA\Negocio\bin\Debug\Negocio.pdb
+D:\programacion\porg3\resto\PROG3_TPC_RESTO_MAXIMILIANO_GARCIA\Negocio\bin\Debug\AccesoDatos.dll
+D:\programacion\porg3\resto\PROG3_TPC_RESTO_MAXIMILIANO_GARCIA\Negocio\bin\Debug\Dominio.dll
+D:\programacion\porg3\resto\PROG3_TPC_RESTO_MAXIMILIANO_GARCIA\Negocio\bin\Debug\AccesoDatos.pdb
+D:\programacion\porg3\resto\PROG3_TPC_RESTO_MAXIMILIANO_GARCIA\Negocio\bin\Debug\Dominio.pdb
+D:\programacion\porg3\resto\PROG3_TPC_RESTO_MAXIMILIANO_GARCIA\Negocio\obj\Debug\Negocio.csproj.CopyComplete

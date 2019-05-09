@@ -40,7 +40,7 @@ namespace Negocio
             }
         }
         
-        public TipoPlato traer(int id)
+        public static TipoPlato traer(int id)
         {
             TipoPlato tipo = new TipoPlato();
             ManagerAcessoDato acessoDato = new ManagerAcessoDato();

@@ -25,12 +25,14 @@ namespace PresentacionWinForm
         {
             frmPlatoAgregar agregar = new frmPlatoAgregar();
             agregar.ShowDialog();
+            Grilla();
         }
 
         private void BtnModificar_Click(object sender, EventArgs e)
         {
             frmPlatoModificar modificar = new frmPlatoModificar();
             modificar.ShowDialog();
+            Grilla();
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
@@ -46,10 +48,24 @@ namespace PresentacionWinForm
 
         private void FrmPlatoLista_Load(object sender, EventArgs e)
         {
-            ComidaNegocio comida = new ComidaNegocio();
-            listado = comida.listar();
-            dgvPlato.DataSource = listado;
+            Grilla();
         }
 
+        private void Grilla()
+        {
+            ComidaNegocio comida = new ComidaNegocio();
+            try
+            {
+                listado = comida.listar();
+                dgvPlato.DataSource = listado;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+            
+        }
     }
 }
