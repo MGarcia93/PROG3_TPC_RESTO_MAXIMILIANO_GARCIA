@@ -48,9 +48,10 @@
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(112, 35);
-            this.btnCancelar.TabIndex = 24;
+            this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // btnModificar
             // 
@@ -58,9 +59,10 @@
             this.btnModificar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(112, 35);
-            this.btnModificar.TabIndex = 23;
+            this.btnModificar.TabIndex = 6;
             this.btnModificar.Text = "&Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
             // 
             // ckbContieneAlcohol
             // 
@@ -70,7 +72,7 @@
             this.ckbContieneAlcohol.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ckbContieneAlcohol.Name = "ckbContieneAlcohol";
             this.ckbContieneAlcohol.Size = new System.Drawing.Size(163, 24);
-            this.ckbContieneAlcohol.TabIndex = 22;
+            this.ckbContieneAlcohol.TabIndex = 5;
             this.ckbContieneAlcohol.Text = "Contiene Alcochol";
             this.ckbContieneAlcohol.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ckbContieneAlcohol.UseVisualStyleBackColor = true;
@@ -81,7 +83,8 @@
             this.txtPrecio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(148, 26);
-            this.txtPrecio.TabIndex = 21;
+            this.txtPrecio.TabIndex = 4;
+            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPrecio_KeyPress);
             // 
             // lblPrecio
             // 
@@ -99,7 +102,7 @@
             this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(148, 26);
-            this.txtDescripcion.TabIndex = 19;
+            this.txtDescripcion.TabIndex = 3;
             // 
             // lblDescripcion
             // 
@@ -118,7 +121,7 @@
             this.cbxMarca.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbxMarca.Name = "cbxMarca";
             this.cbxMarca.Size = new System.Drawing.Size(180, 28);
-            this.cbxMarca.TabIndex = 17;
+            this.cbxMarca.TabIndex = 23;
             // 
             // lblMarca
             // 
@@ -137,7 +140,7 @@
             this.cbxCategoria.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbxCategoria.Name = "cbxCategoria";
             this.cbxCategoria.Size = new System.Drawing.Size(180, 28);
-            this.cbxCategoria.TabIndex = 15;
+            this.cbxCategoria.TabIndex = 1;
             this.cbxCategoria.SelectedIndexChanged += new System.EventHandler(this.CbxCategoria_SelectedIndexChanged);
             // 
             // lblCategoria

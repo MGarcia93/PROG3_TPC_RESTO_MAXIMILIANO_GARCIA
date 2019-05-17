@@ -39,13 +39,14 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(19, 306);
+            this.btnAgregar.Location = new System.Drawing.Point(49, 284);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(112, 35);
-            this.btnAgregar.TabIndex = 0;
+            this.btnAgregar.TabIndex = 3;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // txtNombre
             // 
@@ -62,7 +63,7 @@
             this.cbxTipo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbxTipo.Name = "cbxTipo";
             this.cbxTipo.Size = new System.Drawing.Size(180, 28);
-            this.cbxTipo.TabIndex = 3;
+            this.cbxTipo.TabIndex = 1;
             // 
             // lblTitulo
             // 
@@ -77,11 +78,11 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(206, 306);
+            this.btnCancelar.Location = new System.Drawing.Point(236, 284);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(112, 35);
-            this.btnCancelar.TabIndex = 5;
+            this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 

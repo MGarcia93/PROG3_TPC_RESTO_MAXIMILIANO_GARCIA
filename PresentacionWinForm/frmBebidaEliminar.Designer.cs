@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.ckbContieneAlcohol = new System.Windows.Forms.CheckBox();
@@ -40,6 +41,7 @@
             this.cbxCategoria = new System.Windows.Forms.ComboBox();
             this.lblCategoria = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.SuspendLayout();
             // 
             // btnCancelar
@@ -161,6 +163,13 @@
             this.lblTitulo.TabIndex = 13;
             this.lblTitulo.Text = "Eliminar Bebida";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.ContextMenuStrip1_Opening);
+            // 
             // frmBebidaEliminar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -183,6 +192,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmBebidaEliminar";
             this.Text = "frmBebidaEliminar";
+            this.Load += new System.EventHandler(this.FrmBebidaEliminar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,5 +212,6 @@
         private System.Windows.Forms.ComboBox cbxCategoria;
         private System.Windows.Forms.Label lblCategoria;
         private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

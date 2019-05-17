@@ -70,7 +70,7 @@
             this.cbxCategoria.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbxCategoria.Name = "cbxCategoria";
             this.cbxCategoria.Size = new System.Drawing.Size(180, 28);
-            this.cbxCategoria.TabIndex = 2;
+            this.cbxCategoria.TabIndex = 1;
             this.cbxCategoria.SelectedIndexChanged += new System.EventHandler(this.CbxCategoria_SelectedIndexChanged);
             // 
             // lblMarca
@@ -90,7 +90,7 @@
             this.cbxMarca.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbxMarca.Name = "cbxMarca";
             this.cbxMarca.Size = new System.Drawing.Size(180, 28);
-            this.cbxMarca.TabIndex = 4;
+            this.cbxMarca.TabIndex = 2;
             // 
             // lblDescripcion
             // 
@@ -104,11 +104,11 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(192, 189);
+            this.txtDescripcion.Location = new System.Drawing.Point(198, 197);
             this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(148, 26);
-            this.txtDescripcion.TabIndex = 6;
+            this.txtDescripcion.TabIndex = 3;
             // 
             // lblPrecio
             // 
@@ -126,7 +126,8 @@
             this.txtPrecio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(148, 26);
-            this.txtPrecio.TabIndex = 8;
+            this.txtPrecio.TabIndex = 4;
+            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPrecio_KeyPress);
             // 
             // ckbContieneAlcohol
             // 
@@ -136,7 +137,7 @@
             this.ckbContieneAlcohol.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ckbContieneAlcohol.Name = "ckbContieneAlcohol";
             this.ckbContieneAlcohol.Size = new System.Drawing.Size(163, 24);
-            this.ckbContieneAlcohol.TabIndex = 10;
+            this.ckbContieneAlcohol.TabIndex = 5;
             this.ckbContieneAlcohol.Text = "Contiene Alcochol";
             this.ckbContieneAlcohol.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ckbContieneAlcohol.UseVisualStyleBackColor = true;
@@ -147,9 +148,10 @@
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(112, 35);
-            this.btnAgregar.TabIndex = 11;
-            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.TabIndex = 6;
+            this.btnAgregar.Text = "&Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // btnCancelar
             // 
@@ -157,9 +159,10 @@
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(112, 35);
-            this.btnCancelar.TabIndex = 12;
-            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TabIndex = 7;
+            this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // frmBebidaAgregar
             // 
@@ -171,17 +174,17 @@
             this.Controls.Add(this.ckbContieneAlcohol);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.lblPrecio);
-            this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.cbxMarca);
             this.Controls.Add(this.lblMarca);
             this.Controls.Add(this.cbxCategoria);
             this.Controls.Add(this.lblCategoria);
             this.Controls.Add(this.lblTitulo);
+            this.Controls.Add(this.txtDescripcion);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmBebidaAgregar";
-            this.Text = "frmAgregarBebida";
+            this.Text = "Agregar";
             this.Load += new System.EventHandler(this.FrmBebidaAgregar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

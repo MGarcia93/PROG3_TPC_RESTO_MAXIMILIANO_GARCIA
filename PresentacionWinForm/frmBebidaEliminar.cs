@@ -16,5 +16,15 @@ namespace PresentacionWinForm
         {
             InitializeComponent();
         }
+
+        private void ContextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void FrmBebidaEliminar_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

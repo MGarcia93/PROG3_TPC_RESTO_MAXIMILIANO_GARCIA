@@ -8,7 +8,7 @@ namespace Dominio
 {
     public class EstadoPedido
     {
-        public int codigo { get; set; }
+        public int id { get; set; }
         public string tipo { get; set; }
     }
 }

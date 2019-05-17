@@ -84,7 +84,7 @@ namespace PresentacionWinForm
         private void TxtPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
 
-            txtPrecio.BackColor = TextBox.DefaultBackColor;
+            txtPrecio.BackColor = Color.White;
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
@@ -93,7 +93,7 @@ namespace PresentacionWinForm
             }
             if (e.KeyChar == 44 && txtPrecio.Text.IndexOf(",") == -1)
             {
-                txtPrecio.BackColor = TextBox.DefaultBackColor ;
+                txtPrecio.BackColor = Color.White;
                 e.Handled = false;
             }
 

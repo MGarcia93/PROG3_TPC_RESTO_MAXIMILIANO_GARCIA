@@ -34,6 +34,8 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.dgvBebida = new System.Windows.Forms.DataGridView();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblBuscar = new System.Windows.Forms.Label();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBebida)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,10 +82,10 @@
             // dgvBebida
             // 
             this.dgvBebida.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBebida.Location = new System.Drawing.Point(19, 74);
+            this.dgvBebida.Location = new System.Drawing.Point(19, 144);
             this.dgvBebida.Name = "dgvBebida";
             this.dgvBebida.RowTemplate.Height = 28;
-            this.dgvBebida.Size = new System.Drawing.Size(1172, 508);
+            this.dgvBebida.Size = new System.Drawing.Size(1179, 438);
             this.dgvBebida.TabIndex = 11;
             // 
             // lblTitulo
@@ -96,11 +98,29 @@
             this.lblTitulo.TabIndex = 10;
             this.lblTitulo.Text = "Lista de Bebidas";
             // 
+            // lblBuscar
+            // 
+            this.lblBuscar.AutoSize = true;
+            this.lblBuscar.Location = new System.Drawing.Point(37, 92);
+            this.lblBuscar.Name = "lblBuscar";
+            this.lblBuscar.Size = new System.Drawing.Size(59, 20);
+            this.lblBuscar.TabIndex = 17;
+            this.lblBuscar.Text = "Buscar";
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(120, 89);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(237, 26);
+            this.txtBuscar.TabIndex = 16;
+            // 
             // frmBebidaLista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1210, 658);
+            this.Controls.Add(this.lblBuscar);
+            this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
@@ -126,5 +146,7 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.DataGridView dgvBebida;
         private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Label lblBuscar;
+        private System.Windows.Forms.TextBox txtBuscar;
     }
 }

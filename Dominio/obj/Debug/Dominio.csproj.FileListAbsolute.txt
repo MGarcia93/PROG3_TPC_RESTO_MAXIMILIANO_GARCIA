@@ -1,6 +1,5 @@
 C:\Users\maxim\Desktop\Prog3\tpc_resto\Dominio\bin\Debug\Dominio.dll
 C:\Users\maxim\Desktop\Prog3\tpc_resto\Dominio\bin\Debug\Dominio.pdb
-C:\Users\maxim\Desktop\Prog3\tpc_resto\Dominio\obj\Debug\Dominio.csprojAssemblyReference.cache
 C:\Users\maxim\Desktop\Prog3\tpc_resto\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
 C:\Users\maxim\Desktop\Prog3\tpc_resto\Dominio\obj\Debug\Dominio.dll
 C:\Users\maxim\Desktop\Prog3\tpc_resto\Dominio\obj\Debug\Dominio.pdb
@@ -10,3 +9,6 @@ D:\programacion\porg3\resto\PROG3_TPC_RESTO_MAXIMILIANO_GARCIA\Dominio\obj\Debug
 D:\programacion\porg3\resto\PROG3_TPC_RESTO_MAXIMILIANO_GARCIA\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
 D:\programacion\porg3\resto\PROG3_TPC_RESTO_MAXIMILIANO_GARCIA\Dominio\obj\Debug\Dominio.dll
 D:\programacion\porg3\resto\PROG3_TPC_RESTO_MAXIMILIANO_GARCIA\Dominio\obj\Debug\Dominio.pdb
+C:\Users\maxim\Desktop\Prog3\tpc_resto\Dominio\obj\Debug\Dominio.MesaImagen.resources
+C:\Users\maxim\Desktop\Prog3\tpc_resto\Dominio\obj\Debug\Dominio.csproj.GenerateResource.cache
+C:\Users\maxim\Desktop\Prog3\tpc_resto\Dominio\obj\Debug\Dominio.csprojAssemblyReference.cache

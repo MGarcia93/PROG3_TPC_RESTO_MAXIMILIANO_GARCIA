@@ -8,5 +8,9 @@ namespace Dominio
 {
     public class Gerente:Personal
     {
+        public Gerente()
+        {
+            cargo = "encargado";
+        }
     }
 }

@@ -45,6 +45,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlMesa.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlMesa.Designer.cs">
+      <DependentUpon>ControlMesa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMesaAgregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMesaAgregar.Designer.cs">
+      <DependentUpon>frmMesaAgregar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMesaModificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMesaModificar.Designer.cs">
+      <DependentUpon>frmMesaModificar.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPedidoAgregar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,8 +218,14 @@
     <EmbeddedResource Include="frmMarcaAgregar.resx">
       <DependentUpon>frmMarcaAgregar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMesaAgregar.resx">
+      <DependentUpon>frmMesaAgregar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMesaDesasignar.resx">
       <DependentUpon>frmMesaDesasignar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMesaModificar.resx">
+      <DependentUpon>frmMesaModificar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPedidoAgregar.resx">
       <DependentUpon>frmPedidoAgregar.cs</DependentUpon>
@@ -262,6 +286,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -295,6 +320,9 @@
       <Project>{81cbe767-0cf4-48ac-ba8d-ae0d553ef98d}</Project>
       <Name>Negocio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagenes\mesa.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

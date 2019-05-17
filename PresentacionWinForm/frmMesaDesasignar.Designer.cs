@@ -30,7 +30,6 @@
         {
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblMesa = new System.Windows.Forms.Label();
-            this.cbxMesa = new System.Windows.Forms.ComboBox();
             this.Legajo = new System.Windows.Forms.Label();
             this.txtLegajo = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -40,6 +39,7 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblApellido = new System.Windows.Forms.Label();
+            this.txtNumeroMesa = new System.Windows.Forms.TextBox();
             this.bxMesero.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,14 +61,6 @@
             this.lblMesa.Size = new System.Drawing.Size(48, 20);
             this.lblMesa.TabIndex = 1;
             this.lblMesa.Text = "Mesa";
-            // 
-            // cbxMesa
-            // 
-            this.cbxMesa.FormattingEnabled = true;
-            this.cbxMesa.Location = new System.Drawing.Point(148, 90);
-            this.cbxMesa.Name = "cbxMesa";
-            this.cbxMesa.Size = new System.Drawing.Size(179, 28);
-            this.cbxMesa.TabIndex = 2;
             // 
             // Legajo
             // 
@@ -95,6 +87,7 @@
             this.btnGuardar.TabIndex = 5;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // lblCancelar
             // 
@@ -104,6 +97,7 @@
             this.lblCancelar.TabIndex = 6;
             this.lblCancelar.Text = "Cancelar";
             this.lblCancelar.UseVisualStyleBackColor = true;
+            this.lblCancelar.Click += new System.EventHandler(this.LblCancelar_Click);
             // 
             // bxMesero
             // 
@@ -154,6 +148,14 @@
             this.lblApellido.TabIndex = 6;
             this.lblApellido.Text = "Apellido";
             // 
+            // txtNumeroMesa
+            // 
+            this.txtNumeroMesa.Location = new System.Drawing.Point(144, 90);
+            this.txtNumeroMesa.Name = "txtNumeroMesa";
+            this.txtNumeroMesa.ReadOnly = true;
+            this.txtNumeroMesa.Size = new System.Drawing.Size(179, 26);
+            this.txtNumeroMesa.TabIndex = 8;
+            // 
             // frmMesaDesasignar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -161,15 +163,16 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(401, 405);
+            this.Controls.Add(this.txtNumeroMesa);
             this.Controls.Add(this.bxMesero);
             this.Controls.Add(this.lblCancelar);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.cbxMesa);
             this.Controls.Add(this.lblMesa);
             this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmMesaDesasignar";
             this.Text = "frmMesaDesasignar";
+            this.Load += new System.EventHandler(this.FrmMesaDesasignar_Load);
             this.bxMesero.ResumeLayout(false);
             this.bxMesero.PerformLayout();
             this.ResumeLayout(false);
@@ -181,7 +184,6 @@
 
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblMesa;
-        private System.Windows.Forms.ComboBox cbxMesa;
         private System.Windows.Forms.Label Legajo;
         private System.Windows.Forms.TextBox txtLegajo;
         private System.Windows.Forms.Button btnGuardar;
@@ -191,5 +193,6 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblApellido;
+        private System.Windows.Forms.TextBox txtNumeroMesa;
     }
 }

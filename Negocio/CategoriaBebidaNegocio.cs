@@ -10,7 +10,7 @@ namespace Negocio
 {
     public class CategoriaBebidaNegocio
     {
-        public List<Categoria> listadoCategoriaBebidas()
+        public  static List<Categoria> listadoCategoriaBebidas()
         {
             List<Categoria> listado = new List<Categoria>();
             ManagerAcessoDato accesoDatos = new ManagerAcessoDato();
@@ -37,6 +37,32 @@ namespace Negocio
             finally
             {
                 accesoDatos.cerrarConexion(); 
+            }
+        }
+
+        public static Categoria traer(int id)
+        {
+            Categoria tipo = new Categoria();
+            ManagerAcessoDato acessoDato = new ManagerAcessoDato();
+            try
+            {
+                acessoDato.setearConsulta("select descripcion from categoriasBebidas where id=" + id);
+                acessoDato.abrirConexion();
+                acessoDato.ejecutarConsulta();
+                acessoDato.Lector.Read();
+                tipo.id = id;
+                tipo.descripcion = (string)acessoDato.Lector["descripcion"];
+                return tipo;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                acessoDato.cerrarConexion();
             }
         }
     }

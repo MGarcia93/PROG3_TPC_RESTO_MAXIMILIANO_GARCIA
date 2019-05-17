@@ -12,6 +12,7 @@ namespace Negocio
     {
         public List<Comida> listar()
         {
+            
             List<Comida> listado = new List<Comida>();
             ManagerAcessoDato accesoDatos = new ManagerAcessoDato();
             Comida plato;
@@ -74,7 +75,7 @@ namespace Negocio
             }
         }
 
-        public bool modificar(Comida dato)
+        public  static bool modificar(Comida dato)
         {
             bool modifico = false;
             ManagerAcessoDato accesoDatos = new ManagerAcessoDato();
@@ -86,6 +87,31 @@ namespace Negocio
                 accesoDatos.Comando.Parameters.AddWithValue("@descripcion", dato.descripcion);
                 accesoDatos.Comando.Parameters.AddWithValue("@precio", dato.precio);
                 accesoDatos.Comando.Parameters.AddWithValue("@idTipo", dato.tipoPlato.id);
+                accesoDatos.abrirConexion();
+                if (accesoDatos.ejecutarAccion() == 1)
+                {
+                    modifico = true;
+                }
+                return modifico;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
+        public static bool eliminar(Comida dato)
+        {
+            bool modifico = false;
+            ManagerAcessoDato accesoDatos = new ManagerAcessoDato();
+            try
+            {
+                accesoDatos.setearConsulta("delete from comidas where id=" + dato.id);
                 accesoDatos.abrirConexion();
                 if (accesoDatos.ejecutarAccion() == 1)
                 {

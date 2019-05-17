@@ -22,7 +22,20 @@ namespace PresentacionWinForm
 
         private void FrmMarcaAgregar_Load(object sender, EventArgs e)
         {
-            
+            cbxTipo.DataSource = CategoriaBebidaNegocio.listadoCategoriaBebidas();
+            cbxTipo.ValueMember = "id";
+            cbxTipo.DisplayMember = "descripcion";
+
+        }
+
+        private void BtnAgregar_Click(object sender, EventArgs e)
+        {
+            if (txtNombre.TextLength != 0)
+            {
+                if (MarcaNegocio.agregar(txtNombre.Text.Trim(), cbxTipo.SelectedValue.ToString())){
+
+                }
+            }
         }
     }
 }

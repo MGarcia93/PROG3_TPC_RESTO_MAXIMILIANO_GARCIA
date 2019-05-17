@@ -10,5 +10,10 @@ namespace Dominio
     {
         public List<Pedido> pedidos { get; set; }
         public List<Mesa> mesas { get; set; }
+
+        public Mesero()
+        {
+            cargo = "mesero";
+        }
     }
 }

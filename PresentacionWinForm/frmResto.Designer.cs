@@ -36,23 +36,9 @@
             this.agregarAlPedidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mesasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.asignarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.desasignarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.verAsignadaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.insumosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.platosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.agregarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bebidasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.agregarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.inventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,11 +48,6 @@
             this.pedidosPorMeserosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recaudadoTotalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.ingresarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cerrarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.definicionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.marcaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tipoDeBebidasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -141,41 +122,10 @@
             // 
             // mesasToolStripMenuItem
             // 
-            this.mesasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.asignarToolStripMenuItem,
-            this.desasignarToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.verAsignadaToolStripMenuItem});
             this.mesasToolStripMenuItem.Name = "mesasToolStripMenuItem";
             this.mesasToolStripMenuItem.Size = new System.Drawing.Size(74, 29);
             this.mesasToolStripMenuItem.Text = "&Mesas";
             this.mesasToolStripMenuItem.Click += new System.EventHandler(this.MesasToolStripMenuItem_Click);
-            // 
-            // asignarToolStripMenuItem
-            // 
-            this.asignarToolStripMenuItem.Name = "asignarToolStripMenuItem";
-            this.asignarToolStripMenuItem.Size = new System.Drawing.Size(238, 30);
-            this.asignarToolStripMenuItem.Text = "Asignar";
-            this.asignarToolStripMenuItem.Click += new System.EventHandler(this.AsignarToolStripMenuItem_Click);
-            // 
-            // desasignarToolStripMenuItem
-            // 
-            this.desasignarToolStripMenuItem.Name = "desasignarToolStripMenuItem";
-            this.desasignarToolStripMenuItem.Size = new System.Drawing.Size(238, 30);
-            this.desasignarToolStripMenuItem.Text = "Desasignar";
-            this.desasignarToolStripMenuItem.Click += new System.EventHandler(this.DesasignarToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(235, 6);
-            // 
-            // verAsignadaToolStripMenuItem
-            // 
-            this.verAsignadaToolStripMenuItem.Name = "verAsignadaToolStripMenuItem";
-            this.verAsignadaToolStripMenuItem.Size = new System.Drawing.Size(238, 30);
-            this.verAsignadaToolStripMenuItem.Text = "Listar Asiganacion";
-            this.verAsignadaToolStripMenuItem.Click += new System.EventHandler(this.VerAsignadaToolStripMenuItem_Click);
             // 
             // insumosToolStripMenuItem
             // 
@@ -190,92 +140,17 @@
             // 
             // platosToolStripMenuItem
             // 
-            this.platosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.listaToolStripMenuItem,
-            this.toolStripSeparator5,
-            this.agregarToolStripMenuItem,
-            this.modificarToolStripMenuItem,
-            this.eliminarToolStripMenuItem});
             this.platosToolStripMenuItem.Name = "platosToolStripMenuItem";
             this.platosToolStripMenuItem.Size = new System.Drawing.Size(175, 30);
             this.platosToolStripMenuItem.Text = "Platos";
-            // 
-            // listaToolStripMenuItem
-            // 
-            this.listaToolStripMenuItem.Name = "listaToolStripMenuItem";
-            this.listaToolStripMenuItem.Size = new System.Drawing.Size(171, 30);
-            this.listaToolStripMenuItem.Text = "Lista";
-            this.listaToolStripMenuItem.Click += new System.EventHandler(this.ListaToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(168, 6);
-            // 
-            // agregarToolStripMenuItem
-            // 
-            this.agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
-            this.agregarToolStripMenuItem.Size = new System.Drawing.Size(171, 30);
-            this.agregarToolStripMenuItem.Text = "Agregar";
-            this.agregarToolStripMenuItem.Click += new System.EventHandler(this.AgregarToolStripMenuItem_Click);
-            // 
-            // modificarToolStripMenuItem
-            // 
-            this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(171, 30);
-            this.modificarToolStripMenuItem.Text = "Modificar";
-            this.modificarToolStripMenuItem.Click += new System.EventHandler(this.ModificarToolStripMenuItem_Click);
-            // 
-            // eliminarToolStripMenuItem
-            // 
-            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(171, 30);
-            this.eliminarToolStripMenuItem.Text = "Eliminar";
+            this.platosToolStripMenuItem.Click += new System.EventHandler(this.PlatosToolStripMenuItem_Click);
             // 
             // bebidasToolStripMenuItem
             // 
-            this.bebidasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.listaToolStripMenuItem1,
-            this.toolStripSeparator4,
-            this.agregarToolStripMenuItem1,
-            this.modificarToolStripMenuItem1,
-            this.eliminarToolStripMenuItem1});
             this.bebidasToolStripMenuItem.Name = "bebidasToolStripMenuItem";
             this.bebidasToolStripMenuItem.Size = new System.Drawing.Size(175, 30);
             this.bebidasToolStripMenuItem.Text = "Bebidas";
-            // 
-            // listaToolStripMenuItem1
-            // 
-            this.listaToolStripMenuItem1.Name = "listaToolStripMenuItem1";
-            this.listaToolStripMenuItem1.Size = new System.Drawing.Size(171, 30);
-            this.listaToolStripMenuItem1.Text = "Lista";
-            this.listaToolStripMenuItem1.Click += new System.EventHandler(this.ListaToolStripMenuItem1_Click);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(168, 6);
-            // 
-            // agregarToolStripMenuItem1
-            // 
-            this.agregarToolStripMenuItem1.Name = "agregarToolStripMenuItem1";
-            this.agregarToolStripMenuItem1.Size = new System.Drawing.Size(171, 30);
-            this.agregarToolStripMenuItem1.Text = "Agregar";
-            this.agregarToolStripMenuItem1.Click += new System.EventHandler(this.AgregarToolStripMenuItem1_Click);
-            // 
-            // modificarToolStripMenuItem1
-            // 
-            this.modificarToolStripMenuItem1.Name = "modificarToolStripMenuItem1";
-            this.modificarToolStripMenuItem1.Size = new System.Drawing.Size(171, 30);
-            this.modificarToolStripMenuItem1.Text = "Modificar";
-            this.modificarToolStripMenuItem1.Click += new System.EventHandler(this.ModificarToolStripMenuItem1_Click);
-            // 
-            // eliminarToolStripMenuItem1
-            // 
-            this.eliminarToolStripMenuItem1.Name = "eliminarToolStripMenuItem1";
-            this.eliminarToolStripMenuItem1.Size = new System.Drawing.Size(171, 30);
-            this.eliminarToolStripMenuItem1.Text = "Eliminar";
-            this.eliminarToolStripMenuItem1.Click += new System.EventHandler(this.EliminarToolStripMenuItem1_Click);
+            this.bebidasToolStripMenuItem.Click += new System.EventHandler(this.BebidasToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -335,48 +210,10 @@
             // 
             // usuarioToolStripMenuItem
             // 
-            this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.listarToolStripMenuItem,
-            this.toolStripSeparator3,
-            this.ingresarToolStripMenuItem,
-            this.cerrarToolStripMenuItem1,
-            this.eliminarToolStripMenuItem2});
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
             this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(90, 29);
             this.usuarioToolStripMenuItem.Text = "&Personal";
-            // 
-            // listarToolStripMenuItem
-            // 
-            this.listarToolStripMenuItem.Name = "listarToolStripMenuItem";
-            this.listarToolStripMenuItem.Size = new System.Drawing.Size(171, 30);
-            this.listarToolStripMenuItem.Text = "Listar";
-            this.listarToolStripMenuItem.Click += new System.EventHandler(this.ListarToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(168, 6);
-            // 
-            // ingresarToolStripMenuItem
-            // 
-            this.ingresarToolStripMenuItem.Name = "ingresarToolStripMenuItem";
-            this.ingresarToolStripMenuItem.Size = new System.Drawing.Size(171, 30);
-            this.ingresarToolStripMenuItem.Text = "Agregar";
-            this.ingresarToolStripMenuItem.Click += new System.EventHandler(this.IngresarToolStripMenuItem_Click);
-            // 
-            // cerrarToolStripMenuItem1
-            // 
-            this.cerrarToolStripMenuItem1.Name = "cerrarToolStripMenuItem1";
-            this.cerrarToolStripMenuItem1.Size = new System.Drawing.Size(171, 30);
-            this.cerrarToolStripMenuItem1.Text = "Modificar";
-            this.cerrarToolStripMenuItem1.Click += new System.EventHandler(this.CerrarToolStripMenuItem1_Click);
-            // 
-            // eliminarToolStripMenuItem2
-            // 
-            this.eliminarToolStripMenuItem2.Name = "eliminarToolStripMenuItem2";
-            this.eliminarToolStripMenuItem2.Size = new System.Drawing.Size(171, 30);
-            this.eliminarToolStripMenuItem2.Text = "Eliminar";
-            this.eliminarToolStripMenuItem2.Click += new System.EventHandler(this.EliminarToolStripMenuItem2_Click);
+            this.usuarioToolStripMenuItem.Click += new System.EventHandler(this.UsuarioToolStripMenuItem_Click);
             // 
             // definicionesToolStripMenuItem
             // 
@@ -445,41 +282,22 @@
         private System.Windows.Forms.ToolStripMenuItem mesasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem informesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem verAsignadaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem asignarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pedidosPorMesasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pedidosPorMeserosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem recaudadoTotalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem insumosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem platosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bebidasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ingresarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cerrarToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem verPedidosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem desasignarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem agregarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem agregarToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem inventarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem modificarCantidadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem definicionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem marcaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tipoDeBebidasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem listarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripMenuItem listaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripMenuItem listaToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem agregarAlPedidoToolStripMenuItem;
     }

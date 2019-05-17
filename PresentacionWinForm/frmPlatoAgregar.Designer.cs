@@ -69,7 +69,7 @@
             this.cbxTipo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbxTipo.Name = "cbxTipo";
             this.cbxTipo.Size = new System.Drawing.Size(340, 28);
-            this.cbxTipo.TabIndex = 2;
+            this.cbxTipo.TabIndex = 1;
             // 
             // lblDescriocion
             // 
@@ -88,7 +88,7 @@
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(340, 55);
-            this.txtDescripcion.TabIndex = 4;
+            this.txtDescripcion.TabIndex = 3;
             // 
             // lblPrecio
             // 
@@ -106,7 +106,7 @@
             this.txtPrecio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(148, 26);
-            this.txtPrecio.TabIndex = 6;
+            this.txtPrecio.TabIndex = 4;
             this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPrecio_KeyPress);
             // 
             // btnAgregar
@@ -115,7 +115,7 @@
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(100, 40);
-            this.btnAgregar.TabIndex = 7;
+            this.btnAgregar.TabIndex = 5;
             this.btnAgregar.Text = "&Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
@@ -126,7 +126,7 @@
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 40);
-            this.btnCancelar.TabIndex = 8;
+            this.btnCancelar.TabIndex = 6;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
@@ -145,7 +145,7 @@
             this.txtNombre.Location = new System.Drawing.Point(162, 147);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(320, 26);
-            this.txtNombre.TabIndex = 10;
+            this.txtNombre.TabIndex = 2;
             // 
             // frmPlatoAgregar
             // 

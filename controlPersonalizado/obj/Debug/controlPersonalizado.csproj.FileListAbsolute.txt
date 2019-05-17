@@ -1,0 +1,4 @@
+C:\Users\maxim\Desktop\Prog3\tpc_resto\controlPersonalizado\obj\Debug\controlPersonalizado.csprojAssemblyReference.cache
+C:\Users\maxim\Desktop\Prog3\tpc_resto\controlPersonalizado\obj\Debug\controlPersonalizado.Properties.Resources.resources
+C:\Users\maxim\Desktop\Prog3\tpc_resto\controlPersonalizado\obj\Debug\controlPersonalizado.csproj.GenerateResource.cache
+C:\Users\maxim\Desktop\Prog3\tpc_resto\controlPersonalizado\obj\Debug\controlPersonalizado.csproj.CoreCompileInputs.cache

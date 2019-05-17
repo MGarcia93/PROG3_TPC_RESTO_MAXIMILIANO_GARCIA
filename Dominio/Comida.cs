@@ -10,5 +10,11 @@ namespace Dominio
     {
         public string descripcion { get; set; }
         public TipoPlato tipoPlato { get; set; }
+        public Comida()
+        {
+            tipo = new TipoInsumo();
+            tipo.id = 2;
+            tipo.descripcion = "Comida";
+        }
     }
 }

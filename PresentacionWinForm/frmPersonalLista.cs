@@ -23,20 +23,52 @@ namespace PresentacionWinForm
 
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
+            
             frmPersonalAgregar agregar = new frmPersonalAgregar();
             agregar.ShowDialog();
+            Grilla();
         }
 
         private void BtnModificar_Click(object sender, EventArgs e)
         {
-            frmPersonalModificar modificar = new frmPersonalModificar();
-            modificar.ShowDialog();
+            if (dgvPersonal.Rows.GetRowCount(DataGridViewElementStates.Selected) < 1)
+            {
+                MessageBox.Show("Seleccione una fila");
+            }
+            else
+            {
+                frmPersonalModificar modificar = new frmPersonalModificar((Personal)dgvPersonal.CurrentRow.DataBoundItem);
+                modificar.ShowDialog();
+                Grilla();
+            }
+            
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
-            frmPersonalEliminar eliminar = new frmPersonalEliminar();
-            eliminar.ShowDialog();
+            //frmPersonalEliminar eliminar = new frmPersonalEliminar();
+            //eliminar.ShowDialog();
+            if (dgvPersonal.Rows.GetRowCount(DataGridViewElementStates.Selected) < 1)
+            {
+                MessageBox.Show("Seleccione una fila");
+            }
+            else
+            {
+                if (MessageBox.Show("Estas seguro de eliminar esta persona", "Eliminacion", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    if (PersonalNegocio.eliminar((Personal)dgvPersonal.CurrentRow.DataBoundItem)){
+                        MessageBox.Show("Se elimino correctamente");
+                        Grilla();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocurrio un error en la eliminacion intentelo de nuevo");
+                    }
+                    
+                }
+                
+            }
         }
 
         private void BtnSalir_Click(object sender, EventArgs e)
@@ -46,7 +78,32 @@ namespace PresentacionWinForm
 
         private void FrmPersonalLista_Load(object sender, EventArgs e)
         {
-            dgvPersonal.DataSource = listado;
+            Grilla();
+
+        }
+
+        private void Grilla()
+        {
+
+            try
+            {
+                listado = PersonalNegocio.listar();
+                dgvPersonal.DataSource = listado;
+                dgvPersonal.Columns["permiso"].Visible = false;
+
+                for (int i = 0; i < dgvPersonal.Columns.Count; i++)
+                {
+                    dgvPersonal.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+
 
         }
     }

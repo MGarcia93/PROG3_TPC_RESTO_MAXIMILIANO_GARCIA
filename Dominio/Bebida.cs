@@ -11,5 +11,13 @@ namespace Dominio
         public Marca marca { get; set; }
         public Categoria categoria { get; set; }
         public bool contieneAlcohol { get; set; }
+
+        public Bebida()
+        {
+            tipo = new TipoInsumo();
+            tipo.descripcion = "bebida";
+            tipo.id = 1;
+        }
+        
     }
 }

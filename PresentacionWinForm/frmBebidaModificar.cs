@@ -14,7 +14,7 @@ namespace PresentacionWinForm
 {
     public partial class frmBebidaModificar : Form
     {
-        Bebida bebida;
+        Bebida bebidaLocal=null;
         public frmBebidaModificar()
         {
             InitializeComponent();
@@ -22,22 +22,21 @@ namespace PresentacionWinForm
         public frmBebidaModificar( Bebida datos)
         {
             InitializeComponent();
-            bebida = new Bebida();
-            bebida = datos;
+            bebidaLocal = datos;
         }
 
         private void FrmBebidaModificar_Load(object sender, EventArgs e)
         {
-            CategoriaBebidaNegocio categorias = new CategoriaBebidaNegocio();
-            cbxCategoria.DataSource = categorias.listadoCategoriaBebidas();
+           
+            cbxCategoria.DataSource = CategoriaBebidaNegocio.listadoCategoriaBebidas();
             cbxCategoria.DisplayMember = "descripcion";
             cbxCategoria.ValueMember = "id";
-            if (bebida != null)
+            if (bebidaLocal != null)
             {
-                txtDescripcion.Text = bebida.nombre.ToString();
-                txtPrecio.Text = bebida.precio.ToString();
-                cbxCategoria.SelectedIndex = cbxCategoria.FindString(bebida.categoria.descripcion);
-                cbxMarca.SelectedIndex = cbxMarca.FindString(bebida.marca.descripcion);
+                txtDescripcion.Text = bebidaLocal.nombre.ToString();
+                txtPrecio.Text = bebidaLocal.precio.ToString();
+                cbxCategoria.SelectedIndex = cbxCategoria.FindString(bebidaLocal.categoria.descripcion);
+                cbxMarca.SelectedIndex = cbxMarca.FindString(bebidaLocal.marca.descripcion);
 
             }
             else
@@ -51,11 +50,77 @@ namespace PresentacionWinForm
         {
             if (cbxCategoria.SelectedValue.ToString() != "Dominio.Categoria")
             {
-                MarcaNegocio marcas = new MarcaNegocio();
-                cbxMarca.DataSource = marcas.listadoMarca(cbxCategoria.SelectedValue.ToString());
+               
+                cbxMarca.DataSource = MarcaNegocio.listadoMarca(cbxCategoria.SelectedValue.ToString());
                 cbxMarca.DisplayMember = "descripcion";
                 cbxMarca.ValueMember = "id";
             }
         }
+
+        private void BtnModificar_Click(object sender, EventArgs e)
+        {
+            if (verificarDatos())
+            {
+                try
+                {
+                    Bebida bebida = new Bebida();
+                    bebida.nombre = txtDescripcion.Text.ToString();
+                    bebida.contieneAlcohol = ckbContieneAlcohol.Checked;
+                    bebida.precio = Convert.ToDecimal(txtPrecio.Text.ToString());
+                    bebida.marca = (Marca)cbxMarca.SelectedItem;
+                    bebida.categoria = (Categoria)cbxCategoria.SelectedItem;
+                    bebida.id = bebidaLocal.id;
+                    if (BebidaNegocio.modificar(bebida))
+                    {
+                        MessageBox.Show("Plato modificado");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo modificar los datos");
+                    }
+
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+        }
+
+        public bool verificarDatos()
+        {
+            bool ok = false;
+            if (txtDescripcion.Text.ToString() != "" && txtPrecio.Text.ToString() != "")
+            {
+                ok = true;
+            }
+            return ok;
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void TxtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            txtPrecio.BackColor = Color.White;
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                txtPrecio.BackColor = Color.Red;
+
+            }
+            if (e.KeyChar == 44 && txtPrecio.Text.IndexOf(",") == -1)
+            {
+                txtPrecio.BackColor = Color.White;
+                e.Handled = false;
+            }
+
+        }
     }
+
+
 }
