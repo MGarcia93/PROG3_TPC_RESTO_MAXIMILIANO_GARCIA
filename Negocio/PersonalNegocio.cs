@@ -20,7 +20,7 @@ namespace Negocio
             try
             {
 
-                accesoDatos.setearConsulta("select legajo,nombre,apellido,dni,sexo,cargo,fechaNacimiento from personal where cargo=" + cargo);
+                accesoDatos.setearConsulta("select legajo,nombre,apellido,dni,sexo,cargo,fechaNacimiento from personal where estado=1 and (cargo=" + cargo +")");
                 accesoDatos.abrirConexion();
                 accesoDatos.ejecutarConsulta();
                 while (accesoDatos.Lector.Read())
@@ -37,6 +37,43 @@ namespace Negocio
                     listado.Add(personal);
                 }
                 return listado;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
+        public static Personal traer(string legajo)
+        {
+
+
+            ManagerAcessoDato accesoDatos = new ManagerAcessoDato();
+            Personal personal = null;
+            try
+            {
+                personal = new Personal();
+                accesoDatos.setearConsulta("select legajo,nombre,apellido,dni,sexo,cargo,fechaNacimiento from personal where estado=1 and legajo="+legajo);
+                accesoDatos.abrirConexion();
+                accesoDatos.ejecutarConsulta();
+                if (accesoDatos.Lector.Read())
+                {
+
+                    personal.legajo = (int)accesoDatos.Lector["legajo"];
+                    personal.nombre = (string)accesoDatos.Lector["nombre"].ToString();
+                    personal.apellido = (string)accesoDatos.Lector["apellido"].ToString();
+                    personal.dni = (string)accesoDatos.Lector["dni"].ToString();
+                    personal.sexo = (string)accesoDatos.Lector["sexo"].ToString();
+                    personal.cargo = (string)accesoDatos.Lector["cargo"].ToString();
+                    personal.fechaNacimiento = (DateTime)accesoDatos.Lector["fechaNacimiento"];
+                    personal.edad = DateTime.Today.AddTicks(-personal.fechaNacimiento.Ticks).Year - 1;
+
+                }
+                return personal;
             }
             catch (Exception ex)
             {
@@ -82,6 +119,8 @@ namespace Negocio
             }
         }
 
+        
+
         public static bool modificar(Personal dato)
         {
             bool modifico = false;
@@ -120,7 +159,7 @@ namespace Negocio
             ManagerAcessoDato accesoDatos = new ManagerAcessoDato();
             try
             {
-                accesoDatos.setearConsulta("delete from Personal where legajo=" + dato.legajo);
+                accesoDatos.setearConsulta("update Personal set estado=0 where legajo=" + dato.legajo);
                 accesoDatos.abrirConexion();
                 if (accesoDatos.ejecutarAccion() == 1)
                 {

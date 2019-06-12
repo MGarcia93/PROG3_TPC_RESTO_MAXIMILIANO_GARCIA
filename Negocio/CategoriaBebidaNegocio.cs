@@ -17,7 +17,7 @@ namespace Negocio
             Categoria categoria;
             try
             {
-                accesoDatos.setearConsulta("select id,descripcion from categoriasBebidas");
+                accesoDatos.setearConsulta("select id,descripcion from categoriasBebidas  where estado=1");
                 accesoDatos.abrirConexion();
                 accesoDatos.ejecutarConsulta();
                 while (accesoDatos.Lector.Read())

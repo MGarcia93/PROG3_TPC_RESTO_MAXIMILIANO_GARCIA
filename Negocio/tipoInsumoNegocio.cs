@@ -18,7 +18,7 @@ namespace Negocio
             TipoInsumo tipo;
             try
             {
-                accesoDatos.setearConsulta("select id, descripcion from tiposinsumos");
+                accesoDatos.setearConsulta("select id, descripcion from tiposinsumos  where estado=1");
                 accesoDatos.abrirConexion();
                 accesoDatos.ejecutarConsulta();
                 while (accesoDatos.Lector.Read())

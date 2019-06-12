@@ -17,7 +17,7 @@ namespace Negocio
             Mesero mesero = new Mesero();
             try
             {
-                accesoDatos.setearConsulta("select legajo,nombre,apellido,dni,sexo from personal where legajo="+legajo);
+                accesoDatos.setearConsulta("select legajo,nombre,apellido,dni,sexo from personal where  legajo="+legajo);
                 accesoDatos.abrirConexion();
                 accesoDatos.ejecutarConsulta();
                 accesoDatos.Lector.Read();

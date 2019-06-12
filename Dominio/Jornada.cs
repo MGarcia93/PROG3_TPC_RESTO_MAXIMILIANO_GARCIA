@@ -8,6 +8,7 @@ namespace Dominio
 {
     public class Jornada
     {
+        public int id { get; set; }
         public List<Mesa> mesas { get; set; }
         public DateTime dia { get; set; }
     }

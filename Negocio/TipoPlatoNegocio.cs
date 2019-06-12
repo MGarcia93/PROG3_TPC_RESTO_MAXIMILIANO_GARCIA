@@ -17,7 +17,7 @@ namespace Negocio
             TipoPlato plato=new TipoPlato();
             try
             {
-                acessoDatos.setearConsulta( "select id,descripcion from tiposplatos");
+                acessoDatos.setearConsulta( "select id,descripcion from tiposplatos where estado=1");
                 acessoDatos.abrirConexion();
                 acessoDatos.ejecutarConsulta();
                 while (acessoDatos.Lector.Read())

@@ -18,7 +18,7 @@ namespace Negocio
             Bebida bebida;
             try
             {
-                accesoDatos.setearConsulta("select id,nombre,contieneAlcohol,precio,idMarca,idCategoriaBebida from bebidas");
+                accesoDatos.setearConsulta("select id,nombre,contieneAlcohol,precio,idMarca,idCategoriaBebida from bebidas  where estado=1");
                 accesoDatos.abrirConexion();
                 accesoDatos.ejecutarConsulta();
                 while (accesoDatos.Lector.Read())
@@ -114,7 +114,7 @@ namespace Negocio
             ManagerAcessoDato accesoDatos = new ManagerAcessoDato();
             try
             {
-                accesoDatos.setearConsulta("delete from bebidas where id=" + dato.id);
+                accesoDatos.setearConsulta("update bebidas set estado=0 where id=" + dato.id);
                 accesoDatos.abrirConexion();
                 if (accesoDatos.ejecutarAccion() == 1)
                 {

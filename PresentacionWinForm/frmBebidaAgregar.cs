@@ -36,7 +36,7 @@ namespace PresentacionWinForm
             if (cbxCategoria.SelectedValue.ToString() != "Dominio.Categoria")
             {
                
-                cbxMarca.DataSource = MarcaNegocio.listadoMarca(cbxCategoria.SelectedValue.ToString());
+                cbxMarca.DataSource = MarcaNegocio.listadoMarca(((Categoria) cbxCategoria.SelectedItem).id);
                 cbxMarca.DisplayMember = "descripcion";
                 cbxMarca.ValueMember = "id";
             }

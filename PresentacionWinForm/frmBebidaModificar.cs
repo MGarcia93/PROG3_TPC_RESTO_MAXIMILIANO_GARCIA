@@ -37,6 +37,7 @@ namespace PresentacionWinForm
                 txtPrecio.Text = bebidaLocal.precio.ToString();
                 cbxCategoria.SelectedIndex = cbxCategoria.FindString(bebidaLocal.categoria.descripcion);
                 cbxMarca.SelectedIndex = cbxMarca.FindString(bebidaLocal.marca.descripcion);
+                ckbContieneAlcohol.Checked = bebidaLocal.contieneAlcohol;
 
             }
             else
@@ -51,7 +52,7 @@ namespace PresentacionWinForm
             if (cbxCategoria.SelectedValue.ToString() != "Dominio.Categoria")
             {
                
-                cbxMarca.DataSource = MarcaNegocio.listadoMarca(cbxCategoria.SelectedValue.ToString());
+                cbxMarca.DataSource = MarcaNegocio.listadoMarca(((Categoria) cbxCategoria.SelectedItem).id);
                 cbxMarca.DisplayMember = "descripcion";
                 cbxMarca.ValueMember = "id";
             }

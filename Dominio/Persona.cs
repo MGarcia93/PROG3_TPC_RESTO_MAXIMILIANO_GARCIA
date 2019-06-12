@@ -14,5 +14,10 @@ namespace Dominio
         public string sexo { get; set; }
         public Permiso permiso { get; set; }
         public string dni { get; set; }
+
+        public Persona()
+        {
+            this.permiso = new Permiso();
+        }
     }
 }

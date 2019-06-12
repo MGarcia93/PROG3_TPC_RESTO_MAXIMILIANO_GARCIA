@@ -95,9 +95,6 @@ namespace PresentacionWinForm
             this.Close();
         }
 
-        private void NDesagsinar_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

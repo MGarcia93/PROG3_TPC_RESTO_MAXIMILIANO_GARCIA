@@ -43,6 +43,14 @@ namespace PresentacionWinForm
             this.Click += new EventHandler(this.MenuMesa);
         }
 
+        public void cambiarEstado(int estado)
+        {
+            MesaNegocio.modificar(mesa);
+            mesa.estado.id = estado;
+            this.Image = new System.Drawing.Bitmap(url[estado]);
+            MesaNegocio.modificar(mesa);
+            this.texto(mesa.numero.ToString());
+        }
         public override string ToString()
         {
             return this.mesa.numero.ToString();
@@ -57,7 +65,8 @@ namespace PresentacionWinForm
         }
         public void MenuMesa(object sender, EventArgs e)
         {
-            itemHabilitado();
+            if(menu.Items["Asignar"]!=null)
+                itemHabilitado();
             menu.Show(this, new Point(this.Size.Width / 2, this.Size.Height / 2));
 
         }
@@ -128,9 +137,9 @@ namespace PresentacionWinForm
         }
         private void eliminar(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Estas Seguro de eliminar esta mesa?"+ url[0],"ELIMINACION", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Estas Seguro de eliminar esta mesa?","ELIMINACION", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                if (MesaNegocio.eliminar(this.mesa.numero.ToString()))
+                if (MesaNegocio.eliminar(this.mesa.id.ToString()))
                 {
                     MessageBox.Show("Se elimino correctamente");
                     this.Parent.Controls.Remove(this);
@@ -153,7 +162,18 @@ namespace PresentacionWinForm
         }
         private void cambiarEstado(object sender, EventArgs e)
         {
-            
+            if (this.mesa.estado.id == Constantes.MESA_INACTIVA)
+            {
+                cambiarEstado(Constantes.MESA_ACTIVA);
+            }
+            else if (this.mesa.estado.id == Constantes.MESA_ACTIVA)
+            {
+                cambiarEstado(Constantes.MESA_INACTIVA);
+            }
+            else
+            {
+                MessageBox.Show("No se puede desabilitar una mesa que esta ocupada");
+            }
         }
     }
 }

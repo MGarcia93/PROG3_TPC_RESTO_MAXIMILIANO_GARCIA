@@ -11,7 +11,7 @@ namespace Negocio
     public class MarcaNegocio
     {
 
-        public static List<Marca> listadoMarca( string categoria)
+        public static List<Marca> listadoMarca( int idCategoria)
         {
             List<Marca> listado = new List<Marca>();
             ManagerAcessoDato accesoDatos = new ManagerAcessoDato();
@@ -19,7 +19,7 @@ namespace Negocio
             try
             {
                 accesoDatos.setearConsulta("select m.id, m.descripcion from marcas as m inner join marcasXcategorias as mc on m.id=mc.idMarca" +
-                    "  inner join categoriasBebidas as c on c.id = mc.idCategoria where c.descripcion='" + categoria+"'");
+                    "  inner join categoriasBebidas as c on c.id = mc.idCategoria where c.estado=1 and m.estado=1 and c.id=" + idCategoria);
                 accesoDatos.abrirConexion();
                 accesoDatos.ejecutarConsulta();
                 while (accesoDatos.Lector.Read())

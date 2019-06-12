@@ -73,7 +73,7 @@
             this.nDesagsinar.TabIndex = 3;
             this.nDesagsinar.Text = "Desasignar";
             this.nDesagsinar.UseVisualStyleBackColor = true;
-            this.nDesagsinar.Click += new System.EventHandler(this.NDesagsinar_Click);
+
             // 
             // btnSalir
             // 

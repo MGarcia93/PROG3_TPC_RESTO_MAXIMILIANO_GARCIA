@@ -18,7 +18,7 @@ namespace Negocio
             Comida plato;
             try
             {
-                accesoDatos.setearConsulta("select id,nombre,descripcion,precio,idTipo from comidas");
+                accesoDatos.setearConsulta("select id,nombre,descripcion,precio,idTipo from comidas  where estado=1");
                  accesoDatos.abrirConexion();
                 accesoDatos.ejecutarConsulta();
                 while (accesoDatos.Lector.Read())
@@ -111,7 +111,7 @@ namespace Negocio
             ManagerAcessoDato accesoDatos = new ManagerAcessoDato();
             try
             {
-                accesoDatos.setearConsulta("delete from comidas where id=" + dato.id);
+                accesoDatos.setearConsulta("update comidas set estado=0 where id=" + dato.id);
                 accesoDatos.abrirConexion();
                 if (accesoDatos.ejecutarAccion() == 1)
                 {

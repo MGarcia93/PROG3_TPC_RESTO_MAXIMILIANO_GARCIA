@@ -27,7 +27,7 @@ namespace PresentacionWinForm
         private void FrmPersonalAgregar_Load(object sender, EventArgs e)
         {
             cbxPuesto.Items.Add("mesero");
-            cbxPuesto.Items.Add("encargado");
+            cbxPuesto.Items.Add("Gerente");
         }
 
         public bool validacion()

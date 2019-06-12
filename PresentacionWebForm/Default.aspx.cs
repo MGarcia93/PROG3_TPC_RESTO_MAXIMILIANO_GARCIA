@@ -4,6 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Services;
+using Dominio;
+using Negocio;
+
 
 namespace PresentacionWebForm
 {
@@ -11,6 +15,16 @@ namespace PresentacionWebForm
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+        }
+
+        public static Carta listarMenu()
+        {
+            Carta lista = new Carta();
+            ComidaNegocio negocio = new ComidaNegocio();
+            lista.comidas = negocio.listar();
+            lista.bebidas = BebidaNegocio.listar();
+            return lista;
 
         }
     }

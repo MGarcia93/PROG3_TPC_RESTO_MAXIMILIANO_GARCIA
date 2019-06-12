@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Negocio;
+using Dominio;
 
 namespace PresentacionWinForm
 {
@@ -16,11 +18,42 @@ namespace PresentacionWinForm
         {
             InitializeComponent();
 
-            frmLogin login = new frmLogin();
-            login.MdiParent = this;
-            login.Show();
+            inicializar();
+            
+            
         }
-
+        private void inicializar()
+        {
+            Grobales.iniciazion();
+            /*
+            tsmPedido.Enabled = false;
+            tsmMesas.Enabled = false;
+            tsmInsumos.Enabled = false;
+            tsmInformes.Enabled = false;
+            tsmDefiniciones.Enabled = false;*/
+            frmLogin login = new frmLogin();
+            while (Grobales.usuario == null)
+            {
+                login.ShowDialog();
+            }
+            Grobales.jornada = JornadaNegocio.numeroJornada();
+            if (Grobales.jornada == 0)
+            {
+                MesaNegocio.inactivar();
+                MessageBox.Show("El dia de hoy todabia no se dio de alta");
+            }
+            else
+            {
+                tsmPedido.Enabled = true;
+                tsmMesas.Enabled = true;
+                tsmInsumos.Enabled = true;
+                if (Grobales.usuario.datos.permiso.id == Constantes.GERENTE)
+                {
+                    tsmInformes.Enabled = true;
+                    tsmDefiniciones.Enabled = true;
+                }
+            }
+        }
        
 
         private void MarcaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -131,6 +164,27 @@ namespace PresentacionWinForm
             frmMesaLista mesa = new frmMesaLista();
             mesa.MdiParent = this;
             mesa.Show();
+        }
+
+        private void FrmResto_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TsmSalir_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("estas seguro que desa deconectarse?", "SALIDA", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Grobales.usuario = null;
+                inicializar();
+            }
+        }
+
+        private void TsmJornada_Click(object sender, EventArgs e)
+        {
+            frmJornada jornada = new frmJornada();
+            jornada.MdiParent = this;
+            jornada.Show();
         }
     }
 }

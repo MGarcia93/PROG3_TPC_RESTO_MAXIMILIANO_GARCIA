@@ -9,8 +9,8 @@ namespace AccesoDatos
 {
     public class ManagerAcessoDato
     {
-        public static string cadenaConexion = "data source=DESKTOP-FUGKT4R\\SQLEXPRESS; initial catalog=TPC_Garcia_Maximiliano; integrated security=sspi";
-        //public static string cadenaConexion = "data source=ELRENGERO73-PC\\SQLEXPRESS; initial catalog=TPC_Garcia_Maximiliano; integrated security=sspi";
+        public static string cadenaConexion = "data source=DESKTOP-FUGKT4R\\SQLEXPRESS; initial catalog=Garcia_Maximiliano_DB; integrated security=sspi";
+        //public static string cadenaConexion = "data source=ELRENGERO73-PC\\SQLEXPRESS; initial catalog=Garcia_Maximiliano_Prog3; integrated security=sspi";
         private SqlCommand comando;
         private SqlConnection conexion;
         private SqlDataReader lector;
@@ -89,7 +89,13 @@ namespace AccesoDatos
             try
             {
                 comando.Connection = conexion;
-                return (int)comando.ExecuteScalar();
+                object a= comando.ExecuteScalar();
+                if(a!=null)
+                {
+                    return (int)a;
+                }
+                return 0;
+           
             }
             catch (Exception ex)
             {

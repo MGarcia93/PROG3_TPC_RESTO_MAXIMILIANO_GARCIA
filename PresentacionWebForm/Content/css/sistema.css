@@ -1,0 +1,76 @@
+﻿#main {
+    display: flex;
+    flex-flow: row;
+    height: 100vh;
+    margin: 0px;
+    padding: 1px;
+}
+
+#izquierda {
+    position: relative;
+    flex: 0 1 40%;
+    background-color: rgba(240, 240, 240, 0.21);
+}
+
+#derecha {
+    margin-left: 2%;
+    flex: 0 1 56%;
+}
+
+.panelMesa {
+    height: 60%;
+    overflow:auto;
+}
+
+.mesa{
+    width:100%;
+}
+.detallePedido {
+    height: 40%;
+    overflow: auto;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Too narrow to support three columns */
+@media all and (max-width: 640px) {
+
+    #main {
+        -webkit-flex-flow: column;
+        flex-flow: column;
+    }
+
+    #izquierda, #derecha {
+        flex: 0 1 auto;
+    }
+
+    #izquierda {
+        padding-bottom: 1em;
+    }
+}
+
+
+#login {
+    background-color: rbga(150,150,150,0.6);
+    margin: 10% auto;
+}
+
+#error{
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+    overflow: hidden;
+}
+#error.hidden{
+    height: 0px;
+    margin: 0px;
+    padding: 0px;
+    visibility: hidden;
+}
+
+.activo{
+    border: solid rgba(41, 94, 204, 0.75);
+  
+}

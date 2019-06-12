@@ -17,7 +17,7 @@ namespace Negocio
             EstadoMesa estado = new EstadoMesa();
             try
             {
-                acessoDatos.setearConsulta("select id,descripcion from estadosMesas");
+                acessoDatos.setearConsulta("select id,descripcion from estadosMesas  where estado=1");
                 acessoDatos.abrirConexion();
                 acessoDatos.ejecutarConsulta();
                 while (acessoDatos.Lector.Read())

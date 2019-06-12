@@ -88,3 +88,9 @@ C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWebForm\obj\Debug\Presentacio
 C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWebForm\obj\Debug\PresentacionWebForm.csproj.CopyComplete
 C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWebForm\obj\Debug\PresentacionWebForm.dll
 C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWebForm\obj\Debug\PresentacionWebForm.pdb
+C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWebForm\bin\Dominio.dll
+C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWebForm\bin\Negocio.dll
+C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWebForm\bin\AccesoDatos.dll
+C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWebForm\bin\Dominio.pdb
+C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWebForm\bin\Negocio.pdb
+C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWebForm\bin\AccesoDatos.pdb

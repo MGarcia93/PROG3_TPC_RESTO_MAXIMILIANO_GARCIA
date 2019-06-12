@@ -18,7 +18,7 @@ namespace Negocio
             Mesa mesa;
             try
             {
-                accesoDatos.setearConsulta("select id,numero,idEstadoMesa,cantidadComensales,idMesero from Mesas");
+                accesoDatos.setearConsulta("select id,numero,idEstadoMesa,cantidadComensales,idMesero from Mesas where estado=1");
                 accesoDatos.abrirConexion();
                 accesoDatos.ejecutarConsulta();
                 while (accesoDatos.Lector.Read())
@@ -90,7 +90,7 @@ namespace Negocio
                 if (dato.mesero != null)
                     accesoDatos.Comando.Parameters.AddWithValue("@idMesero", dato.mesero.legajo);
                 else
-                    accesoDatos.Comando.Parameters.AddWithValue("@idMesero", null);
+                    accesoDatos.Comando.Parameters.AddWithValue("@idMesero", DBNull.Value);
                 accesoDatos.abrirConexion();
                 if (accesoDatos.ejecutarAccion() == 1)
                 {
@@ -109,13 +109,13 @@ namespace Negocio
                 accesoDatos.cerrarConexion();
             }
         }
-        public static bool eliminar(string numero)
+        public static bool eliminar(string id)
         {
             bool modifico = false;
             ManagerAcessoDato accesoDatos = new ManagerAcessoDato();
             try
             {
-                accesoDatos.setearConsulta("delete from Mesas where numero=" + numero);
+                accesoDatos.setearConsulta("update Mesas set estado=0 where id=" + id);
                 accesoDatos.abrirConexion();
                 if (accesoDatos.ejecutarAccion() == 1)
                 {
@@ -200,7 +200,7 @@ namespace Negocio
             ManagerAcessoDato acessoDato = new ManagerAcessoDato();
             try
             {
-                acessoDato.setearConsulta("select isNUll(max(numero)+1,1) as numero from mesas");
+                acessoDato.setearConsulta("select isNUll(max(numero)+1,1) as numero from mesas where estado=1");
                 acessoDato.abrirConexion();
                 acessoDato.ejecutarConsulta();
                 acessoDato.Lector.Read();
@@ -218,5 +218,25 @@ namespace Negocio
             }
             
         }
-    }
+
+        public static void inactivar()
+        {
+            ManagerAcessoDato accesoDatos = new ManagerAcessoDato();
+            Mesa mesa = new Mesa();
+            try
+            {
+                accesoDatos.setearConsulta("update mesas set idEstadoMesa=" + Constantes.MESA_INACTIVA);
+                accesoDatos.abrirConexion();
+                accesoDatos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
+    }   
 }
