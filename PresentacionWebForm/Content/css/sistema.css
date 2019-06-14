@@ -19,12 +19,13 @@
 
 .panelMesa {
     height: 60%;
-    overflow:auto;
+    overflow: auto;
 }
 
-.mesa{
-    width:100%;
+.mesa {
+    width: 100%;
 }
+
 .detallePedido {
     height: 40%;
     overflow: auto;
@@ -58,19 +59,55 @@
     margin: 10% auto;
 }
 
-#error{
+#error {
     -moz-transition: all 0.2s;
     transition: all 0.2s;
     overflow: hidden;
 }
-#error.hidden{
-    height: 0px;
-    margin: 0px;
-    padding: 0px;
-    visibility: hidden;
+
+    #error.hidden {
+        height: 0px;
+        margin: 0px;
+        padding: 0px;
+        visibility: hidden;
+    }
+
+.activo {
+    border: solid rgba(41, 94, 204, 0.75);
 }
 
-.activo{
-    border: solid rgba(41, 94, 204, 0.75);
-  
+#inactivo {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+    z-index: 1000;
+    background-color: rgba(128, 128, 128,0.6);
 }
+
+    #inactivo .msg {
+        color: white;
+        font-size: 2em;
+        font-weight: bolder;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        text-shadow: 2px 2px 20px #FF0000b2;
+    }
+
+.hide {
+display:none!important;
+}
+#TablaProducto {
+    max-height: 50vh;
+    overflow: auto;
+    min-width: 70%;
+}
+
+    #TablaProducto .activa {
+        border: 3px #add8e682 solid;
+        background-color: rgba(215, 229, 245, 0.23);
+    }

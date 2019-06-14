@@ -12,5 +12,6 @@ namespace Dominio
         public string descripcion { get; set; }
         public string tipo { get; set; }
         public int cantidad { get; set; }
+        public string marca { get; set; }
     }
 }

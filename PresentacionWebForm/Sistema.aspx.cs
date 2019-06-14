@@ -18,6 +18,32 @@ namespace PresentacionWebForm
             {
                 Response.Redirect("Login.aspx");
             }
+            if (Session["Jornada"] == null || Session["Jornada"].ToString() == "0")
+            {
+                Session["Jornada"] = JornadaNegocio.numeroJornada();
+                if (Session["Jornada"].ToString() == "0")
+                {
+                    MesaNegocio.inactivar();
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "show", "document.querySelector('#inactivo').style.display='block';", true);
+                }
+
+            }
+
+        }
+
+
+        [WebMethod]
+        public static List<Almacenamiento> Buscar(string tipo)
+        {
+            return JornadaNegocio.inventarioPorTipo((int)HttpContext.Current.Session["jornada"], Convert.ToInt32(tipo));
+
+        }
+
+
+        [WebMethod]
+        public static string InsumosTipo(int tipo)
+        {
+            return "retorno";
         }
 
         [WebMethod]
@@ -55,6 +81,16 @@ namespace PresentacionWebForm
             try
             {
                 mesa = MesaNegocio.traer(id);
+                if (mesa.pedido != null)
+                {
+                    HttpContext.Current.Session.Add("pedido", mesa.pedido.id);
+                }
+                else
+                {
+                    if(HttpContext.Current.Session["pedido"]!=null)
+                        HttpContext.Current.Session.Remove("pedido");
+                }
+                
                 return mesa;
             }
             catch (Exception ex)
@@ -63,15 +99,42 @@ namespace PresentacionWebForm
                 throw ex;
             }
         }
+
         [WebMethod]
-        public static List<Almacenamiento> Buscar(int tipo)
+        public static List<TipoInsumo> TiposInsumos()
         {
-            List<Almacenamiento> insumos = JornadaNegocio.inventario((int)HttpContext.Current.Session["jornada"]);
-            List<Almacenamiento> insumosTipo = new List<Almacenamiento>();
-            foreach (Almacenamiento item in insumos)
-            {
-                if(item.tipo)
-            }
+            return TipoInsumoNegocio.listar();
         }
+
+        [WebMethod]
+        public static int Generar(int mesa,int mesero)
+        {
+           Pedido pedido= PedidoNegocio.crear(mesero, mesa);
+            HttpContext.Current.Session.Add("pedido", pedido.id);
+            return pedido.id;
+        }
+
+        [WebMethod]
+        public static bool Agregar(int idInsumo, int cantidad)
+        {
+            Insumo dato = InsumoNegocio.traer(idInsumo);
+            return PedidoNegocio.agregar(dato, (int)HttpContext.Current.Session["pedido"],cantidad);
+        }
+
+        [WebMethod]
+        public static List<DetallePedido> detallePedido()
+        {
+            int pedido;
+            if (HttpContext.Current.Session["pedido"] != null)
+            {
+                pedido = (int)HttpContext.Current.Session["pedido"];
+            }
+            else
+            {
+                pedido = -1;
+            }
+            return PedidoNegocio.detalle(pedido);
+        }
+
     }
 }

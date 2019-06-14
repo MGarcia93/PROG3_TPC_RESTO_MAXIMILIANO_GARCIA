@@ -17,21 +17,22 @@ namespace Negocio
             Pedido pedido = new Pedido();
             try
             {
-                db.setearConsulta("insert into(idMesa,idMesero) values (@idMesa,@idMesero)");
+                db.setearConsulta("insert into pedidos(idMesa,idMesero,idEstado) values (@idMesa,@idMesero,1)");
                 db.Comando.Parameters.Clear();
                 db.Comando.Parameters.AddWithValue("@idMesa", idMesa);
                 db.Comando.Parameters.AddWithValue("@idMesero", idMesero);
                 db.abrirConexion();
                 if (db.ejecutarAccion() == 1)
                 {
-                    db.setearConsulta("select max(id),idMesero,idMesa,idEstado from pedidos group by idMesero,idMesa,idEstado where idMesero=" + idMesero);
+                    db.setearConsulta("select max(id) as id,idMesero,idMesa,idEstado from pedidos where idMesero=" + idMesero +" group by idMesero,idMesa,idEstado" );
                     db.ejecutarConsulta();
                     if (db.Lector.Read())
                     {
+                        pedido.mesa = new Mesa();
+                        pedido.mesero = new Mesero();
                         pedido.id = (int)db.Lector["id"];
                         pedido.mesa.id = (int)db.Lector["idMesa"];
                         pedido.mesero.legajo = (int)db.Lector["idMesero"];
-                        pedido.estado.id = (int)db.Lector["idEstado"];
                     }
                 }
                 else
@@ -119,34 +120,38 @@ namespace Negocio
             }
         }
 
-        public static Pedido detalle(Pedido pedido)
+        public static List<DetallePedido> detalle(int Pedido)
         {
+            List<DetallePedido> lista = new List<DetallePedido>();
             ManagerAcessoDato db = new ManagerAcessoDato();
             DetallePedido detalle;
             var sql = "";
-            pedido.insumos = null;
             try
             {
-                sql = "select d.id, d.idInsumo,d.cantidad,d.precioUnit,isnull(b.descripcion,c.descripcion), tp.id as idTipo,tp.descripcion as tipoDescripcion";
-                sql +="from detallesPedidos d";
-                sql += "left join bebidas b on b.id=d.idInsumo";
-                sql += "left join comidas c on c.id=d.idInsumo";
-                sql += "inner join insumos i on i.id=d.idInsumo";
-                sql += "inner join tiposPlatos tp on tp.id=i.idTipo";
-                sql += " where idPedido=" + pedido.id;
+                sql = "select d.id, d.idInsumo,d.cantidad,d.precioUnit,isnull(b.descripcion,c.descripcion) as descripcion, isnull(cb.descripcion,tp.descripcion) as tipo ";
+                sql +="from detallesPedidos d ";
+                sql += "left join bebidas b on b.id=d.idInsumo ";
+                sql += "left join comidas c on c.id=d.idInsumo ";
+                sql += "left join tiposPlatos tp on c.idTipo = tp.id ";
+                sql += "left join categoriasBebidas cb on b.idCategoriaBebida = cb.id ";
+                sql += " where idPedido=" + Pedido;
+                db.setearConsulta(sql);
                 db.abrirConexion();
                 db.ejecutarConsulta();
                 while (db.Lector.Read())
                 {
+                    
                     detalle = new DetallePedido();
-                    detalle.producto.id = (int)db.Lector["idInsumos"];
+                    detalle.producto = new Insumo();
+                    detalle.producto.id = (int)db.Lector["idInsumo"];
                     detalle.precioUnitario = (decimal)db.Lector["precioUnit"];
                     detalle.producto.nombre = (string)db.Lector["descripcion"];
-                    detalle.producto.tipo.id = (int)db.Lector["idTipo"];
-                    detalle.producto.tipo.descripcion = (string)db.Lector["tipoDescripcion"];
-                    pedido.insumos.Add(detalle);
+                    detalle.tipo = (string)db.Lector["tipo"];
+                    detalle.cantidad = (int)db.Lector["cantidad"];
+                    detalle.precioTotal = detalle.cantidad * detalle.precioUnitario;
+                    lista.Add(detalle);
                 }
-                return pedido;
+                return lista;
             }
             catch (Exception ex)
             {

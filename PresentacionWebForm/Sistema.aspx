@@ -34,11 +34,12 @@
                     <div class="form-group row m-3">
                         <label for="tipo" class=" col-form-label">Tipo:</label>
                         <div class="col-6">
-                            <select name="tipo" id="tipo" class="form-control" ></select>
+                            <select name="tipo" id="Tipos" class="form-control" ></select>
                             
                         </div> 
-                        <button class="btn btn-primary" id="buscar"> buscar</button>
+                        <button class="btn btn-primary" id="Buscar" disabled> buscar</button>
                     </div>
+                    <input type="text"  class="form-control" name="codigo" id="codigo" data-mesero="" hidden>
                     <div class="form-group row m-3">
                         <label for="descripcion" class="col-form-label">Descripcion:</label>
                         <div class="col-8">
@@ -56,9 +57,9 @@
                 </div>
                 <div  class="text-center col-12 mt-5">
                     <div id="botonera">
-                            <button id="Agregar" class="btn btn-info">Agregar</button>
-                            <button id="Abrir" class="btn btn-success"> Generar</button>
-                            <button id="Cerrar" class="btn btn-danger">Cerrar</button>
+                            <button id="Agregar" class="btn btn-info hide" >Agregar</button>
+                            <button id="Abrir" class="btn btn-success hide" > Generar</button>
+                            <button id="Cerrar" class="btn btn-danger hide" >Cerrar</button>
                     </div>  
                 </div>     
                    
@@ -72,18 +73,24 @@
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
-                                        <th scope="col"> Nombre</th>
+                                        <th scope="col"> #</th>
                                         <th scope="col"> Descripcion</th>
                                         <th scope="col"> Tipo</th>
-                                        <th scope="col"> Precio</th>
+                                        <th scope="col"> P/unit</th>
                                         <th scope="col"> Cantidad</th>
+                                        <th scope="col"> P/Total</th>
                                     </thead>  
                                     <tbody>
                                         
                                     </tbody>
                                 </table>
                             </div>
-                        </div>     
+                        <div class="table" style="text-align:right">
+                            <span class="col-1">TOTAL</span>
+                            <span id="precioTotal" class="col-1"></span>
+                        </div>
+                        
+                      </div>     
                 </div>
             </div>
     </div>
@@ -120,6 +127,12 @@
                 </div>
                 <div class="toast-body" style="background: rbga(150,150,150,0.4)">
                 </div>
+            </div>
+        </div>
+
+        <div id="inactivo" >
+            <div class="msg">
+                JORNADA DEL DIA SIN GENERAR REALIZE LA GENERACION EN EL SISTEMA
             </div>
         </div>
 

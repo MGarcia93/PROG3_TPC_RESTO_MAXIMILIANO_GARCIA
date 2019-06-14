@@ -138,7 +138,7 @@ id	int primary key not null identity(1,1),
 fecha date not null default getdate(),
 idMesa int not null foreign key references mesas(id),
 idMesero int not null foreign key references personal(legajo),
-idEstado int not null foreign key references estadosPedidos(id),
+idEstado int not null  foreign key references estadosPedidos(id) default 1,
 estado bit not null default 1
 )
 

@@ -32,7 +32,7 @@ $("document").ready(function(){
                 case 3:
                 break;
             }
-            $(numero).attr("style", "font-size:3em;position: absolute; top:25%;left:40%; color:black;cursor:default")
+            $(numero).attr("style", "font-size:3em;position: absolute; top:50%;left:50%;transform:translate(-50%,-50%); color:black;cursor:default")
                 .html(this.numero);
             $(imagen).attr("src", url)
                 .addClass("mesa");
@@ -45,6 +45,7 @@ $("document").ready(function(){
             $(contenedor).append(card);
             $(card).click(function () {
                 if ($(this).attr("data-estado") != 0) {
+
                     $("#panelMesa").find("[class*='activo']").removeClass("activo");
                     $(this).addClass("activo");
                     mesaSeleccionada($(this).attr("id"));
@@ -53,6 +54,33 @@ $("document").ready(function(){
         });
 
     }           
+
+    $.ajax({
+        method: "POST",
+        url: 'Sistema.aspx/TiposInsumos',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: (response) => {
+            if (response.d) {
+                $(response.d).each(function () {
+                    $("#Tipos").append(
+                        $("<option>").attr("value", this.id)
+                            .html(this.descripcion)
+                    )
+                })
+            }
+            else {
+                showToast("Error: no se trajo ningun tipo de insumo", "ERROR");
+            }
+        },
+        failure: function (response) {
+            alert("fail");
+        },
+        error: function (response) {
+            alert(response.responseText);
+        }
+    });
+
 })
 
 
@@ -68,13 +96,19 @@ function mesaSeleccionada(idMesa) {
             $("#Mesa").val(response.d.numero)
                 .attr("data-mesa",response.d.id);
             $("#Mesero").val(response.d.mesero.nombre + " " + response.d.mesero.apellido)
-                .attr("data-mesero", response.d.mesero.id);
-            if (response.d.pedido!=null) {
-                $("#Agregar").show();
-                $("#Cerrar").show();
+                .attr("data-mesero", response.d.mesero.legajo);
+            if (response.d.pedido != null) {
+                $("#Agregar").removeClass("hide");
+                $("#Cerrar").removeClass("hide");
+                $("#Buscar").removeAttr("disabled");
+                listarDetallePedido();
             }
             else {
-                $("#Abrir").show();
+                $("#Agregar").addClass("hide");
+                $("#Cerrar").addClass("hide");
+                $("#Buscar").attr("disabled", "true");
+                $("#Abrir").removeClass("hide");
+                $("tbody").html("");
             }
         },
         failure: function (response) {
@@ -99,9 +133,9 @@ $(function () {
 // llammados ajax para los distintos botones
 $("#Abrir").click((e) => {
     e.preventDefault();
-    var datos = {};
+    var datos = {mesa:$("#Mesa").attr("data-mesa"), mesero:$("#Mesero").attr("data-mesero")};
     $.ajax({
-        type: "POST",
+        method: "POST",
         url: "Sistema.aspx/Generar",
         data: JSON.stringify(datos),
         contentType: "application/json; charset=utf-8",
@@ -110,10 +144,10 @@ $("#Abrir").click((e) => {
             if (response.d) {
 
                 showToast("Se abrio correctamente el pedido ", "Exito");
-                $("#Agregar").show().removeAttr("disabled");
-                $("#Cerrar").show().removeAttr("disabled");
-                $("#Abrir").hide().Attr("disabled");
-                $("#buscar").removeAttr("disabled");
+                $("#Agregar").removeClass("hide").removeAttr("disabled");
+                $("#Cerrar").removeClass("hide").removeAttr("disabled");
+                $("#Abrir").addClass("hide").Attr("disabled");
+                $("#Buscar").removeAttr("disabled");
             }
             else {
                 showToast("No se pudo abrir Pedido ", "Error");
@@ -127,9 +161,16 @@ $("#Abrir").click((e) => {
 
 $("#Agregar").click((e) => {
     e.preventDefault();
-    var datos = {};
+    var datos = {
+        idInsumo: $("#codigo").val(),
+        cantidad: $("#cantidad").val()
+    };
+    if (datos.idInsumo == "" || datos.cantidad == "") {
+        showToast("eliga un producto y seleccion su cantidad", "alerta");
+        return;
+    }
     $.ajax({
-        type: "POST",
+        method: "POST",
         url: "Sistema.aspx/Agregar",
         data: JSON.stringify(datos),
         contentType: "application/json; charset=utf-8",
@@ -137,14 +178,11 @@ $("#Agregar").click((e) => {
         success: (response) => {
             if (response.d) {
 
-                showToast("Se abrio correctamente el pedido ", "Exito");
-                $("#Agregar").show().removeAttr("disabled");
-                $("#Cerrar").show().removeAttr("disabled");
-                $("#Abrir").hide().Attr("disabled");
-                $("#buscar").removeAttr("disabled");
+                showToast("Se agrego correctamente al pedido ", "Exito");
+                listarDetallePedido();
             }
             else {
-                showToast("No se pudo abrir Pedido ", "Error");
+                showToast("No se pudo agrego al Pedido ", "Error");
             }
         },
         error: (response) => {
@@ -154,18 +192,19 @@ $("#Agregar").click((e) => {
 });
 
 
-$("#buscar").click(() => {
-    var datos = {id:1};
+$("#Buscar").click((e) => {
+    e.preventDefault();
+    var dato = {tipo:$("#Tipos").val()};
     $.ajax({
-        type: "POST",
-        url: "Sistema.aspx/Buscar",
-        data: JSON.stringify(datos),
+        method: "POST",
+        url: 'Sistema.aspx/Buscar',
+        data: JSON.stringify(dato),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: (response) => {
-            if (response.d) {
+            if (response.d.length) {
 
-                Modal(1, respose.d);
+                modal($("#Tipos").val(), response.d);
                 $("#Modal").modal("show");
             }
             else {
@@ -207,38 +246,48 @@ function modal(tipo, datos) {
     var contenedor = document.createElement("div");
     var areaBusqueda = document.createElement("div");
     $(areaBusqueda).css("areaBusqueda");
-    var filtros = document.createElementNS("div");
+    var filtros = document.createElement("div");
     $(filtros).css("filtros");
-    if (tipo == "comida") {
+    /*filtros futuros para una busqueda mejor
+     * if (tipo == "comida") {
         $(filtros).append(FiltroComida);
     }
     else {
         $(filtros).append(filtrosBebidas);
-    }
+    }*/
 
-    var textbox = document.createElement("imput");
+    var textbox = document.createElement("input");
 
 
     $(textbox).attr("type", "text").attr("id", "textSearch").attr("placeHolder", "texto a buscar");
-    $(textbox).click(textBuscar());
+    $(textbox).keypress(function (e) {
+        if (e.currentTarget.value.length > 3)
+            textoBuscar();
+        else
+            $("#TablaProducto").find("tr").removeClass("hide");
+    });
     $(areaBusqueda).append(textbox)
-        .append(filtos);
-    var tabla = document.createElement("table").attr("id", "TablaProducto");
+        //.append(filtros);
+    var tabla = document.createElement("table");
+    $(tabla).attr("id", "TablaProducto");
     $(tabla).append(
-        $("<thead>").append(tipo == "comida" ? cabeceraComida() : cabeceraBebida())
+        $("<thead>").append(tipo == 2 ? CabeceraComida() : CabeceraBebida())
     )
     $(tabla).append("<tbody>");
+    $(tabla).addClass("table");
     var filas = [];
-    $(datos).each(() => {
-        document.createElement("tr");
-        $(fila).attr("data-tipo")
-        $(fila).append($("<td>").attr("role", "row").html("Nombre"))
-            .append($("<td>").html("descripcion"))
-            .append($("<td>").html("tipo"));
-        $(tabla).find("tbody").append(tipo == "comida" ? contenidoComida(this) : contenidoBebida(this));
+    $(datos).each(function() {
+        let fila = tipo == 2 ? ContenidoComida(this) : ContenidoBebida(this);
+        $(fila).css("cursor", "pointer");
+        $(fila).click(function () {
+            $(tabla).find("[class='activa']").removeClass("activa");
+            $(fila).addClass("activa");
+        })
+        $(tabla).find("tbody").append(fila);
     });
     $(contenedor).append(areaBusqueda);
     $(contenedor).append(tabla);
+    contenedor.style = "max-height: 50vh;overflow: auto; min - width: 70 %;"
     $(".modal-body").html(contenedor)
 }
 
@@ -250,19 +299,23 @@ function CabeceraBebida() {
     let cabecera = document.createElement("tr");
     $(cabecera).append(
         $("<th>").html("codigo")
-    ).append(
-        $("<th>").html("Nombre")
+            .attr("scope","col")
     ).append(
         $("<th>").html("Descripcion")
+            .attr("scope", "col")
     ).append(
         $("<th>").html("Tipo")
+            .attr("scope", "col")
     ).append(
         $("<th>").html("Marca")
+            .attr("scope", "col")
     ).append(
         $("<th>").html("C/Alcochol")
+            .attr("scope", "col")
     ).append(
         $("<th>").html("Cantidad Restante")
-    );
+            .attr("scope", "col")
+    ).attr("scope", "row");
     return cabecera;
 }
 
@@ -270,15 +323,17 @@ function CabeceraComida() {
     let cabecera = document.createElement("tr");
     $(cabecera).append(
         $("<th>").html("codigo")
-    ).append(
-        $("<th>").html("Nombre")
+            .attr("scope", "col")
     ).append(
         $("<th>").html("Descripcion")
+            .attr("scope", "col")
     ).append(
         $("<th>").html("Tipo")
+            .attr("scope", "col")
     ).append(
         $("<th>").html("Cantidad Restante")
-    );
+            .attr("scope", "col")
+    ).attr("scope", "row");
     return cabecera;
 }
 
@@ -288,30 +343,27 @@ function CabeceraComida() {
 //////////////////////////////////////////////////////////////////
 //contenido de la tabla por tipos
 
-function contenidoComida(dato) {
+function ContenidoComida(dato) {
     let fila = document.createElement("tr");
     $(fila).append(
-        $("<td>").html(dato.codigo)
+        $("<td>").html(dato.id).attr("role","id")
     ).append(
-        $("<td>").html(dato.nombre)
+        $("<td>").html(dato.descripcion).attr("role", "nombre")
     ).append(
-        $("<td>").html(dato.descripcion)
+        $("<td>").html(dato.tipo).attr("role", "tipo")
     ).append(
-        $("<td>").html(dato.tipo)
-    ).append(
-        $("<td>").html(dato.Cantidad)
-    );
+        $("<td>").html(dato.cantidad).attr("role", "cantidad")
+    ).attr("scope", "row")
+        ;
     return fila;
 }
 
-function contenidoBebida() {
+function ContenidoBebida() {
     let fila = document.createElement("tr");
     $(fila).append(
-        $("<td>").html(dato.codigo).attr("role", "codigo")
+        $("<td>").html(dato.codigo).attr("role", "id")
     ).append(
-        $("<td>").html(dato.nombre).attr("role", "nombre")
-    ).append(
-        $("<td>").html(dato.descripcion).attr("role", "descripcion")
+        $("<td>").html(dato.descripcion).attr("role", "nombre")
     ).append(
         $("<td>").html(dato.tipo).attr("role", "tipo")
     ).append(
@@ -320,18 +372,20 @@ function contenidoBebida() {
         $("<td>").html(dato.Alcochol).attr("role", "c/alcohol")
     ).append(
         $("<td>").html(dato.cantidad).attr("role", "cantidad")
-    );
+    ).attr("scope", "row");
     return fila;
 }
 
-$("seleccionar").click(() => {
-    let seleccion = ("#tablaProducto").find("[class='activa']");
-    $("#codigo").value = $(seleccion).find("[role='codigo']").value;
-    $("#nombre").value = $(seleccion).find("[role='nombre']").value;
+$("#seleccionar").click((e) => {
+    e.preventDefault();
+    let seleccion = $("#TablaProducto").find("[class='activa']");
+    $("#codigo").val($(seleccion).find("[role='id']").text());
+    $("#descripcion").val($(seleccion).find("[role='nombre']").text());
     $("#cantidad").html("");
-    for (var i = 1; i <= $(seleccion).find("[role='cantida']").value; i++) {
+    for (var i = 1; i <= $(seleccion).find("[role='cantidad']").text(); i++) {
         let opcion = document.createElement("option");
-        $(opcion).attr("value", "i");
+        $(opcion).attr("value", i);
+        $(opcion).html(i);
         $("#cantidad").append(opcion);
     }
     $("#Modal").modal("hide");
@@ -339,25 +393,75 @@ $("seleccionar").click(() => {
 
 
 function textoBuscar() {
-    var texto = $("#textSearch").text().toLowerCase()
-    if (texto.lenth > 3) {
-        $("#tablaProducto").find("tbody").find("tr").each((e, d) => {
-            if ($(d).find("[role='nombre']").text().toLowerCase().indexOf(texto) > -1) {
-                if ($(d).hasClass("hide")) {
-                    $(d).removeClass("hide");
-                }
+    var texto = $("#textSearch").val().toLowerCase();
+    var filas=$("#TablaProducto").find("tbody").find("tr");
+    for (var key in filas) {
+        if ($(filas[key]).find("[role='nombre']").text().toLowerCase().indexOf(texto) > -1 || texto.length<3) {
+            if ($(filas[key]).hasClass("hide")) {
+                $(filas[key]).removeClass("hide");
             }
-            else {
-                if (!$(d).hasClass("hide")) {
-                    $(d).addClass("hide");
-                }
+        }
+        else {
+            if (!$(filas[key]).hasClass("hide")) {
+                $(filas[key]).addClass("hide");
             }
-        });
+        }
+    };
 
-    }
+   
 }
 // contenido de la tabla por tipos
 /////////////////////////////////////////////////////////////////////////
 
 /// metodos para la muestra del modal de busqueda de producto  
 ////////////////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////////7
+/// detalle del pedido
+function listarDetallePedido() {
+    $("#detallePedido").find("tbody").html("");
+    $.ajax({
+        method: "POST",
+        url: 'Sistema.aspx/detallePedido',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: (response) => {
+            if (response.d) {
+                var detalle = $("#detallePedido").find("tbody");
+                var total = 0;
+                $(response.d).each(function () {
+                    $(detalle).append(
+                        $("<tr>").attr("scope", "row")
+                            .append(
+                                $("<td>").html(this.producto.id)
+                        ).append(
+                            $("<td>").html(this.producto.nombre)
+                        ).append(
+                            $("<td>").html(this.tipo)
+                        ).append(
+                            $("<td>").html(this.precioUnitario)
+                        ).append(
+                            $("<td>").html(this.cantidad)
+                        ).append(
+                            $("<td>").html(this.precioTotal)
+                        )
+                        
+                    )
+                    total += this.precioTotal;
+                })
+                $("#precioTotal").html(total)
+            }
+            else {
+                showToast("Error: no se trajo ningun tipo de insumo", "ERROR");
+            }
+        },
+        failure: function (response) {
+            alert("fail");
+        },
+        error: function (response) {
+            alert(response.responseText);
+        }
+    });
+
+}

@@ -10,22 +10,22 @@ namespace Negocio
 {
     public class TipoInsumoNegocio
     {
-        
-        public List<TipoInsumo> listadoTiposInsumos()
+
+        public static List<TipoInsumo> listar()
         {
             List<TipoInsumo> listado = new List<TipoInsumo>();
-            ManagerAcessoDato accesoDatos = new ManagerAcessoDato();
-            TipoInsumo tipo;
+            ManagerAcessoDato acessoDatos = new ManagerAcessoDato();
+            TipoInsumo tipo = new TipoInsumo();
             try
             {
-                accesoDatos.setearConsulta("select id, descripcion from tiposinsumos  where estado=1");
-                accesoDatos.abrirConexion();
-                accesoDatos.ejecutarConsulta();
-                while (accesoDatos.Lector.Read())
+                acessoDatos.setearConsulta("select id,descripcion from tiposInsumos where estado=1");
+                acessoDatos.abrirConexion();
+                acessoDatos.ejecutarConsulta();
+                while (acessoDatos.Lector.Read())
                 {
                     tipo = new TipoInsumo();
-                    tipo.id = (int)accesoDatos.Lector["id"];
-                    tipo.descripcion = (string)accesoDatos.Lector["descripcion"].ToString();
+                    tipo.id = (int)acessoDatos.Lector["id"];
+                    tipo.descripcion = (string)acessoDatos.Lector["descripcion"].ToString();
                     listado.Add(tipo);
                 }
                 return listado;
@@ -37,9 +37,8 @@ namespace Negocio
             }
             finally
             {
-                accesoDatos.cerrarConexion();
+                acessoDatos.cerrarConexion();
             }
-
         }
     }
 }

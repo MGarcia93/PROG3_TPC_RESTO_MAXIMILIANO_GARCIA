@@ -171,7 +171,7 @@ namespace Negocio
             Mesa mesa=new Mesa();
             try
             {
-                accesoDatos.setearConsulta("select id,numero,idEstadoMesa,cantidadComensales,idMesero from Mesas where id="+id);
+                accesoDatos.setearConsulta("select m.id,numero,idEstadoMesa,cantidadComensales,m.idMesero,p.id as pedido from Mesas as m left join pedidos as p on m.id=p.idmesa where m.id=" + id + " and (p.id is null or p.idEstado=" + Constantes.PEDIDO_ABIERTO + ")");
                 accesoDatos.abrirConexion();
                 accesoDatos.ejecutarConsulta();
                 accesoDatos.Lector.Read();
@@ -182,6 +182,12 @@ namespace Negocio
                 mesa.estado = (EstadoMesa)EstadoMesaNegocio.traer((int)accesoDatos.Lector["idEstadoMesa"]);
                 if (!Convert.IsDBNull(accesoDatos.Lector["idMesero"]))
                     mesa.mesero = (Mesero)MeseroNegocio.traer((int)accesoDatos.Lector["idMesero"]);
+                if (!Convert.IsDBNull(accesoDatos.Lector["pedido"]))
+                {
+                    mesa.pedido = new Pedido();
+                    mesa.pedido.id = (int)accesoDatos.Lector["pedido"];
+                }
+                  
                 return mesa;
             }
             catch (Exception ex)
@@ -225,7 +231,7 @@ namespace Negocio
             Mesa mesa = new Mesa();
             try
             {
-                accesoDatos.setearConsulta("update mesas set idEstadoMesa=" + Constantes.MESA_INACTIVA);
+                accesoDatos.setearConsulta("update mesas set idMesero=NULL,  idEstadoMesa=" + Constantes.MESA_INACTIVA);
                 accesoDatos.abrirConexion();
                 accesoDatos.ejecutarAccion();
             }
