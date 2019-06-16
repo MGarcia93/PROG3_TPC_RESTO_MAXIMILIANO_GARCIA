@@ -76,6 +76,16 @@
     border: solid rgba(41, 94, 204, 0.75);
 }
 
+.numeroMesa {
+    font-size: 3em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: black;
+    cursor: default
+}
+
 #inactivo {
     display: none;
     position: absolute;

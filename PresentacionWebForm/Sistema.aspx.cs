@@ -111,6 +111,7 @@ namespace PresentacionWebForm
         {
            Pedido pedido= PedidoNegocio.crear(mesero, mesa);
             HttpContext.Current.Session.Add("pedido", pedido.id);
+            MesaNegocio.cambiarEstado(mesa, Constantes.MESA_OCUPADA);
             return pedido.id;
         }
 
@@ -136,5 +137,29 @@ namespace PresentacionWebForm
             return PedidoNegocio.detalle(pedido);
         }
 
+        [WebMethod]
+        public static string CerrarPedido(int mesa)
+        {
+            string resultado;
+            if (HttpContext.Current.Session["pedido"] != null)
+            {
+                if(PedidoNegocio.cambiarEstado(Constantes.PEDIDO_CERRADO, (int)HttpContext.Current.Session["pedido"]))
+                {
+                    MesaNegocio.cambiarEstado(mesa, Constantes.MESA_ACTIVA);
+                    resultado= "ok";
+                }
+                else
+                {
+                    resultado= "NoCerrie";
+
+                }
+
+            }
+            else
+            {
+                resultado= "noPedido";
+            }
+            return resultado;
+        }
     }
 }

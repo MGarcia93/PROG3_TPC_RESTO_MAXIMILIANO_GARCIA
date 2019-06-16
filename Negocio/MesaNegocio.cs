@@ -244,5 +244,28 @@ namespace Negocio
                 accesoDatos.cerrarConexion();
             }
         }
+
+        public static void cambiarEstado( int mesa, int estado)
+        {
+            ManagerAcessoDato accesoDatos = new ManagerAcessoDato();
+            try
+            {
+                accesoDatos.setearConsulta("update mesas set idEstadoMesa=@estado where id=@mesa");
+                accesoDatos.Comando.Parameters.Clear();
+                accesoDatos.Comando.Parameters.AddWithValue("@estado", estado);
+                accesoDatos.Comando.Parameters.AddWithValue("@mesa", mesa);
+                accesoDatos.abrirConexion();
+                accesoDatos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
+
     }   
 }

@@ -57,7 +57,7 @@ namespace Negocio
                 accesoDatos.Comando.Parameters.AddWithValue("@precio", dato.precio);
                 accesoDatos.Comando.Parameters.AddWithValue("@idTipo", dato.tipoPlato.id);
                 accesoDatos.abrirConexion();
-                if (accesoDatos.ejecutarAccion() == 1)
+                if (accesoDatos.ejecutarAccion() > 0)
                 {
                     inserto = true;
                 }
@@ -111,9 +111,9 @@ namespace Negocio
             ManagerAcessoDato accesoDatos = new ManagerAcessoDato();
             try
             {
-                accesoDatos.setearConsulta("update comidas set estado=0 where id=" + dato.id);
+                accesoDatos.setearConsulta("delete from comidas id=" + dato.id);
                 accesoDatos.abrirConexion();
-                if (accesoDatos.ejecutarAccion() == 1)
+                if (accesoDatos.ejecutarAccion() > 0)
                 {
                     modifico = true;
                 }

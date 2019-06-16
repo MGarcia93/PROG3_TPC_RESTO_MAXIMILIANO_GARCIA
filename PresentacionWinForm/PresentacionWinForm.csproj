@@ -208,6 +208,12 @@
       <DependentUpon>frmResumenRecaudadoMesero.cs</DependentUpon>
     </Compile>
     <Compile Include="Grobales.cs" />
+    <Compile Include="frmMensaje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMensaje.Designer.cs">
+      <DependentUpon>frmMensaje.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmBebidaAgregar.resx">
@@ -287,6 +293,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmResumenRecaudadoMesero.resx">
       <DependentUpon>frmResumenRecaudadoMesero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMensaje.resx">
+      <DependentUpon>frmMensaje.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

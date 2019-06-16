@@ -18,14 +18,14 @@ namespace Negocio
             Bebida bebida;
             try
             {
-                accesoDatos.setearConsulta("select id,nombre,contieneAlcohol,precio,idMarca,idCategoriaBebida from bebidas  where estado=1");
+                accesoDatos.setearConsulta("select id,descripcion,contieneAlcohol,precio,idMarca,idCategoriaBebida from bebidas  where estado=1");
                 accesoDatos.abrirConexion();
                 accesoDatos.ejecutarConsulta();
                 while (accesoDatos.Lector.Read())
                 {
                     bebida = new Bebida();
                     bebida.id = (int)accesoDatos.Lector["id"];
-                    bebida.nombre = (string)accesoDatos.Lector["nombre"].ToString();
+                    bebida.nombre = (string)accesoDatos.Lector["descripcion"].ToString();
                     bebida.contieneAlcohol = (bool)accesoDatos.Lector["contieneAlcohol"];
                     bebida.precio = (decimal)accesoDatos.Lector["precio"];
                     bebida.marca = MarcaNegocio.traer((int)accesoDatos.Lector["idMarca"]);
@@ -51,15 +51,15 @@ namespace Negocio
             ManagerAcessoDato accesoDatos = new ManagerAcessoDato();
             try
             {
-                accesoDatos.setearConsulta("insert into bebidas( nombre,contieneAlcohol,precio,idMarca,idCategoriaBebida) values(@Nombre,@contieneAlcohol,@precio,@idMarca,@idCategoriaBebida)");
+                accesoDatos.setearConsulta("insert into bebidas( descripcion,contieneAlcohol,precio,idMarca,idCategoriaBebida) values(@descripcion,@contieneAlcohol,@precio,@idMarca,@idCategoriaBebida)");
                 accesoDatos.Comando.Parameters.Clear();
-                accesoDatos.Comando.Parameters.AddWithValue("@Nombre", dato.nombre);
+                accesoDatos.Comando.Parameters.AddWithValue("@descripcion", dato.nombre);
                 accesoDatos.Comando.Parameters.AddWithValue("@contieneAlcohol", dato.contieneAlcohol);
                 accesoDatos.Comando.Parameters.AddWithValue("@precio", dato.precio);
                 accesoDatos.Comando.Parameters.AddWithValue("@idMarca", dato.marca.id);
                 accesoDatos.Comando.Parameters.AddWithValue("@idCategoriaBebida", dato.categoria.id);
                 accesoDatos.abrirConexion();
-                if (accesoDatos.ejecutarAccion() == 1)
+                if (accesoDatos.ejecutarAccion() > 0)
                 {
                     inserto = true;
                 }
@@ -83,9 +83,9 @@ namespace Negocio
             ManagerAcessoDato accesoDatos = new ManagerAcessoDato();
             try
             {
-                accesoDatos.setearConsulta("update bebidas Set Nombre=@Nombre, ContieneAlcohol=@contieneAlcohol, precio=@precio, idMarca=@idMarca, idCategoriaBebida=@idCategoria where id=" + dato.id);
+                accesoDatos.setearConsulta("update bebidas Set descripcion=@descripcion, ContieneAlcohol=@contieneAlcohol, precio=@precio, idMarca=@idMarca, idCategoriaBebida=@idCategoria where id=" + dato.id);
                 accesoDatos.Comando.Parameters.Clear();
-                accesoDatos.Comando.Parameters.AddWithValue("@Nombre", dato.nombre);
+                accesoDatos.Comando.Parameters.AddWithValue("@descripcion", dato.nombre);
                 accesoDatos.Comando.Parameters.AddWithValue("@contieneAlcohol", dato.contieneAlcohol);
                 accesoDatos.Comando.Parameters.AddWithValue("@precio", dato.precio);
                 accesoDatos.Comando.Parameters.AddWithValue("@idMarca", dato.marca.id);
@@ -114,9 +114,9 @@ namespace Negocio
             ManagerAcessoDato accesoDatos = new ManagerAcessoDato();
             try
             {
-                accesoDatos.setearConsulta("update bebidas set estado=0 where id=" + dato.id);
+                accesoDatos.setearConsulta("delete from comidas where id=" + dato.id);
                 accesoDatos.abrirConexion();
-                if (accesoDatos.ejecutarAccion() == 1)
+                if (accesoDatos.ejecutarAccion()> 0)
                 {
                     modifico = true;
                 }

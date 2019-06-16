@@ -40,7 +40,9 @@ namespace PresentacionWinForm
             if (Grobales.jornada == 0)
             {
                 MesaNegocio.inactivar();
-                MessageBox.Show("El dia de hoy todabia no se dio de alta");
+                frmMensaje mensaje = new frmMensaje();
+                mensaje.MdiParent = this;
+                mensaje.Show();
             }
             else
             {

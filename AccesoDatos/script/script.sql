@@ -201,27 +201,30 @@ begin
 end
 go
 create trigger tr_delete_comida on comidas
-after update
+instead of delete
 as 
 begin
 	declare @id int
-	select @id=id from inserted
-	if((select estado from inserted)=0)
+	select @id=id from deleted
+	if((select estado from deleted)=1)
 	begin
+		update comidas set estado=0 where id=@id
 		delete from inventarios where idInsumo=@id
 	end
 end
 go
 create trigger tr_delete_bebida on bebidas
-after update
+instead of delete
 as 
 begin
 	declare @id int
-	select @id=id from inserted
-	if((select estado from inserted)=0)
+	select @id=id from deleted
+	if((select estado from deleted)=1)
 	begin
+		update bebidas set estado=0 where id=@id
 		delete from inventarios where idInsumo=@id
-	end
+		
+ 	end
 end
 
 go
@@ -243,7 +246,7 @@ as
 begin
 	insert into insumos(idTipo) values(1)
 	declare @id int
-	select @id=max(id) from tiposInsumos
+	select @id=max(id) from Insumos
 	insert into bebidas(id,descripcion, contieneAlcohol, precio, idMarca,idCategoriaBebida)
 	select @id,descripcion, contieneAlcohol, precio, idMarca,idCategoriaBebida from inserted
 end

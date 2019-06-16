@@ -51,9 +51,9 @@
             this.tsmDefiniciones = new System.Windows.Forms.ToolStripMenuItem();
             this.marcaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tipoDeBebidasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmJornada = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmJornada = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -229,15 +229,22 @@
             // marcaToolStripMenuItem
             // 
             this.marcaToolStripMenuItem.Name = "marcaToolStripMenuItem";
-            this.marcaToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.marcaToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
             this.marcaToolStripMenuItem.Text = "Marca";
             this.marcaToolStripMenuItem.Click += new System.EventHandler(this.MarcaToolStripMenuItem_Click);
             // 
             // tipoDeBebidasToolStripMenuItem
             // 
             this.tipoDeBebidasToolStripMenuItem.Name = "tipoDeBebidasToolStripMenuItem";
-            this.tipoDeBebidasToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.tipoDeBebidasToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
             this.tipoDeBebidasToolStripMenuItem.Text = "Tipo de bebidas";
+            // 
+            // tsmJornada
+            // 
+            this.tsmJornada.Name = "tsmJornada";
+            this.tsmJornada.Size = new System.Drawing.Size(86, 29);
+            this.tsmJornada.Text = "&Jornada";
+            this.tsmJornada.Click += new System.EventHandler(this.TsmJornada_Click);
             // 
             // tsmSalir
             // 
@@ -251,19 +258,12 @@
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(12, 29);
             // 
-            // tsmJornada
-            // 
-            this.tsmJornada.Name = "tsmJornada";
-            this.tsmJornada.Size = new System.Drawing.Size(86, 29);
-            this.tsmJornada.Text = "&Jornada";
-            this.tsmJornada.Click += new System.EventHandler(this.TsmJornada_Click);
-            // 
             // frmResto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackgroundImage = global::PresentacionWinForm.Properties.Resources.icono;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1216, 705);
             this.Controls.Add(this.menuStrip1);

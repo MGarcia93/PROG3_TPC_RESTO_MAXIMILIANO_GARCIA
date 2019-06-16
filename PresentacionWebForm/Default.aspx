@@ -170,6 +170,12 @@
                 </div>
             </div>
         </div>
+        <div style="z-index: 3000;height: 100%;width: 100%;background-color: rgba(50,50,50,0.9);display: block;position: fixed;top:0px">
+            <div style="background-color: white;height: 30vh;width: 60%;position: fixed;left: 50%;top: 50%;transform: translate(-50%,-50%); padding:1em">
+              <h2>Pagina en construccion</h2>
+              <h3>Para Acceder al sistema ingrese a la url <a href="Sistema.aspx" >Sitema.aspx</a></h3>
+            </div>
+        </div>
     </form>
     <script type="text/javascript" src="Scripts/jquery.1.11.1.js"></script>
     <script type="text/javascript" src="Scripts/bootstrap.js"></script>

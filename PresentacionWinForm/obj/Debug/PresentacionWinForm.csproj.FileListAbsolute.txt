@@ -92,3 +92,4 @@ D:\programacion\porg3\resto\PROG3_TPC_RESTO_MAXIMILIANO_GARCIA\PresentacionWinFo
 C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWinForm\obj\Debug\PresentacionWinForm.frmMesaAgregar.resources
 C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWinForm\obj\Debug\PresentacionWinForm.frmMesaModificar.resources
 C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWinForm\obj\Debug\PresentacionWinForm.frmJornada.resources
+C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWinForm\obj\Debug\PresentacionWinForm.frmMensaje.resources

@@ -1,59 +1,6 @@
-$("document").ready(function(){
-    $.ajax({
-        method:"POST",
-        url:'Sistema.aspx/ListaMesas',
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: show,
-        failure: function (response) {
-            alert("fail");
-        },
-        error: function (response) {
-            alert(response.responseText);
-        }
-    });
-    function show(response){
-        let contenedor =$("#panelMesa");
-        $(response.d).each(function(){
-            let card= document.createElement("div");
-            let imagen = document.createElement("img");
-            let numero = document.createElement("span");
-            let url;
-            switch (this.estado.id){
-                case 0:
-                    url="./Content/img/mesaInactiva.png"
-                break;
-                case 1:
-                    url="./Content/img/mesa.png"
-                break;
-                case 2:
-                url="./Content/img/mesaOcupada.png"
-                break;
-                case 3:
-                break;
-            }
-            $(numero).attr("style", "font-size:3em;position: absolute; top:50%;left:50%;transform:translate(-50%,-50%); color:black;cursor:default")
-                .html(this.numero);
-            $(imagen).attr("src", url)
-                .addClass("mesa");
-            $(card).attr("id", this.id)
-                    .addClass("col-sm-4 col-md-4 col-lg-3")
-            $(card).attr("data-estado", this.estado.id)
-                .attr("role", "mesa");
-            $(card).append(imagen);
-            $(card).append(numero);
-            $(contenedor).append(card);
-            $(card).click(function () {
-                if ($(this).attr("data-estado") != 0) {
+$("document").ready(function () {
 
-                    $("#panelMesa").find("[class*='activo']").removeClass("activo");
-                    $(this).addClass("activo");
-                    mesaSeleccionada($(this).attr("id"));
-                }
-            })
-        });
-
-    }           
+    ListarMesas();         
 
     $.ajax({
         method: "POST",
@@ -83,6 +30,64 @@ $("document").ready(function(){
 
 })
 
+function ListarMesas() {
+    ("#panelMesa").html = "";
+    $.ajax({
+        method: "POST",
+        url: 'Sistema.aspx/ListaMesas',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            let contenedor = $("#panelMesa");
+            $(response.d).each(function () {
+                let card = document.createElement("div");
+                let imagen = document.createElement("img");
+                let numero = document.createElement("span");
+                let url;
+                switch (this.estado.id) {
+                    case 0:
+                        url = "./Content/img/mesaInactiva.png"
+                        break;
+                    case 1:
+                        url = "./Content/img/mesa.png"
+                        break;
+                    case 2:
+                        url = "./Content/img/mesaOcupada.png"
+                        break;
+                    case 3:
+                        break;
+                }
+                $(numero).addClass("numeroMesa")
+                    .html(this.numero);
+                $(imagen).attr("src", url)
+                    .addClass("mesa");
+                $(card).attr("id", this.id)
+                    .addClass("col-sm-4 col-md-4 col-lg-3")
+                $(card).attr("data-estado", this.estado.id)
+                    .attr("role", "mesa");
+                $(card).append(imagen);
+                $(card).append(numero);
+                $(contenedor).append(card);
+                $(card).click(function () {
+                    if ($(this).attr("data-estado") != 0) {
+
+                        $("#panelMesa").find("[class*='activo']").removeClass("activo");
+                        $(this).addClass("activo");
+                        mesaSeleccionada($(this).attr("id"));
+                    }
+                });
+            })
+        },
+        failure: function (response) {
+            alert("fail");
+        },
+        error: function (response) {
+            alert(response.responseText);
+        }
+    });
+    
+
+}
 
 function mesaSeleccionada(idMesa) {
     var dato = {id:idMesa}
@@ -102,6 +107,7 @@ function mesaSeleccionada(idMesa) {
                 $("#Cerrar").removeClass("hide");
                 $("#Buscar").removeAttr("disabled");
                 listarDetallePedido();
+                ListarMesas();
             }
             else {
                 $("#Agregar").addClass("hide");
@@ -151,6 +157,7 @@ $("#Abrir").click((e) => {
             }
             else {
                 showToast("No se pudo abrir Pedido ", "Error");
+
             }
         },
         error: (response) => {
@@ -192,6 +199,13 @@ $("#Agregar").click((e) => {
 });
 
 
+$("#Cerrar").click(function (e) {
+    e.preventDefault();
+    $("#modalCierrePedido").modal("show");
+});
+
+
+
 $("#Buscar").click((e) => {
     e.preventDefault();
     var dato = {tipo:$("#Tipos").val()};
@@ -209,6 +223,36 @@ $("#Buscar").click((e) => {
             }
             else {
                 showToast("No se encontro mercaderia usable de este tipo ", "Error");
+            }
+        },
+        error: (response) => {
+            showToast("Error: " + response.responseText, "Error");
+        }
+    });
+});
+
+$("#CerrarPedido").click(function () {
+    datos = { mesa: $("#Mesa").attr("data-mesa") };
+    $.ajax({
+        method: "POST",
+        url: 'Sistema.aspx/CerrarPedido',
+        data: JSON.stringify(datos),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: (response) => {
+            if (response.d = "ok") {
+                showToast("El pedido se cerro correctamente", "Afirmacion");
+                $("tbody").html("");
+                ListarMesas();
+            }
+            else if (response.d = "noCierre") {
+                showToast("ERROR: no se pudo cerrar el pedido", "Error");
+            }
+            else {
+                showToast("ERROR: no se pudo cerrar el pedido", "Error");
+                setTimeout(function () {
+                    window.location = "Login.aspx"
+                }, 1000);
             }
         },
         error: (response) => {
@@ -463,5 +507,8 @@ function listarDetallePedido() {
             alert(response.responseText);
         }
     });
-
 }
+/// detalle del pedido
+/////////////////////////////////////////////////////////////////////////////////7
+
+
