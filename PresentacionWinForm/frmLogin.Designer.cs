@@ -40,7 +40,7 @@
             // lblLegajo
             // 
             this.lblLegajo.AutoSize = true;
-            this.lblLegajo.Location = new System.Drawing.Point(84, 135);
+            this.lblLegajo.Location = new System.Drawing.Point(94, 145);
             this.lblLegajo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLegajo.Name = "lblLegajo";
             this.lblLegajo.Size = new System.Drawing.Size(57, 20);
@@ -50,7 +50,7 @@
             // lblPasswotm
             // 
             this.lblPasswotm.AutoSize = true;
-            this.lblPasswotm.Location = new System.Drawing.Point(88, 194);
+            this.lblPasswotm.Location = new System.Drawing.Point(98, 204);
             this.lblPasswotm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPasswotm.Name = "lblPasswotm";
             this.lblPasswotm.Size = new System.Drawing.Size(78, 20);
@@ -88,7 +88,7 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(82, 62);
+            this.lblTitulo.Location = new System.Drawing.Point(92, 72);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(260, 32);
@@ -122,6 +122,7 @@
             this.Location = new System.Drawing.Point(100, 100);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmLogin";
+            this.Padding = new System.Windows.Forms.Padding(10);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.ResumeLayout(false);

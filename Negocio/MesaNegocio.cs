@@ -109,7 +109,7 @@ namespace Negocio
                 accesoDatos.cerrarConexion();
             }
         }
-        public static bool eliminar(string id)
+        public static bool eliminar(string id,int numero)
         {
             bool modifico = false;
             ManagerAcessoDato accesoDatos = new ManagerAcessoDato();
@@ -120,6 +120,17 @@ namespace Negocio
                 if (accesoDatos.ejecutarAccion() == 1)
                 {
                     modifico = true;
+                    accesoDatos.setearConsulta("select max(numero) as maximo from mesas where estado=1");
+                    accesoDatos.ejecutarConsulta();
+                    accesoDatos.Lector.Read();
+                    int max =(int) accesoDatos.Lector["maximo"];
+                    while (numero <= max)
+                    {
+                        accesoDatos.cerrarConexion();
+                        accesoDatos.setearConsulta("update Mesas set numero="+numero+" where estado=1 and numero="+ (++numero));
+                        accesoDatos.abrirConexion();
+                        accesoDatos.ejecutarAccion();
+                    }
                 }
                 return modifico;
 

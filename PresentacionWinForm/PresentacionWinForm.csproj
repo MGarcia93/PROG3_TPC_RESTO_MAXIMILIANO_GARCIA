@@ -51,6 +51,12 @@
     <Compile Include="ControlMesa.Designer.cs">
       <DependentUpon>ControlMesa.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInventario.Designer.cs">
+      <DependentUpon>frmInventario.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmJornada.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -227,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmBebidaModificar.resx">
       <DependentUpon>frmBebidaModificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInventario.resx">
+      <DependentUpon>frmInventario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmJornada.resx">
       <DependentUpon>frmJornada.cs</DependentUpon>

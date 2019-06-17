@@ -23,12 +23,7 @@ namespace PresentacionWinForm
             InitializeComponent();
         }
 
-        private void BtnAsirnar_Click(object sender, EventArgs e)
-        {
-            frmMesaAsignar mesa = new frmMesaAsignar();
-            mesa.ShowDialog();
-            mostrarMesas();
-        }
+      
 
         private void FrmMesaLista_Load(object sender, EventArgs e)
         {

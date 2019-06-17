@@ -45,7 +45,7 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(154, 27);
+            this.lblTitulo.Location = new System.Drawing.Point(164, 37);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(237, 40);
@@ -55,7 +55,7 @@
             // lblTipo
             // 
             this.lblTipo.AutoSize = true;
-            this.lblTipo.Location = new System.Drawing.Point(26, 96);
+            this.lblTipo.Location = new System.Drawing.Point(36, 106);
             this.lblTipo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTipo.Name = "lblTipo";
             this.lblTipo.Size = new System.Drawing.Size(101, 20);
@@ -74,7 +74,7 @@
             // lblDescriocion
             // 
             this.lblDescriocion.AutoSize = true;
-            this.lblDescriocion.Location = new System.Drawing.Point(26, 217);
+            this.lblDescriocion.Location = new System.Drawing.Point(36, 227);
             this.lblDescriocion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDescriocion.Name = "lblDescriocion";
             this.lblDescriocion.Size = new System.Drawing.Size(92, 20);
@@ -93,7 +93,7 @@
             // lblPrecio
             // 
             this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Location = new System.Drawing.Point(26, 283);
+            this.lblPrecio.Location = new System.Drawing.Point(36, 293);
             this.lblPrecio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(53, 20);
@@ -134,7 +134,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(35, 150);
+            this.lblNombre.Location = new System.Drawing.Point(45, 160);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(65, 20);
             this.lblNombre.TabIndex = 9;
@@ -168,6 +168,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmPlatoAgregar";
+            this.Padding = new System.Windows.Forms.Padding(10);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAgregarPlato";
             this.Load += new System.EventHandler(this.FrmAgregarPlato_Load);
             this.ResumeLayout(false);

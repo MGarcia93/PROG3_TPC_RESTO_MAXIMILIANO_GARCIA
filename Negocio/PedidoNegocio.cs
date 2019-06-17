@@ -87,17 +87,17 @@ namespace Negocio
 
         }
 
-        public static bool modificarDetalle(Insumo datos, int idPedido, int cantidad)
+        public static bool modificarDetalle(Insumo insumo, int cantidad, int idDetalle )
         {
             ManagerAcessoDato db = new ManagerAcessoDato();
             try
             {
-                db.setearConsulta("update detallesPedidos cantidad=@idCantidad,precioUnit=@precio where idPedido=@idPedido and idInsumo=@idInsumo");
+                db.setearConsulta("update detallesPedidos set idInsumo=@idInsumo, precioUnit=@precio, cantidad=@idCantidad  where id=@idDetalle");
                 db.Comando.Parameters.Clear();
-                db.Comando.Parameters.AddWithValue("@idInsumo", datos.id);
+                db.Comando.Parameters.AddWithValue("@idInsumo", insumo.id);
                 db.Comando.Parameters.AddWithValue("@cantidad", cantidad);
-                db.Comando.Parameters.AddWithValue("@precio", datos.precio);
-                db.Comando.Parameters.AddWithValue("@idPedido", idPedido);
+                db.Comando.Parameters.AddWithValue("@precio", insumo.precio);
+                db.Comando.Parameters.AddWithValue("@idDetalle", idDetalle);
                 db.abrirConexion();
                 if (db.ejecutarAccion() == 1)
                 {
@@ -128,7 +128,7 @@ namespace Negocio
             var sql = "";
             try
             {
-                sql = "select d.id, d.idInsumo,d.cantidad,d.precioUnit,isnull(b.descripcion,c.descripcion) as descripcion, isnull(cb.descripcion,tp.descripcion) as tipo ";
+                sql = "select d.id, d.idInsumo,d.cantidad,d.precioUnit,isnull(b.descripcion,c.nombre) as descripcion, isnull(cb.descripcion,tp.descripcion) as tipo ";
                 sql +="from detallesPedidos d ";
                 sql += "left join bebidas b on b.id=d.idInsumo ";
                 sql += "left join comidas c on c.id=d.idInsumo ";
@@ -143,6 +143,7 @@ namespace Negocio
                     
                     detalle = new DetallePedido();
                     detalle.producto = new Insumo();
+                    detalle.id = (int)db.Lector["id"];
                     detalle.producto.id = (int)db.Lector["idInsumo"];
                     detalle.precioUnitario = (decimal)db.Lector["precioUnit"];
                     detalle.producto.nombre = (string)db.Lector["descripcion"];
@@ -170,7 +171,7 @@ namespace Negocio
             ManagerAcessoDato db = new ManagerAcessoDato();
             try
             {
-                db.setearConsulta("update pedidos set idEstado=" + estado + " where id=" + estado);
+                db.setearConsulta("update pedidos set idEstado=" + estado + " where id=" + id);
                 db.abrirConexion();
                 if (db.ejecutarAccion() == 1)
                 {
@@ -192,5 +193,31 @@ namespace Negocio
             }
         }
 
+        public static bool eliminarFila(int idDetalle)
+        {
+            ManagerAcessoDato db = new ManagerAcessoDato();
+            try
+            {
+                db.setearConsulta("delete from detallesPedidos where id=" + idDetalle);
+                db.abrirConexion();
+                if (db.ejecutarAccion() == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                db.cerrarConexion();
+            }
+        }
     }
 }

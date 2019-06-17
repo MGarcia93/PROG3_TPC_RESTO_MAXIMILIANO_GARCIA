@@ -84,6 +84,7 @@
             this.dgvBebida.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBebida.Location = new System.Drawing.Point(19, 144);
             this.dgvBebida.Name = "dgvBebida";
+            this.dgvBebida.ReadOnly = true;
             this.dgvBebida.RowTemplate.Height = 28;
             this.dgvBebida.Size = new System.Drawing.Size(1179, 438);
             this.dgvBebida.TabIndex = 11;

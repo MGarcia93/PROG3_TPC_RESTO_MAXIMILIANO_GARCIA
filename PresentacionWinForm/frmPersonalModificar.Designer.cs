@@ -51,7 +51,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label1.Location = new System.Drawing.Point(71, 27);
+            this.label1.Location = new System.Drawing.Point(81, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(352, 46);
             this.label1.TabIndex = 0;
@@ -60,7 +60,7 @@
             // lblLegajo
             // 
             this.lblLegajo.AutoSize = true;
-            this.lblLegajo.Location = new System.Drawing.Point(46, 101);
+            this.lblLegajo.Location = new System.Drawing.Point(56, 111);
             this.lblLegajo.Name = "lblLegajo";
             this.lblLegajo.Size = new System.Drawing.Size(57, 20);
             this.lblLegajo.TabIndex = 1;
@@ -69,7 +69,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(46, 155);
+            this.lblNombre.Location = new System.Drawing.Point(56, 165);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(65, 20);
             this.lblNombre.TabIndex = 2;
@@ -78,7 +78,7 @@
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(46, 198);
+            this.lblApellido.Location = new System.Drawing.Point(56, 208);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(65, 20);
             this.lblApellido.TabIndex = 3;
@@ -87,7 +87,7 @@
             // lblSexo
             // 
             this.lblSexo.AutoSize = true;
-            this.lblSexo.Location = new System.Drawing.Point(46, 303);
+            this.lblSexo.Location = new System.Drawing.Point(56, 313);
             this.lblSexo.Name = "lblSexo";
             this.lblSexo.Size = new System.Drawing.Size(45, 20);
             this.lblSexo.TabIndex = 4;
@@ -118,7 +118,7 @@
             // lblPuesto
             // 
             this.lblPuesto.AutoSize = true;
-            this.lblPuesto.Location = new System.Drawing.Point(46, 405);
+            this.lblPuesto.Location = new System.Drawing.Point(56, 415);
             this.lblPuesto.Name = "lblPuesto";
             this.lblPuesto.Size = new System.Drawing.Size(59, 20);
             this.lblPuesto.TabIndex = 10;
@@ -127,7 +127,7 @@
             // lblDni
             // 
             this.lblDni.AutoSize = true;
-            this.lblDni.Location = new System.Drawing.Point(50, 355);
+            this.lblDni.Location = new System.Drawing.Point(60, 365);
             this.lblDni.Name = "lblDni";
             this.lblDni.Size = new System.Drawing.Size(33, 20);
             this.lblDni.TabIndex = 11;
@@ -179,7 +179,7 @@
             // lblFechaNacimiento
             // 
             this.lblFechaNacimiento.AutoSize = true;
-            this.lblFechaNacimiento.Location = new System.Drawing.Point(46, 249);
+            this.lblFechaNacimiento.Location = new System.Drawing.Point(56, 259);
             this.lblFechaNacimiento.Name = "lblFechaNacimiento";
             this.lblFechaNacimiento.Size = new System.Drawing.Size(112, 20);
             this.lblFechaNacimiento.TabIndex = 17;
@@ -218,6 +218,8 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmPersonalModificar";
+            this.Padding = new System.Windows.Forms.Padding(10);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmModificarPersonal";
             this.Load += new System.EventHandler(this.FrmPersonalModificar_Load);
             this.ResumeLayout(false);

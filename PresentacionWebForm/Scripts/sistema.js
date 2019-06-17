@@ -31,13 +31,13 @@ $("document").ready(function () {
 })
 
 function ListarMesas() {
-    ("#panelMesa").html = "";
     $.ajax({
         method: "POST",
         url: 'Sistema.aspx/ListaMesas',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
+            $("#panelMesa").html("");
             let contenedor = $("#panelMesa");
             $(response.d).each(function () {
                 let card = document.createElement("div");
@@ -107,7 +107,6 @@ function mesaSeleccionada(idMesa) {
                 $("#Cerrar").removeClass("hide");
                 $("#Buscar").removeAttr("disabled");
                 listarDetallePedido();
-                ListarMesas();
             }
             else {
                 $("#Agregar").addClass("hide");
@@ -152,7 +151,7 @@ $("#Abrir").click((e) => {
                 showToast("Se abrio correctamente el pedido ", "Exito");
                 $("#Agregar").removeClass("hide").removeAttr("disabled");
                 $("#Cerrar").removeClass("hide").removeAttr("disabled");
-                $("#Abrir").addClass("hide").Attr("disabled");
+                $("#Abrir").addClass("hide").attr("disabled");
                 $("#Buscar").removeAttr("disabled");
             }
             else {
@@ -199,11 +198,29 @@ $("#Agregar").click((e) => {
 });
 
 
-$("#Cerrar").click(function (e) {
+$("#Modificar").click((e) => {
     e.preventDefault();
-    $("#modalCierrePedido").modal("show");
+    VentanaConfirmacion("modificarDetalle", $(this).attr("data-idDetlle"));
 });
 
+
+
+$("#Cerrar").click(function (e) {
+    e.preventDefault();
+    VentanaConfirmacion("cerrarPedido");
+});
+
+$("#Cancelar").click(function (e) {
+    e.preventDefault();
+    $("#Codigo").val("");
+    $("#Descripcion").val("");
+    $("#cantidad").val("");
+    $("#Agregar").removeClass("hide");
+    $("#Cerrar").removeClass("hide");
+    $("#Buscar").removeAttr("disabled");
+    $("#Modificar").AddClas("hide");
+    $("#Cancelar").addClass("hide");
+})
 
 
 $("#Buscar").click((e) => {
@@ -231,35 +248,6 @@ $("#Buscar").click((e) => {
     });
 });
 
-$("#CerrarPedido").click(function () {
-    datos = { mesa: $("#Mesa").attr("data-mesa") };
-    $.ajax({
-        method: "POST",
-        url: 'Sistema.aspx/CerrarPedido',
-        data: JSON.stringify(datos),
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: (response) => {
-            if (response.d = "ok") {
-                showToast("El pedido se cerro correctamente", "Afirmacion");
-                $("tbody").html("");
-                ListarMesas();
-            }
-            else if (response.d = "noCierre") {
-                showToast("ERROR: no se pudo cerrar el pedido", "Error");
-            }
-            else {
-                showToast("ERROR: no se pudo cerrar el pedido", "Error");
-                setTimeout(function () {
-                    window.location = "Login.aspx"
-                }, 1000);
-            }
-        },
-        error: (response) => {
-            showToast("Error: " + response.responseText, "Error");
-        }
-    });
-});
 
 // llammados ajax para los distintos botones
 ////////////////////////////////////////////////////////////////////////
@@ -332,7 +320,7 @@ function modal(tipo, datos) {
     $(contenedor).append(areaBusqueda);
     $(contenedor).append(tabla);
     contenedor.style = "max-height: 50vh;overflow: auto; min - width: 70 %;"
-    $(".modal-body").html(contenedor)
+    $("#Modal").find("[class='modal-body']").html(contenedor)
 }
 
 
@@ -402,10 +390,10 @@ function ContenidoComida(dato) {
     return fila;
 }
 
-function ContenidoBebida() {
+function ContenidoBebida(dato) {
     let fila = document.createElement("tr");
     $(fila).append(
-        $("<td>").html(dato.codigo).attr("role", "id")
+        $("<td>").html(dato.id).attr("role", "id")
     ).append(
         $("<td>").html(dato.descripcion).attr("role", "nombre")
     ).append(
@@ -475,10 +463,11 @@ function listarDetallePedido() {
                 var detalle = $("#detallePedido").find("tbody");
                 var total = 0;
                 $(response.d).each(function () {
-                    $(detalle).append(
-                        $("<tr>").attr("scope", "row")
-                            .append(
-                                $("<td>").html(this.producto.id)
+                    $(detalle).append()
+                    var fila = document.createElement("tr");
+                    $(fila).attr("scope", "row")
+                        .append(
+                            $("<td>").html(this.producto.id)
                         ).append(
                             $("<td>").html(this.producto.nombre)
                         ).append(
@@ -489,12 +478,40 @@ function listarDetallePedido() {
                             $("<td>").html(this.cantidad)
                         ).append(
                             $("<td>").html(this.precioTotal)
-                        )
+                        ).append(
+                            $("<td>").append(
+                                $("<a>").attr("data-boton", "modificar")
+                                    .attr("data-idDetalle", this.producto.id)
+                                    .css("cursor", "pointer")
+                                    .html("<img src='./Content/img/edit.svg' class='icon'></img>")
+                            )
+                        ).append(
+                            $("<td>").append(
+                                $("<a>").attr("data-boton", "eliminar")
+                                    .attr("data-idDetalle", this.producto.id)
+                                    .css("cursor", "pointer")
+                                    .html("<img src='./Content/img/delete.svg' class='icon'></img>")
+                            )
+                    );
+                    var dato = this;
+                    $(fila).find("[data-boton='modificar']").click(function(){
                         
-                    )
+                        /*$("#Agregar").addClass("hide");
+                        $("#Cerrar").addClass("hide");
+                        $("#Modificar").removeClass("hide");
+                        $("#Modificar").attr("data-idDetalle", dato.id);
+                        $("#Cancelar").removeClass("hide");
+                        mostrarProducto(producto)*/
+                    })
+
+                    $(fila).find("[data-boton='eliminar']").click(function () {
+                        VentanaConfirmacion("eliminarDetalle", dato.id);
+                    })
+                    $(detalle).append(fila);
                     total += this.precioTotal;
                 })
-                $("#precioTotal").html(total)
+                $("#precioTotal").html(total);
+                
             }
             else {
                 showToast("Error: no se trajo ningun tipo de insumo", "ERROR");
@@ -510,5 +527,169 @@ function listarDetallePedido() {
 }
 /// detalle del pedido
 /////////////////////////////////////////////////////////////////////////////////7
+
+//////////////////////////////////////////////////////////////////////////////////
+///Ventanas de confirmacion
+
+// constructor
+function VentanaConfirmacion(tipo, idDetalle = null) {
+    var ventana = $("#modalConfirmacion");
+    var titulo = $(ventana).find('[class="modal-title"]');
+    var contenido = $(ventana).find('[class="modal-body"]');
+    var botonera = $(ventana).find('[class="modal-footer"]');
+    $(botonera).html("");
+    switch (tipo) {
+        case "cerrarPedido":
+            CerrarPedido(titulo, contenido, botonera);
+            break;
+        case "eliminarDetalle":
+            eliminarDetalle(titulo, contenido, botonera, idDetalle);
+            break;
+        case "modificarDetalle":
+            modificarDetalle(titulo, contenido, botonera, idDetalle);
+    }
+    $(ventana).modal("show");
+}
+
+// ventana de confirmacion de cierre de Pedido
+
+function CerrarPedido (titulo, contenido, botonera) {
+
+    $(titulo).html("Confirmacion de cierre");
+    $(contenido).html("Estas Seguro de cerrar el pedido?");
+
+    $(botonera).append(
+        $("<button>").attr("id", "CerrarPedido")
+            .addClass("btn btn-primary")
+            .html("Si")
+    ).append(
+        $("<button>").attr("data-dismiss", "modal")
+            .addClass("btn btn-secondary")
+            .html("cancelar")
+    )
+    $("#CerrarPedido").click(function () {
+        datos = { mesa: $("#Mesa").attr("data-mesa") };
+        $.ajax({
+            method: "POST",
+            url: 'Sistema.aspx/CerrarPedido',
+            data: JSON.stringify(datos),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: (response) => {
+                if (response.d = "ok") {
+                    showToast("El pedido se cerro correctamente", "Afirmacion");
+                    $("tbody").html("");
+                    ListarMesas();
+                }
+                else if (response.d = "noCierre") {
+                    showToast("ERROR: no se pudo cerrar el pedido", "Error");
+                }
+                else {
+                    showToast("ERROR: no se pudo cerrar el pedido", "Error");
+                    setTimeout(function () {
+                        window.location = "Login.aspx"
+                    }, 1000);
+                }
+            },
+            error: (response) => {
+                showToast("Error: " + response.responseText, "Error");
+            }
+        });
+    });
+}
+
+// ventana de confirmacion de Modificacion de pedido
+
+function modificarDetalle(titulo, contenido, botonera, idDetalle) {
+
+    $(titulo).html("Confirmacion de Modificacion");
+    $(contenido).html("Estas Seguro de modificar este pedido?");
+
+    $(botonera).append(
+        $("<button>").attr("id", "ModificarDetalle")
+            .attr("data-idDetalle", idDetalle)
+            .addClass("btn btn-primary")
+            .html("Si")
+    ).append(
+        $("<button>").attr("data-dismiss", "modal")
+            .addClass("btn btn-secondary")
+            .html("cancelar")
+    )
+    $("#ModificarDetalle").click(function () {
+        datos = {
+            idInsumo: $("#codigo").val(),
+            cantidad: $("#cantidad").val(),
+            detalle: $(this).attr("data-idDetalle")
+        };
+        $.ajax({
+            method: "POST",
+            url: 'Sistema.aspx/ModificarDetalle',
+            data: JSON.stringify(datos),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: (response) => {
+                if (response.d) {
+                    showToast("la modificacion se realizo correctamente", "aviso");
+                    $("#codigo").val("");
+                    $("#descripcion").val("");
+                    $("#cantidad").val("");
+                    listarDetallePedido();
+                }
+                else {
+                    showToast("ERROR: no se pudo modificar", "Error");
+                }
+            },
+            error: (response) => {
+                showToast("Error: " + response.responseText, "Error");
+            }
+        });
+    });
+}
+
+// ventana de confirmacion de eliminaciom de detalle de pedido
+
+function eliminarDetalle(titulo, contenido, botonera, idDetalle) {
+
+    $(titulo).html("Confirmacion de Eliminacio");
+    $(contenido).html("Estas Seguro de eliminar este dato del pedido?");
+
+    $(botonera).append(
+        $("<button>").attr("id", "EliminacionDetalle")
+            .attr("data-idDetalle", idDetalle)
+            .addClass("btn btn-primary")
+            .html("Si")
+    ).append(
+        $("<button>").attr("data-dismiss", "modal")
+            .addClass("btn btn-secondary")
+            .html("cancelar")
+    )
+    $("#EliminacionDetalle").click(function (e) {
+        e.preventDefault();
+        var datos = { detalle: $(this).attr("data-idDetalle") };
+        $("#modalConfirmacion").modal("hide");
+        $.ajax({
+            method: "POST",
+            url: 'Sistema.aspx/EliminacionDetalle',
+            data: JSON.stringify(datos),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: (response) => {
+                if (response.d) {
+                    showToast("la elimino correctamente se realizo correctamente", "aviso");
+                    listarDetallePedido();
+                    
+                }
+                else {
+                    showToast("ERROR: no se pudo eliminar", "Error");
+                }
+            },
+            error: (response) => {
+                showToast("Error: " + response.responseText, "Error");
+            }
+        });
+    });
+}
+///Ventanas de confirmacion
+//////////////////////////////////////////////////////////////////////////////////
 
 

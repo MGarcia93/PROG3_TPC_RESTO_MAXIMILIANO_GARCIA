@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cbxMesa = new System.Windows.Forms.ComboBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.Mesa = new System.Windows.Forms.Label();
             this.lblMesero = new System.Windows.Forms.Label();
@@ -40,22 +39,15 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblApellido = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.txtMesa = new System.Windows.Forms.TextBox();
             this.bxMesero.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // cbxMesa
-            // 
-            this.cbxMesa.FormattingEnabled = true;
-            this.cbxMesa.Location = new System.Drawing.Point(156, 84);
-            this.cbxMesa.Name = "cbxMesa";
-            this.cbxMesa.Size = new System.Drawing.Size(204, 28);
-            this.cbxMesa.TabIndex = 0;
             // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.lblTitulo.Location = new System.Drawing.Point(131, 20);
+            this.lblTitulo.Location = new System.Drawing.Point(141, 30);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(213, 37);
             this.lblTitulo.TabIndex = 1;
@@ -64,7 +56,7 @@
             // Mesa
             // 
             this.Mesa.AutoSize = true;
-            this.Mesa.Location = new System.Drawing.Point(55, 84);
+            this.Mesa.Location = new System.Drawing.Point(65, 94);
             this.Mesa.Name = "Mesa";
             this.Mesa.Size = new System.Drawing.Size(48, 20);
             this.Mesa.TabIndex = 2;
@@ -73,7 +65,7 @@
             // lblMesero
             // 
             this.lblMesero.AutoSize = true;
-            this.lblMesero.Location = new System.Drawing.Point(55, 129);
+            this.lblMesero.Location = new System.Drawing.Point(65, 139);
             this.lblMesero.Name = "lblMesero";
             this.lblMesero.Size = new System.Drawing.Size(62, 20);
             this.lblMesero.TabIndex = 3;
@@ -155,6 +147,13 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
+            // txtMesa
+            // 
+            this.txtMesa.Location = new System.Drawing.Point(156, 84);
+            this.txtMesa.Name = "txtMesa";
+            this.txtMesa.Size = new System.Drawing.Size(204, 26);
+            this.txtMesa.TabIndex = 10;
+            // 
             // frmMesaAsignar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -162,6 +161,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(485, 439);
+            this.Controls.Add(this.txtMesa);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.bxMesero);
             this.Controls.Add(this.Asignar);
@@ -169,9 +169,10 @@
             this.Controls.Add(this.lblMesero);
             this.Controls.Add(this.Mesa);
             this.Controls.Add(this.lblTitulo);
-            this.Controls.Add(this.cbxMesa);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmMesaAsignar";
+            this.Padding = new System.Windows.Forms.Padding(10);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAsignarMesa";
             this.Load += new System.EventHandler(this.FrmMesaAsignar_Load);
             this.bxMesero.ResumeLayout(false);
@@ -182,8 +183,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox cbxMesa;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label Mesa;
         private System.Windows.Forms.Label lblMesero;
@@ -195,5 +194,6 @@
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.TextBox txtMesa;
     }
 }

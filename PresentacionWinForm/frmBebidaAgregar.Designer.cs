@@ -46,7 +46,7 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(106, 14);
+            this.lblTitulo.Location = new System.Drawing.Point(116, 24);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(240, 37);
@@ -56,7 +56,7 @@
             // lblCategoria
             // 
             this.lblCategoria.AutoSize = true;
-            this.lblCategoria.Location = new System.Drawing.Point(86, 98);
+            this.lblCategoria.Location = new System.Drawing.Point(96, 108);
             this.lblCategoria.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(78, 20);
@@ -76,7 +76,7 @@
             // lblMarca
             // 
             this.lblMarca.AutoSize = true;
-            this.lblMarca.Location = new System.Drawing.Point(86, 149);
+            this.lblMarca.Location = new System.Drawing.Point(96, 159);
             this.lblMarca.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Size = new System.Drawing.Size(53, 20);
@@ -95,7 +95,7 @@
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(86, 200);
+            this.lblDescripcion.Location = new System.Drawing.Point(96, 210);
             this.lblDescripcion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(92, 20);
@@ -113,7 +113,7 @@
             // lblPrecio
             // 
             this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Location = new System.Drawing.Point(86, 255);
+            this.lblPrecio.Location = new System.Drawing.Point(96, 265);
             this.lblPrecio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(53, 20);
@@ -133,7 +133,7 @@
             // 
             this.ckbContieneAlcohol.AutoSize = true;
             this.ckbContieneAlcohol.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ckbContieneAlcohol.Location = new System.Drawing.Point(90, 300);
+            this.ckbContieneAlcohol.Location = new System.Drawing.Point(100, 310);
             this.ckbContieneAlcohol.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ckbContieneAlcohol.Name = "ckbContieneAlcohol";
             this.ckbContieneAlcohol.Size = new System.Drawing.Size(163, 24);
@@ -184,6 +184,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmBebidaAgregar";
+            this.Padding = new System.Windows.Forms.Padding(10);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar";
             this.Load += new System.EventHandler(this.FrmBebidaAgregar_Load);
             this.ResumeLayout(false);

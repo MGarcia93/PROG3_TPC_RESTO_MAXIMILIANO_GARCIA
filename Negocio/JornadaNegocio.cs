@@ -18,13 +18,14 @@ namespace Negocio
             try
             {
 
-                string sql = "select i.idInsumo,isnull(c.nombre,b.descripcion) as descripcion,isnull(tp.descripcion,cb.descripcion) as tipo,i.cantidad ";
+                string sql = "select i.idInsumo,isnull(c.nombre,b.descripcion) as descripcion,isnull(tp.descripcion,cb.descripcion) as tipo,m.descripcion as marca,i.cantidad ";
                 sql += "from inventarios i ";
                 sql += "inner join jornadas j on i.idJornada=j.id ";
                 sql += "left join bebidas b on i.idInsumo = b.id ";
                 sql += "left join comidas c on i.idInsumo = c.id ";
                 sql += "left join tiposPlatos tp on c.idTipo = tp.id ";
                 sql += "left join categoriasBebidas cb on b.idCategoriaBebida = cb.id ";
+                sql += "left join marcas m on m.id=b.idMarca ";
                 sql += "where j.id=" + dia;
                 db.setearConsulta(sql);
                 db.abrirConexion();
@@ -36,6 +37,8 @@ namespace Negocio
                     insumo.id = (int)db.Lector["idInsumo"];
                     insumo.descripcion = (string)db.Lector["descripcion"].ToString();
                     insumo.tipo = (string)db.Lector["tipo"].ToString();
+                    if (!Convert.IsDBNull((string)db.Lector["marca"].ToString()))
+                        insumo.marca = (string)db.Lector["marca"].ToString();
                     inventario.Add(insumo);
                 }
                 return inventario;

@@ -47,7 +47,7 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.lblTitulo.Location = new System.Drawing.Point(102, 20);
+            this.lblTitulo.Location = new System.Drawing.Point(112, 30);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(221, 46);
             this.lblTitulo.TabIndex = 0;
@@ -56,7 +56,7 @@
             // lblMesa
             // 
             this.lblMesa.AutoSize = true;
-            this.lblMesa.Location = new System.Drawing.Point(45, 90);
+            this.lblMesa.Location = new System.Drawing.Point(55, 100);
             this.lblMesa.Name = "lblMesa";
             this.lblMesa.Size = new System.Drawing.Size(48, 20);
             this.lblMesa.TabIndex = 1;
@@ -171,6 +171,8 @@
             this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmMesaDesasignar";
+            this.Padding = new System.Windows.Forms.Padding(10);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMesaDesasignar";
             this.Load += new System.EventHandler(this.FrmMesaDesasignar_Load);
             this.bxMesero.ResumeLayout(false);

@@ -14,16 +14,16 @@ namespace PresentacionWinForm
 {
     public partial class frmMesaAsignar : Form
     {
-        public frmMesaAsignar()
+        Mesa mesa;
+        public frmMesaAsignar(Mesa mesa)
         {
             InitializeComponent();
+            this.mesa = mesa;
         }
 
         private void FrmMesaAsignar_Load(object sender, EventArgs e)
         {
-            cbxMesa.DataSource = MesaNegocio.listar();
-            cbxMesa.DisplayMember = "numero";
-            cbxMesa.ValueMember = "id";
+            txtMesa.Text = mesa.numero.ToString();
             cbxMesero.DataSource = MeseroNegocio.listar("'mesero'");
             cbxMesero.DisplayMember = "legajo";
             cbxMesero.ValueMember = "legajo";
@@ -40,7 +40,7 @@ namespace PresentacionWinForm
         }
          public bool verificar()
         {
-            if (cbxMesero.SelectedIndex != -1 && cbxMesa.SelectedIndex != -1)
+            if (cbxMesero.SelectedIndex != -1)
             {
                 return true;
             }
@@ -51,7 +51,7 @@ namespace PresentacionWinForm
         {
             if (verificar())
             {
-                if (MesaNegocio.ActualizarAsignacion(cbxMesa.SelectedValue.ToString(),cbxMesero.SelectedValue.ToString())==1)
+                if (MesaNegocio.ActualizarAsignacion(mesa.id.ToString(),cbxMesero.SelectedValue.ToString())==1)
                 {
                     MessageBox.Show("Se asigno correctamente");
                     this.Close();

@@ -336,5 +336,8 @@ SET IDENTITY_INSERT [dbo].[Cargos] ON
 INSERT [dbo].[Cargos] ([id], [descripcion]) VALUES (1, N'Gerente')
 INSERT [dbo].[Cargos] ([id], [descripcion]) VALUES (2, N'mesero')
 SET IDENTITY_INSERT [dbo].[Cargos] OFF
+INSERT [dbo].[bebidas] ([id], [descripcion], [contieneAlcohol], [precio], [idMarca], [idCategoriaBebida], [estado]) VALUES (9, N'coca 600ml', 0, CAST(80.00 AS Decimal(10, 2)), 1, 3, 1)
+INSERT [dbo].[bebidas] ([id], [descripcion], [contieneAlcohol], [precio], [idMarca], [idCategoriaBebida], [estado]) VALUES (10, N'bot 600ml', 0, CAST(50.00 AS Decimal(10, 2)), 4, 5, 1)
+INSERT [dbo].[bebidas] ([id], [descripcion], [contieneAlcohol], [precio], [idMarca], [idCategoriaBebida], [estado]) VALUES (11, N'Cosacha tardia 750ml', 1, CAST(150.00 AS Decimal(10, 2)), 2, 2, 1)
 
 SET IDENTITY_INSERT [dbo].[personal] OFF

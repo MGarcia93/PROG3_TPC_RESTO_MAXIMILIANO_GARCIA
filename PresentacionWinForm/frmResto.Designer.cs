@@ -40,9 +40,7 @@
             this.platosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bebidasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.inventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarCantidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmInventario = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmInformes = new System.Windows.Forms.ToolStripMenuItem();
             this.pedidosPorMesasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pedidosPorMeserosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -135,7 +133,7 @@
             this.platosToolStripMenuItem,
             this.bebidasToolStripMenuItem,
             this.toolStripSeparator2,
-            this.inventarioToolStripMenuItem});
+            this.tsmInventario});
             this.tsmInsumos.Name = "tsmInsumos";
             this.tsmInsumos.Size = new System.Drawing.Size(153, 29);
             this.tsmInsumos.Text = "&Platos y Bebidas";
@@ -143,42 +141,28 @@
             // platosToolStripMenuItem
             // 
             this.platosToolStripMenuItem.Name = "platosToolStripMenuItem";
-            this.platosToolStripMenuItem.Size = new System.Drawing.Size(175, 30);
+            this.platosToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
             this.platosToolStripMenuItem.Text = "Platos";
             this.platosToolStripMenuItem.Click += new System.EventHandler(this.PlatosToolStripMenuItem_Click);
             // 
             // bebidasToolStripMenuItem
             // 
             this.bebidasToolStripMenuItem.Name = "bebidasToolStripMenuItem";
-            this.bebidasToolStripMenuItem.Size = new System.Drawing.Size(175, 30);
+            this.bebidasToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
             this.bebidasToolStripMenuItem.Text = "Bebidas";
             this.bebidasToolStripMenuItem.Click += new System.EventHandler(this.BebidasToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(172, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(249, 6);
             // 
-            // inventarioToolStripMenuItem
+            // tsmInventario
             // 
-            this.inventarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.verToolStripMenuItem,
-            this.modificarCantidadToolStripMenuItem});
-            this.inventarioToolStripMenuItem.Name = "inventarioToolStripMenuItem";
-            this.inventarioToolStripMenuItem.Size = new System.Drawing.Size(175, 30);
-            this.inventarioToolStripMenuItem.Text = "Inventario";
-            // 
-            // verToolStripMenuItem
-            // 
-            this.verToolStripMenuItem.Name = "verToolStripMenuItem";
-            this.verToolStripMenuItem.Size = new System.Drawing.Size(247, 30);
-            this.verToolStripMenuItem.Text = "Ver";
-            // 
-            // modificarCantidadToolStripMenuItem
-            // 
-            this.modificarCantidadToolStripMenuItem.Name = "modificarCantidadToolStripMenuItem";
-            this.modificarCantidadToolStripMenuItem.Size = new System.Drawing.Size(247, 30);
-            this.modificarCantidadToolStripMenuItem.Text = "Modificar Cantidad";
+            this.tsmInventario.Name = "tsmInventario";
+            this.tsmInventario.Size = new System.Drawing.Size(252, 30);
+            this.tsmInventario.Text = "Inventario";
+            this.tsmInventario.Click += new System.EventHandler(this.TsmInventario_Click);
             // 
             // tsmInformes
             // 
@@ -301,11 +285,9 @@
         private System.Windows.Forms.ToolStripMenuItem bebidasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verPedidosToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem inventarioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem verToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmInventario;
         private System.Windows.Forms.ToolStripMenuItem tsmSalir;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem modificarCantidadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmDefiniciones;
         private System.Windows.Forms.ToolStripMenuItem marcaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tipoDeBebidasToolStripMenuItem;

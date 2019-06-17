@@ -68,7 +68,7 @@
             // 
             this.ckbContieneAlcohol.AutoSize = true;
             this.ckbContieneAlcohol.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ckbContieneAlcohol.Location = new System.Drawing.Point(46, 323);
+            this.ckbContieneAlcohol.Location = new System.Drawing.Point(56, 333);
             this.ckbContieneAlcohol.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ckbContieneAlcohol.Name = "ckbContieneAlcohol";
             this.ckbContieneAlcohol.Size = new System.Drawing.Size(163, 24);
@@ -89,7 +89,7 @@
             // lblPrecio
             // 
             this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Location = new System.Drawing.Point(42, 278);
+            this.lblPrecio.Location = new System.Drawing.Point(52, 288);
             this.lblPrecio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(53, 20);
@@ -107,7 +107,7 @@
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(42, 223);
+            this.lblDescripcion.Location = new System.Drawing.Point(52, 233);
             this.lblDescripcion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(92, 20);
@@ -126,7 +126,7 @@
             // lblMarca
             // 
             this.lblMarca.AutoSize = true;
-            this.lblMarca.Location = new System.Drawing.Point(42, 172);
+            this.lblMarca.Location = new System.Drawing.Point(52, 182);
             this.lblMarca.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Size = new System.Drawing.Size(53, 20);
@@ -146,7 +146,7 @@
             // lblCategoria
             // 
             this.lblCategoria.AutoSize = true;
-            this.lblCategoria.Location = new System.Drawing.Point(42, 121);
+            this.lblCategoria.Location = new System.Drawing.Point(52, 131);
             this.lblCategoria.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(78, 20);
@@ -157,7 +157,7 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(62, 37);
+            this.lblTitulo.Location = new System.Drawing.Point(72, 47);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(255, 37);
@@ -184,6 +184,8 @@
             this.Controls.Add(this.lblCategoria);
             this.Controls.Add(this.lblTitulo);
             this.Name = "frmBebidaModificar";
+            this.Padding = new System.Windows.Forms.Padding(10);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar";
             this.Load += new System.EventHandler(this.FrmBebidaModificar_Load);
             this.ResumeLayout(false);

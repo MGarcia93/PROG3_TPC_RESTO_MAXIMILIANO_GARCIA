@@ -40,11 +40,7 @@ namespace PresentacionWebForm
         }
 
 
-        [WebMethod]
-        public static string InsumosTipo(int tipo)
-        {
-            return "retorno";
-        }
+        
 
         [WebMethod]
         public static List<Mesa> ListaMesas()
@@ -160,6 +156,20 @@ namespace PresentacionWebForm
                 resultado= "noPedido";
             }
             return resultado;
+        }
+
+
+        [WebMethod]
+        public static bool ModificarDetalle(int codigo, int cantidad, int idDetalle)
+        {
+            Insumo dato = InsumoNegocio.traer(codigo);
+            return PedidoNegocio.modificarDetalle(dato, cantidad, idDetalle);
+        }
+
+        [WebMethod]
+        public static bool EliminacionDetalle(int detalle)
+        {
+            return PedidoNegocio.eliminarFila(detalle);
         }
     }
 }

@@ -48,7 +48,7 @@
             // lblCapacidad
             // 
             this.lblCapacidad.AutoSize = true;
-            this.lblCapacidad.Location = new System.Drawing.Point(22, 175);
+            this.lblCapacidad.Location = new System.Drawing.Point(32, 185);
             this.lblCapacidad.Name = "lblCapacidad";
             this.lblCapacidad.Size = new System.Drawing.Size(85, 20);
             this.lblCapacidad.TabIndex = 20;
@@ -57,7 +57,7 @@
             // lblNumero
             // 
             this.lblNumero.AutoSize = true;
-            this.lblNumero.Location = new System.Drawing.Point(23, 126);
+            this.lblNumero.Location = new System.Drawing.Point(33, 136);
             this.lblNumero.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNumero.Name = "lblNumero";
             this.lblNumero.Size = new System.Drawing.Size(65, 20);
@@ -68,7 +68,7 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(6, 40);
+            this.lblTitulo.Location = new System.Drawing.Point(16, 50);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(243, 40);
@@ -119,6 +119,8 @@
             this.Controls.Add(this.lblNumero);
             this.Controls.Add(this.lblTitulo);
             this.Name = "frmMesaAgregar";
+            this.Padding = new System.Windows.Forms.Padding(10);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMesaAgregar";
             this.Load += new System.EventHandler(this.FrmMesaAgregar_Load);
             this.ResumeLayout(false);

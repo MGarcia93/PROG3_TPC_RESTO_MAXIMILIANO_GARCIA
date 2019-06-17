@@ -93,3 +93,4 @@ C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWinForm\obj\Debug\Presentacio
 C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWinForm\obj\Debug\PresentacionWinForm.frmMesaModificar.resources
 C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWinForm\obj\Debug\PresentacionWinForm.frmJornada.resources
 C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWinForm\obj\Debug\PresentacionWinForm.frmMensaje.resources
+C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWinForm\obj\Debug\PresentacionWinForm.frmInventario.resources

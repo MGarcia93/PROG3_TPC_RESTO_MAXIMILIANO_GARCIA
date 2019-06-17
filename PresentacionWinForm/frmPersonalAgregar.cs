@@ -88,7 +88,7 @@ namespace PresentacionWinForm
                 txtDni.BackColor = Color.Red;
 
             }
-            else if (txtDni.TextLength > 8 && !Char.IsControl(e.KeyChar))
+            else if (txtDni.TextLength > 7 && !Char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
                 txtDni.BackColor = Color.Red;

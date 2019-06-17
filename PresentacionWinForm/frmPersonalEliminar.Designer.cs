@@ -51,7 +51,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label1.Location = new System.Drawing.Point(99, 22);
+            this.label1.Location = new System.Drawing.Point(109, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(231, 46);
             this.label1.TabIndex = 0;
@@ -60,7 +60,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 97);
+            this.label2.Location = new System.Drawing.Point(55, 107);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 20);
             this.label2.TabIndex = 1;
@@ -211,6 +211,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmPersonalEliminar";
+            this.Padding = new System.Windows.Forms.Padding(10);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmEliminarPersonal";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

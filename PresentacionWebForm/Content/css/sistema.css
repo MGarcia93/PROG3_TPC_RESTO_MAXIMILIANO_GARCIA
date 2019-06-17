@@ -121,3 +121,7 @@ display:none!important;
         border: 3px #add8e682 solid;
         background-color: rgba(215, 229, 245, 0.23);
     }
+.icon{
+    width:1em;
+    height:1em;
+}

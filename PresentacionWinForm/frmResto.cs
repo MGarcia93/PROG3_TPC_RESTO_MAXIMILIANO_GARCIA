@@ -188,5 +188,12 @@ namespace PresentacionWinForm
             jornada.MdiParent = this;
             jornada.Show();
         }
+
+        private void TsmInventario_Click(object sender, EventArgs e)
+        {
+            frmInventario inventario = new frmInventario();
+            inventario.MdiParent = this;
+            inventario.Show();
+        }
     }
 }

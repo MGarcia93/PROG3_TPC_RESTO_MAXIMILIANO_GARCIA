@@ -126,7 +126,7 @@ namespace PresentacionWinForm
      
         private void asignar(object sender, EventArgs e)
         {
-            frmMesaAsignar ventana = new frmMesaAsignar();
+            frmMesaAsignar ventana = new frmMesaAsignar(this.mesa);
             ventana.ShowDialog();
             mesa = MesaNegocio.traer(this.mesa.id);
         }
@@ -139,7 +139,7 @@ namespace PresentacionWinForm
         {
             if (MessageBox.Show("Estas Seguro de eliminar esta mesa?","ELIMINACION", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                if (MesaNegocio.eliminar(this.mesa.id.ToString()))
+                if (MesaNegocio.eliminar(this.mesa.id.ToString(),this.mesa.numero))
                 {
                     MessageBox.Show("Se elimino correctamente");
                     this.Parent.Controls.Remove(this);

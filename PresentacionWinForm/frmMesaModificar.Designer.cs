@@ -57,7 +57,7 @@
             // lblCapacidad
             // 
             this.lblCapacidad.AutoSize = true;
-            this.lblCapacidad.Location = new System.Drawing.Point(29, 159);
+            this.lblCapacidad.Location = new System.Drawing.Point(39, 169);
             this.lblCapacidad.Name = "lblCapacidad";
             this.lblCapacidad.Size = new System.Drawing.Size(85, 20);
             this.lblCapacidad.TabIndex = 27;
@@ -88,7 +88,7 @@
             // lblNumero
             // 
             this.lblNumero.AutoSize = true;
-            this.lblNumero.Location = new System.Drawing.Point(30, 110);
+            this.lblNumero.Location = new System.Drawing.Point(40, 120);
             this.lblNumero.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNumero.Name = "lblNumero";
             this.lblNumero.Size = new System.Drawing.Size(65, 20);
@@ -99,7 +99,7 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(13, 24);
+            this.lblTitulo.Location = new System.Drawing.Point(23, 34);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(243, 40);
@@ -119,6 +119,8 @@
             this.Controls.Add(this.lblNumero);
             this.Controls.Add(this.lblTitulo);
             this.Name = "frmMesaModificar";
+            this.Padding = new System.Windows.Forms.Padding(10);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar";
             this.Load += new System.EventHandler(this.FrmMesaModificar_Load);
             this.ResumeLayout(false);

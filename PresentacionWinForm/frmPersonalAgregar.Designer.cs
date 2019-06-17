@@ -51,7 +51,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label1.Location = new System.Drawing.Point(29, 19);
+            this.label1.Location = new System.Drawing.Point(39, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(330, 46);
             this.label1.TabIndex = 0;
@@ -60,7 +60,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(55, 98);
+            this.lblNombre.Location = new System.Drawing.Point(65, 108);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(65, 20);
             this.lblNombre.TabIndex = 2;
@@ -69,7 +69,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(55, 153);
+            this.label4.Location = new System.Drawing.Point(65, 163);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 20);
             this.label4.TabIndex = 3;
@@ -78,7 +78,7 @@
             // lblDni
             // 
             this.lblDni.AutoSize = true;
-            this.lblDni.Location = new System.Drawing.Point(59, 206);
+            this.lblDni.Location = new System.Drawing.Point(69, 216);
             this.lblDni.Name = "lblDni";
             this.lblDni.Size = new System.Drawing.Size(33, 20);
             this.lblDni.TabIndex = 4;
@@ -87,7 +87,7 @@
             // uesto
             // 
             this.uesto.AutoSize = true;
-            this.uesto.Location = new System.Drawing.Point(37, 457);
+            this.uesto.Location = new System.Drawing.Point(47, 467);
             this.uesto.Name = "uesto";
             this.uesto.Size = new System.Drawing.Size(59, 20);
             this.uesto.TabIndex = 5;
@@ -179,7 +179,7 @@
             // lblFechaNac
             // 
             this.lblFechaNac.AutoSize = true;
-            this.lblFechaNac.Location = new System.Drawing.Point(5, 261);
+            this.lblFechaNac.Location = new System.Drawing.Point(15, 271);
             this.lblFechaNac.Name = "lblFechaNac";
             this.lblFechaNac.Size = new System.Drawing.Size(159, 20);
             this.lblFechaNac.TabIndex = 14;
@@ -215,6 +215,8 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmPersonalAgregar";
+            this.Padding = new System.Windows.Forms.Padding(10);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAgregarPersonal";
             this.Load += new System.EventHandler(this.FrmPersonalAgregar_Load);
             this.gbxSexo.ResumeLayout(false);

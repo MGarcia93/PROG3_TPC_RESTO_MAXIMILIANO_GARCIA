@@ -38,6 +38,7 @@ namespace PresentacionWinForm
                 dgvLista.Columns["descripcion"].ReadOnly=true;
                 dgvLista.Columns["id"].ReadOnly = true;
                 dgvLista.Columns["tipo"].ReadOnly = true;
+                dgvLista.Columns["marca"].Visible = false;
 
                 for (int i = 0; i < dgvLista.Columns.Count; i++)
                 {

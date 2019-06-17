@@ -55,6 +55,7 @@
             this.dgvPedidos.Location = new System.Drawing.Point(30, 149);
             this.dgvPedidos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvPedidos.Name = "dgvPedidos";
+            this.dgvPedidos.ReadOnly = true;
             this.dgvPedidos.Size = new System.Drawing.Size(1158, 495);
             this.dgvPedidos.TabIndex = 1;
             // 

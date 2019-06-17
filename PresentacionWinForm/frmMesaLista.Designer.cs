@@ -30,10 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.btnAsignar = new System.Windows.Forms.Button();
-            this.nDesagsinar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.contenedor = new System.Windows.Forms.Panel();
             this.cmsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -55,29 +52,9 @@
             this.lblTitulo.TabIndex = 1;
             this.lblTitulo.Text = "Mesas";
             // 
-            // btnAsignar
-            // 
-            this.btnAsignar.Location = new System.Drawing.Point(102, 578);
-            this.btnAsignar.Name = "btnAsignar";
-            this.btnAsignar.Size = new System.Drawing.Size(99, 37);
-            this.btnAsignar.TabIndex = 2;
-            this.btnAsignar.Text = "Asignar";
-            this.btnAsignar.UseVisualStyleBackColor = true;
-            this.btnAsignar.Click += new System.EventHandler(this.BtnAsirnar_Click);
-            // 
-            // nDesagsinar
-            // 
-            this.nDesagsinar.Location = new System.Drawing.Point(289, 577);
-            this.nDesagsinar.Name = "nDesagsinar";
-            this.nDesagsinar.Size = new System.Drawing.Size(99, 37);
-            this.nDesagsinar.TabIndex = 3;
-            this.nDesagsinar.Text = "Desasignar";
-            this.nDesagsinar.UseVisualStyleBackColor = true;
-
-            // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(531, 577);
+            this.btnSalir.Location = new System.Drawing.Point(629, 587);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(99, 37);
             this.btnSalir.TabIndex = 4;
@@ -85,18 +62,9 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
-            // btnModificar
-            // 
-            this.btnModificar.Location = new System.Drawing.Point(923, 578);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(99, 37);
-            this.btnModificar.TabIndex = 5;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = true;
-            // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(763, 577);
+            this.btnAgregar.Location = new System.Drawing.Point(463, 587);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(99, 37);
             this.btnAgregar.TabIndex = 5;
@@ -160,10 +128,7 @@
             this.ClientSize = new System.Drawing.Size(1210, 658);
             this.Controls.Add(this.contenedor);
             this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.nDesagsinar);
-            this.Controls.Add(this.btnAsignar);
             this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMesaLista";
@@ -178,10 +143,7 @@
 
         #endregion
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Button btnAsignar;
-        private System.Windows.Forms.Button nDesagsinar;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Panel contenedor;
         private System.Windows.Forms.ContextMenuStrip cmsMenu;

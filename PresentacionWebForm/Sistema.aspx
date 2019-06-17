@@ -14,18 +14,18 @@
         <div id="main">
             <div id="izquierda">
                 <h2 class="text-center">Datos</h2>
-                <div class="p-3 center mb-5" >
-                    <div style="border: solid 1px; border-radius:4%;" class="col-md-10 col-lg-10 col-sm-12 px-3 mb-5">
+                <div class="p-3 center mb-10" >
+                    <div style="border: solid 1px; border-radius:4%;" class="col-md-12 col-lg-12 col-sm-12 px-3 mb-5">
                         <div class="form-group row m-3">
                             <label for="mesa" class="col-lg-2 col-md-4 col-form-label">Mesa:</label>
-                            <div class="offset-2 col-6">
+                            <div class="offset-1 col-lg-8 col-md-6">
                                 <input type="text" class="form-control" name="mesa" id="Mesa" data-mesa="" disabled>
                             </div> 
                             
                         </div>
                         <div class="form-group row m-3">
                             <label for="mesero" class="col-lg-2 col-md-4 col-form-label">Mesero:</label>
-                            <div class="offset-2 col-6">
+                            <div class="offset-1 col-lg-8 col-md-6">
                                 <input type="text"  class="form-control" name="mesero" id="Mesero" data-mesero="" disabled>
                             </div>
                             
@@ -60,6 +60,8 @@
                             <button id="Agregar" class="btn btn-info hide" >Agregar</button>
                             <button id="Abrir" class="btn btn-success hide" > Generar</button>
                             <button id="Cerrar" class="btn btn-danger hide" >Cerrar</button>
+                            <button id="Modificar" class="btn btn-info hide" >Modificar</button>
+                            <button id="Cancelar" class="btn btn-danger hide">Cancelar</button>
                     </div>  
                 </div>     
                    
@@ -94,12 +96,14 @@
                 </div>
             </div>
     </div>
+
+
         <!-- MODAL PARA LA BUSQUEDA DEL PRODUCTO -->
-        <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Productos</h5>
+                        <h5 class="modal-title">Productos</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -115,19 +119,40 @@
         </div>
 
 
-        <!-- MESAJE DE ALERTAS DE LOS DISTINTEOS SUCCESOS-->
-        <div aria-live="polite" aria-atomic="true" style="position: absolute; min-height: 200px;">
-            <div class="toast bg-dark text-white" style="position: absolute; top: 0; right: 0;">
-                <div class="toast-header">
-                    <img src="..." class="rounded mr-2" alt="...">
-                    <strong class="contenido" class="mr-auto">Bootstrap</strong>
-                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="toast-body" style="background: rbga(150,150,150,0.4)">
+        <!-- MODAL PARA CONFIRMACION DE CIERRE-->
+        <div class="modal fade" id="modalConfirmacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" >Confirmacion de Cierre</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button id="CerrarPedido" type="button" class="btn btn-primary">Seleccionar</button>
+                    </div>
                 </div>
             </div>
+        </div>
+
+
+        <!-- MESAJE DE ALERTAS DE LOS DISTINTEOS SUCCESOS-->
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header">
+            <img src="..." class="rounded mr-2" alt="...">
+            <strong class="mr-auto">Bootstrap</strong>
+            <small class="text-muted">just now</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="toast-body">
+            See? Just like this.
+          </div>
         </div>
 
         <div id="inactivo" >
