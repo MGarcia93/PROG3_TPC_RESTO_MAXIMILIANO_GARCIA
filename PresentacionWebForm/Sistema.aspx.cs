@@ -105,7 +105,7 @@ namespace PresentacionWebForm
         [WebMethod]
         public static int Generar(int mesa,int mesero)
         {
-           Pedido pedido= PedidoNegocio.crear(mesero, mesa);
+           Pedido pedido= PedidoNegocio.crear(mesero, mesa,HttpContext.Current.Session["jornada"].ToString());
             HttpContext.Current.Session.Add("pedido", pedido.id);
             MesaNegocio.cambiarEstado(mesa, Constantes.MESA_OCUPADA);
             return pedido.id;
@@ -115,7 +115,35 @@ namespace PresentacionWebForm
         public static bool Agregar(int idInsumo, int cantidad)
         {
             Insumo dato = InsumoNegocio.traer(idInsumo);
-            return PedidoNegocio.agregar(dato, (int)HttpContext.Current.Session["pedido"],cantidad);
+            if(PedidoNegocio.CantidadPedida(idInsumo, (int)HttpContext.Current.Session["pedido"]) == -1)
+            {
+                if(PedidoNegocio.agregar(dato, (int)HttpContext.Current.Session["pedido"], cantidad))
+                {
+                    if (JornadaNegocio.modificarCantidad(idInsumo, (int)HttpContext.Current.Session["jornada"], (-1*cantidad))){
+                        return true;
+                    }
+                    else
+                    {
+                        PedidoNegocio.eliminarFila(idInsumo, (int)HttpContext.Current.Session["pedido"]);
+                        return false;
+                    }
+                }
+            }
+            else
+            {
+                if(PedidoNegocio.modificarDetalle(idInsumo, cantidad, (int)HttpContext.Current.Session["pedido"])){
+                    if (JornadaNegocio.modificarCantidad(idInsumo, (int)HttpContext.Current.Session["jornada"], cantidad)){
+                        return true;
+                    }
+                    else
+                    {
+                        PedidoNegocio.modificarDetalle(idInsumo, (int)HttpContext.Current.Session["pedido"], (-1 * cantidad));
+                        return false;
+                    }
+                }
+            }
+            
+            return false;
         }
 
         [WebMethod]
@@ -159,17 +187,31 @@ namespace PresentacionWebForm
         }
 
 
+     
+
         [WebMethod]
-        public static bool ModificarDetalle(int codigo, int cantidad, int idDetalle)
+        public static bool EliminacionDetalle(int idInsumo)
         {
-            Insumo dato = InsumoNegocio.traer(codigo);
-            return PedidoNegocio.modificarDetalle(dato, cantidad, idDetalle);
+            int cantidad = PedidoNegocio.CantidadPedida(idInsumo, (int)HttpContext.Current.Session["pedido"]);
+            if(JornadaNegocio.modificarCantidad(idInsumo, (int)HttpContext.Current.Session["Jornada"], cantidad))
+            {
+                if(PedidoNegocio.eliminarFila(idInsumo, (int)HttpContext.Current.Session["pedido"]))
+                {
+                    return true;
+                }
+                else
+                {
+                    JornadaNegocio.modificarCantidad(idInsumo, (int)HttpContext.Current.Session["Jornada"], (-1 * cantidad));
+                    return false;
+                }
+            }
+            return false;
         }
 
         [WebMethod]
-        public static bool EliminacionDetalle(int detalle)
+        public static void Salir()
         {
-            return PedidoNegocio.eliminarFila(detalle);
+            HttpContext.Current.Session.Clear();   
         }
     }
 }

@@ -27,9 +27,12 @@ namespace PresentacionWinForm
 
         private void FrmMesaLista_Load(object sender, EventArgs e)
         {
-            
 
-           mostrarMesas();
+            if (Grobales.usuario.datos.permiso.id == Constantes.GERENTE)
+            {
+                btnAgregar.Visible = true;
+            }
+            mostrarMesas();
             
            
         }

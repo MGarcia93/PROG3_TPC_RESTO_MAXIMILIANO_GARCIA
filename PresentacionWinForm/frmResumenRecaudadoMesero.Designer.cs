@@ -28,28 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvResumen = new System.Windows.Forms.DataGridView();
             this.cbxFiltro = new System.Windows.Forms.GroupBox();
+            this.cbxLegajo = new System.Windows.Forms.ComboBox();
+            this.lblLegajo = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.lblHasta = new System.Windows.Forms.Label();
             this.esde = new System.Windows.Forms.Label();
             this.dtpHasta = new System.Windows.Forms.DateTimePicker();
             this.dtpDesde = new System.Windows.Forms.DateTimePicker();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.lblLegajo = new System.Windows.Forms.Label();
-            this.cbxLegajo = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvResumen)).BeginInit();
             this.cbxFiltro.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // dgvResumen
-            // 
-            this.dgvResumen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvResumen.Location = new System.Drawing.Point(29, 143);
-            this.dgvResumen.Name = "dgvResumen";
-            this.dgvResumen.RowTemplate.Height = 28;
-            this.dgvResumen.Size = new System.Drawing.Size(1165, 503);
-            this.dgvResumen.TabIndex = 5;
             // 
             // cbxFiltro
             // 
@@ -66,6 +55,24 @@
             this.cbxFiltro.TabIndex = 4;
             this.cbxFiltro.TabStop = false;
             this.cbxFiltro.Text = "Filtro";
+            this.cbxFiltro.Enter += new System.EventHandler(this.CbxFiltro_Enter);
+            // 
+            // cbxLegajo
+            // 
+            this.cbxLegajo.FormattingEnabled = true;
+            this.cbxLegajo.Location = new System.Drawing.Point(104, 29);
+            this.cbxLegajo.Name = "cbxLegajo";
+            this.cbxLegajo.Size = new System.Drawing.Size(184, 28);
+            this.cbxLegajo.TabIndex = 6;
+            // 
+            // lblLegajo
+            // 
+            this.lblLegajo.AutoSize = true;
+            this.lblLegajo.Location = new System.Drawing.Point(25, 33);
+            this.lblLegajo.Name = "lblLegajo";
+            this.lblLegajo.Size = new System.Drawing.Size(57, 20);
+            this.lblLegajo.TabIndex = 5;
+            this.lblLegajo.Text = "Legajo";
             // 
             // btnBuscar
             // 
@@ -117,37 +124,19 @@
             this.lblTitulo.Size = new System.Drawing.Size(443, 46);
             this.lblTitulo.TabIndex = 3;
             this.lblTitulo.Text = "Recaudado Por Mesero";
-            // 
-            // lblLegajo
-            // 
-            this.lblLegajo.AutoSize = true;
-            this.lblLegajo.Location = new System.Drawing.Point(25, 33);
-            this.lblLegajo.Name = "lblLegajo";
-            this.lblLegajo.Size = new System.Drawing.Size(57, 20);
-            this.lblLegajo.TabIndex = 5;
-            this.lblLegajo.Text = "Legajo";
-            // 
-            // cbxLegajo
-            // 
-            this.cbxLegajo.FormattingEnabled = true;
-            this.cbxLegajo.Location = new System.Drawing.Point(104, 29);
-            this.cbxLegajo.Name = "cbxLegajo";
-            this.cbxLegajo.Size = new System.Drawing.Size(184, 28);
-            this.cbxLegajo.TabIndex = 6;
+            this.lblTitulo.Click += new System.EventHandler(this.LblTitulo_Click);
             // 
             // frmResumenRecaudadoMesero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1210, 658);
-            this.Controls.Add(this.dgvResumen);
             this.Controls.Add(this.cbxFiltro);
             this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmResumenRecaudadoMesero";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "frmResumenRecaudadoMesero";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvResumen)).EndInit();
             this.cbxFiltro.ResumeLayout(false);
             this.cbxFiltro.PerformLayout();
             this.ResumeLayout(false);
@@ -156,8 +145,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvResumen;
         private System.Windows.Forms.GroupBox cbxFiltro;
         private System.Windows.Forms.ComboBox cbxLegajo;
         private System.Windows.Forms.Label lblLegajo;

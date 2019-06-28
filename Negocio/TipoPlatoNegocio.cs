@@ -65,5 +65,30 @@ namespace Negocio
                 acessoDato.cerrarConexion();
             }
         }
+        public static bool agregar(string nombre)
+        {
+            ManagerAcessoDato acessoDato = new ManagerAcessoDato();
+            try
+            {
+                acessoDato.setearConsulta("insert into tiposPlatos(descripcion) values('" + nombre + "')");
+                acessoDato.abrirConexion();
+                if (acessoDato.ejecutarAccion() == 1)
+                {
+                    return true;
+                }
+
+                return false;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                acessoDato.cerrarConexion();
+            }
+        }
     }
 }

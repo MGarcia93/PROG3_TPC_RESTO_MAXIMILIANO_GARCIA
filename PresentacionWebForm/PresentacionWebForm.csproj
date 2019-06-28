@@ -185,10 +185,12 @@
     <Content Include="Content\img\team\01.jpg" />
     <Content Include="Content\img\team\02.jpg" />
     <Content Include="Content\img\team\03.jpg" />
+    <Content Include="index.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\contact_me.js" />
+    <Content Include="Scripts\index.js" />
     <Content Include="Scripts\jqBootstrapValidation.js" />
     <Content Include="Scripts\jquery.1.11.1.js" />
     <Content Include="Scripts\jquery.isotope.js" />
@@ -288,6 +290,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

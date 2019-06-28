@@ -42,13 +42,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Almacen.cs" />
     <Compile Include="Almacenamiento.cs" />
     <Compile Include="Bebida.cs" />
     <Compile Include="Categoria.cs" />
     <Compile Include="Cliente.cs" />
-    <Compile Include="Carta.cs" />
+    <Compile Include="DatoInforme.cs" />
+    <Compile Include="DetalleMenu.cs" />
     <Compile Include="Constantes.cs" />
+    <Compile Include="informeMesa.cs" />
+    <Compile Include="informeMesero.cs" />
     <Compile Include="MesaImagen.cs">
       <SubType>Component</SubType>
     </Compile>

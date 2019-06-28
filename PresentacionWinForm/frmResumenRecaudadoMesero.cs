@@ -16,5 +16,15 @@ namespace PresentacionWinForm
         {
             InitializeComponent();
         }
+
+        private void CbxFiltro_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LblTitulo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

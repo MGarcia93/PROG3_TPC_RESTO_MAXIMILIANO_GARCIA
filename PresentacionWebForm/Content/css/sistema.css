@@ -23,6 +23,7 @@
 }
 
 .mesa {
+    padding:0px;
     width: 100%;
 }
 
@@ -34,23 +35,6 @@
 .center {
     margin-left: auto;
     margin-right: auto;
-}
-
-/* Too narrow to support three columns */
-@media all and (max-width: 640px) {
-
-    #main {
-        -webkit-flex-flow: column;
-        flex-flow: column;
-    }
-
-    #izquierda, #derecha {
-        flex: 0 1 auto;
-    }
-
-    #izquierda {
-        padding-bottom: 1em;
-    }
 }
 
 
@@ -109,8 +93,9 @@
     }
 
 .hide {
-display:none!important;
+    display: none !important;
 }
+
 #TablaProducto {
     max-height: 50vh;
     overflow: auto;
@@ -121,7 +106,57 @@ display:none!important;
         border: 3px #add8e682 solid;
         background-color: rgba(215, 229, 245, 0.23);
     }
-.icon{
-    width:1em;
-    height:1em;
+
+.icon {
+    width: 1em;
+    height: 1em;
 }
+
+#logout {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    padding: 0.5em;
+    opacity: 0.8;
+    cursor:pointer;
+}
+
+
+
+    #logout img {
+        height: 2.5em;
+        padding: 0px;
+        border-radius: 10px;
+        background: #a8a8a847;
+        box-shadow: 2px 2px 5px rgba(50, 49, 49, 0.38);
+    }
+.totalPedido {
+    position: fixed;
+    font-size: 1.2em;
+    width: 63%;
+    bottom: 0px;
+    text-align: center;
+    background-color: #c1c1c11c;
+    margin-left: -27px;
+}
+
+
+/* Too narrow to support three columns */
+@media all and (max-width: 640px) {
+
+    #main {
+        -webkit-flex-flow: column;
+        flex-flow: column;
+    }
+
+    #izquierda, #derecha {
+        flex: 0 1 auto;
+    }
+
+    #izquierda {
+        padding-bottom: 1em;
+    }
+    .totalPedido {
+        margin-left:0px;
+    }
+

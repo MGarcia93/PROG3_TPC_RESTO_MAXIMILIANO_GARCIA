@@ -90,7 +90,20 @@
                     </div>
                 </div>
             </div>
-            d
+            <!-- Restaurant Menu Section -->
+            <div id="restaurant-menu">
+                <div class="section-title text-center center">
+                    <div class="overlay">
+                        <h2>Menu</h2>
+                        <hr>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed.</p>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" id="menu-list">
+                    </div>
+                </div>
+            </div>
             <!-- Call Reservation Section -->
             <div id="call-reservation" class="text-center">
                 <div class="container">
@@ -179,12 +192,13 @@
     </form>
     <script type="text/javascript" src="Scripts/jquery.1.11.1.js"></script>
     <script type="text/javascript" src="Scripts/bootstrap.js"></script>
-    <script type="text/javascript" src="Scripts/SmoothScroll.js"></script>
+    <%--<script type="text/javascript" src="Scripts/SmoothScroll.js"></script>--%>
     <script type="text/javascript" src="Scripts/nivo-lightbox.js"></script>
     <script type="text/javascript" src="Scripts/jquery.isotope.js"></script>
     <script type="text/javascript" src="Scripts/jqBootstrapValidation.js"></script>
     <script type="text/javascript" src="Scripts/contact_me.js"></script>
     <script type="text/javascript" src="Scripts/main.js"></script>
+    <script type="text/javascript" src="Scripts/index.js"></script>
 
 </body>
 </html>

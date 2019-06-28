@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class Carta
+    public class informeMesa:DatoInforme
     {
-        public List<Comida> comidas { get; set; }
-        public List<Bebida> bebidas { get; set; }
+        public int numero { get; set; }
+
     }
 }

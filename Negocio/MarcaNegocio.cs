@@ -78,7 +78,14 @@ namespace Negocio
                 acessoDato.abrirConexion();
                 if (acessoDato.ejecutarAccion() == 1)
                 {
-                    // acessoDato.setearConsulta("insert into marcasXcategorias(idCategoria,idMarca) values ('"+idCategoria+"','"+")
+                    acessoDato.setearConsulta("select max(id) as id from marcas");
+                    acessoDato.ejecutarConsulta();
+                    acessoDato.Lector.Read();
+                    int idMarca = (int)acessoDato.Lector["id"];
+                    acessoDato.cerrarConexion();
+                    acessoDato.setearConsulta("insert into marcasXcategorias(idCategoria,idMarca) values (" + idCategoria + "," + idMarca + ")");
+                    acessoDato.abrirConexion();
+                    acessoDato.ejecutarAccion();
                     agrego = true;
                 }
                 return agrego;

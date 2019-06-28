@@ -11,16 +11,17 @@ namespace Negocio
 {
     public class PedidoNegocio
     {
-        public static Pedido crear(int idMesero,int idMesa)
+        public static Pedido crear(int idMesero,int idMesa,string jornada)
         {
             ManagerAcessoDato db = new ManagerAcessoDato();
             Pedido pedido = new Pedido();
             try
             {
-                db.setearConsulta("insert into pedidos(idMesa,idMesero,idEstado) values (@idMesa,@idMesero,1)");
+                db.setearConsulta("insert into pedidos(idMesa,idMesero,idEstado,idJornada) values (@idMesa,@idMesero,1,@jornada)");
                 db.Comando.Parameters.Clear();
                 db.Comando.Parameters.AddWithValue("@idMesa", idMesa);
                 db.Comando.Parameters.AddWithValue("@idMesero", idMesero);
+                db.Comando.Parameters.AddWithValue("@jornada", jornada);
                 db.abrirConexion();
                 if (db.ejecutarAccion() == 1)
                 {
@@ -87,17 +88,16 @@ namespace Negocio
 
         }
 
-        public static bool modificarDetalle(Insumo insumo, int cantidad, int idDetalle )
+        public static bool modificarDetalle(int idInsumo, int cantidad, int idpedido )
         {
             ManagerAcessoDato db = new ManagerAcessoDato();
             try
             {
-                db.setearConsulta("update detallesPedidos set idInsumo=@idInsumo, precioUnit=@precio, cantidad=@idCantidad  where id=@idDetalle");
+                db.setearConsulta("update detallesPedidos set  cantidad=cantidad+@Cantidad  where idInsumo=@idInsumo and idPedido=@idPedido");
                 db.Comando.Parameters.Clear();
-                db.Comando.Parameters.AddWithValue("@idInsumo", insumo.id);
+                db.Comando.Parameters.AddWithValue("@idInsumo", idInsumo);
                 db.Comando.Parameters.AddWithValue("@cantidad", cantidad);
-                db.Comando.Parameters.AddWithValue("@precio", insumo.precio);
-                db.Comando.Parameters.AddWithValue("@idDetalle", idDetalle);
+                db.Comando.Parameters.AddWithValue("@idpedido", idpedido);
                 db.abrirConexion();
                 if (db.ejecutarAccion() == 1)
                 {
@@ -193,12 +193,12 @@ namespace Negocio
             }
         }
 
-        public static bool eliminarFila(int idDetalle)
+        public static bool eliminarFila(int idInsumo,int pedido)
         {
             ManagerAcessoDato db = new ManagerAcessoDato();
             try
             {
-                db.setearConsulta("delete from detallesPedidos where id=" + idDetalle);
+                db.setearConsulta("delete from detallesPedidos where idInsumo=" + idInsumo + " and idPedido="+pedido);
                 db.abrirConexion();
                 if (db.ejecutarAccion() == 1)
                 {
@@ -207,6 +207,33 @@ namespace Negocio
                 else
                 {
                     return false;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                db.cerrarConexion();
+            }
+        }
+
+        public static int CantidadPedida(int idInsumo, int pedido)
+        {
+            ManagerAcessoDato db = new ManagerAcessoDato();
+            try
+            {
+                db.setearConsulta("select cantidad from detallesPedidos where idInsumo=" + idInsumo + " and idPedido=" + pedido);
+                db.abrirConexion();
+                db.ejecutarConsulta();
+                if(db.Lector.Read()){
+                    return (int)db.Lector["cantidad"];
+                }
+                else
+                {
+                    return -1;
                 }
             }
             catch (Exception ex)

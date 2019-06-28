@@ -44,6 +44,50 @@ namespace Negocio
                 accesoDatos.cerrarConexion();
             }
         }
-        
+
+        public static List<DetalleMenu> Menu()
+        {
+            List<DetalleMenu> menu = new List<DetalleMenu>();
+            ManagerAcessoDato db = new ManagerAcessoDato();
+            DetalleMenu insumo;
+            try
+            {
+
+                string sql = "select i.id,isnull(c.nombre,b.descripcion) as nombre,c.descripcion,isnull(tp.descripcion,cb.descripcion) as tipo, isnull(c.precio,b.precio) as precio ";
+                sql += "from insumos i ";
+                sql += "left join bebidas b on i.id = b.id ";
+                sql += "left join comidas c on i.id = c.id ";
+                sql += "left join tiposPlatos tp on c.idTipo = tp.id ";
+                sql += "left join categoriasBebidas cb on b.idCategoriaBebida = cb.id ";
+                sql += "where (b.estado=1 or c.estado=1) ";
+                sql += "order by i.idTipo desc, tipo";
+                db.setearConsulta(sql);
+                db.abrirConexion();
+                db.ejecutarConsulta();
+                while (db.Lector.Read())
+                {
+                    insumo = new DetalleMenu();
+                    insumo.id = (int)db.Lector["id"];
+                    insumo.nombre = (string)db.Lector["nombre"];
+                    if(!Convert.IsDBNull(db.Lector["descripcion"].ToString()))
+                        insumo.descripcion = (string)db.Lector["descripcion"].ToString();
+                    insumo.tipo = (string)db.Lector["tipo"].ToString();
+                    insumo.precio = (decimal)db.Lector["precio"];
+                    menu.Add(insumo);
+                }
+                return menu;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                db.cerrarConexion();
+            }
+        }
+
+
     }
 }

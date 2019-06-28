@@ -182,7 +182,9 @@ namespace Negocio
             Mesa mesa=new Mesa();
             try
             {
-                accesoDatos.setearConsulta("select m.id,numero,idEstadoMesa,cantidadComensales,m.idMesero,p.id as pedido from Mesas as m left join pedidos as p on m.id=p.idmesa where m.id=" + id + " and (p.id is null or p.idEstado=" + Constantes.PEDIDO_ABIERTO + ")");
+                accesoDatos.setearConsulta("select m.id,numero,idEstadoMesa,cantidadComensales,m.idMesero,p.id as pedido " +
+                    "from Mesas as m left join pedidos as p on (m.id=p.idmesa and p.idEstado=1) " +
+                    "where m.id=" + id);
                 accesoDatos.abrirConexion();
                 accesoDatos.ejecutarConsulta();
                 accesoDatos.Lector.Read();

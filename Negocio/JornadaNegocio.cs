@@ -295,7 +295,7 @@ namespace Negocio
             ManagerAcessoDato accesoDatos = new ManagerAcessoDato();
             try
             {
-                accesoDatos.setearConsulta("update inventarios set cantidad=cantidad-@cantidad where idInsumo=@idInsumo and idjornada=@idJornada");
+                accesoDatos.setearConsulta("update inventarios set cantidad=cantidad+@cantidad where idInsumo=@idInsumo and idjornada=@idJornada");
                 accesoDatos.Comando.Parameters.Clear();
                 accesoDatos.Comando.Parameters.AddWithValue("@idInsumo", idInsumo);
                 accesoDatos.Comando.Parameters.AddWithValue("@idJornada", idJornada);

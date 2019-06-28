@@ -33,9 +33,15 @@ namespace PresentacionWinForm
             if (txtNombre.TextLength != 0)
             {
                 if (MarcaNegocio.agregar(txtNombre.Text.Trim(), cbxTipo.SelectedValue.ToString())){
-
+                    txtNombre.Text = "";
+                    cbxTipo.SelectedIndex=0;
                 }
             }
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

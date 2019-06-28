@@ -46,4 +46,15 @@ function error(msg){
     }
 }
 
+$("#nombre").keypress(function (e) {
+    if (e.which == 13) {
+        $("#ingresar").trigger("click")
+    }
+})
+$("#password").keypress(function (e) {
+    if (e.which == 13) {
+        $("#ingresar").trigger("click")
+    }
+})
+
     

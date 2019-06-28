@@ -44,6 +44,7 @@
     <Compile Include="CategoriaBebidaNegocio.cs" />
     <Compile Include="ComidaNegocio.cs" />
     <Compile Include="EstadoMesaNegocio.cs" />
+    <Compile Include="InformeNegocio.cs" />
     <Compile Include="InsumoNegocio.cs" />
     <Compile Include="JornadaNegocio.cs" />
     <Compile Include="MarcaNegocio.cs" />

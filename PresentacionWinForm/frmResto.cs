@@ -24,18 +24,13 @@ namespace PresentacionWinForm
         }
         private void inicializar()
         {
-            Grobales.iniciazion();
-            /*
+            
             tsmPedido.Enabled = false;
             tsmMesas.Enabled = false;
             tsmInsumos.Enabled = false;
             tsmInformes.Enabled = false;
-            tsmDefiniciones.Enabled = false;*/
-            frmLogin login = new frmLogin();
-            while (Grobales.usuario == null)
-            {
-                login.ShowDialog();
-            }
+            tsmDefiniciones.Enabled = false;
+            tsmJornada.Enabled = false;
             Grobales.jornada = JornadaNegocio.numeroJornada();
             if (Grobales.jornada == 0)
             {
@@ -44,16 +39,13 @@ namespace PresentacionWinForm
                 mensaje.MdiParent = this;
                 mensaje.Show();
             }
-            else
+            tsmMesas.Enabled = true;
+            tsmInsumos.Enabled = true;
+            if (Grobales.usuario.datos.permiso.id == Constantes.GERENTE)
             {
-                tsmPedido.Enabled = true;
-                tsmMesas.Enabled = true;
-                tsmInsumos.Enabled = true;
-                if (Grobales.usuario.datos.permiso.id == Constantes.GERENTE)
-                {
-                    tsmInformes.Enabled = true;
-                    tsmDefiniciones.Enabled = true;
-                }
+                tsmJornada.Enabled = true;
+                tsmInformes.Enabled = true;
+                tsmDefiniciones.Enabled = true;
             }
         }
        
@@ -178,7 +170,7 @@ namespace PresentacionWinForm
             if(MessageBox.Show("estas seguro que desa deconectarse?", "SALIDA", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 Grobales.usuario = null;
-                inicializar();
+                this.Close();
             }
         }
 
@@ -194,6 +186,25 @@ namespace PresentacionWinForm
             frmInventario inventario = new frmInventario();
             inventario.MdiParent = this;
             inventario.Show();
+        }
+
+        private void TsmInformes_Click(object sender, EventArgs e)
+        {
+            frmInformes informes = new frmInformes();
+            informes.MdiParent = this;
+            informes.Show();
+        }
+
+        private void TipoDeBebidasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTipoBebidaAgregar tipo = new frmTipoBebidaAgregar();
+            tipo.ShowDialog();
+        }
+
+        private void TipoDePlatoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTipoPlatoAgregar tipo = new frmTipoPlatoAgregar();
+            tipo.ShowDialog();
         }
     }
 }

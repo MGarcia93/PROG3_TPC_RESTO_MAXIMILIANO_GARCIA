@@ -14,7 +14,7 @@ namespace PresentacionWebForm
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["userName"] != null)
+            if (Session["user"] != null)
             {
                 Response.Redirect("Sistema.aspx");
             }

@@ -18,23 +18,18 @@ namespace PresentacionWinForm
         public frmLogin()
         {
             InitializeComponent();
+            inicializar();
         }
 
+        private void inicializar()
+        {
+            Grobales.iniciazion();
+            txtLegajo.Text = "";
+            txtPassword.Text = "";
+        }
         private void BtnIngresar_Click(object sender, EventArgs e)
         {
-            if (!validacion())
-            {
-                MessageBox.Show("Por favor rellene todos los datos");
-                return;
-            }
-            Grobales.usuario = UsuarioNegocio.traer(txtLegajo.Text.Trim(), txtPassword.Text.Trim());
-            if (Grobales.usuario != null)
-            {
-                this.Close();
-            }
-            else {
-                MessageBox.Show("Usuario o Password incorrecto");
-            }
+            ingresar();
             
         }
         private bool validacion()
@@ -48,8 +43,48 @@ namespace PresentacionWinForm
 
         private void BtnSalir_Click(object sender, EventArgs e)
         {
-        
-            this.Close();
+
+            Application.Exit();
+        }
+
+        private void TxtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                ingresar();
+            }
+        }
+
+        private void ingresar()
+        {
+            if (!validacion())
+            {
+                MessageBox.Show("Por favor rellene todos los datos");
+                return;
+            }
+            Grobales.usuario = UsuarioNegocio.traer(txtLegajo.Text.Trim(), txtPassword.Text.Trim());
+            if (Grobales.usuario != null)
+            {
+                frmResto main = new frmResto();
+                main.FormClosing += new FormClosingEventHandler(main_closing);
+                main.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Usuario o Password incorrecto");
+            }
+        }
+
+        private void main_closing(object sender, EventArgs e)
+        {
+            inicializar();
+            this.Show();
+        }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

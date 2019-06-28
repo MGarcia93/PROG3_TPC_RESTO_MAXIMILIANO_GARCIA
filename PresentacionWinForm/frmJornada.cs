@@ -22,6 +22,10 @@ namespace PresentacionWinForm
 
         private void FrmJornada_Load(object sender, EventArgs e)
         {
+            if (Grobales.jornada != 0)
+            {
+                btnGenera.Enabled = false;
+            }
             Grilla();
             mostrarMesas();
         }
@@ -65,7 +69,7 @@ namespace PresentacionWinForm
             {
                 MessageBox.Show("Se genero correctamente");
                 btnModifica.Enabled = true;
-                btnGenera.Visible = false;
+                btnGenera.Enabled = false;
             }
             else
             {
@@ -78,16 +82,21 @@ namespace PresentacionWinForm
         {
             List<Almacenamiento> jornada = new List<Almacenamiento>();
             jornada = (List<Almacenamiento>)dgvLista.DataSource;
+            List<string> error=new List<string>();
             foreach (Almacenamiento item in jornada)
             {
-                if (JornadaNegocio.modificarCantidad(item.id,Grobales.jornada,item.cantidad))
+                if (!JornadaNegocio.modificarCantidad(item.id,Grobales.jornada,item.cantidad))
                 {
-                    MessageBox.Show("Se modifico correctamente");
+                    error.Add(item.descripcion);
                 }
-                else
-                {
-                    MessageBox.Show("No se pudo modificar");
-                }
+            }
+            if (error.Count() > 0)
+            {
+                MessageBox.Show("No se pudieron realizar cambios en: " + error);
+            }
+            else
+            {
+                MessageBox.Show("Se modifico sastifactoriamente");
             }
             
         }
@@ -96,16 +105,21 @@ namespace PresentacionWinForm
         {
             List<Almacenamiento> jornada = new List<Almacenamiento>();
             jornada = (List<Almacenamiento>)dgvLista.DataSource;
+            List<string> error = new List<string>();
             foreach (Almacenamiento item in jornada)
             {
-                if (JornadaNegocio.modificarCantidad(item.id, 0, item.cantidad))
+                if(!JornadaNegocio.modificarCantidad(item.id, 0, item.cantidad))
                 {
-                    MessageBox.Show("Se modifico correctamente");
+                    error.Add(item.descripcion);
                 }
-                else
-                {
-                    MessageBox.Show("No se pudo modificar");
-                }
+            }
+            if (error.Count() > 0)
+            {
+                MessageBox.Show("No se pudieron realizar cambios en: " + error);
+            }
+            else
+            {
+                MessageBox.Show("Se modifico el default sastifactoriamente");
             }
         }
 

@@ -14,6 +14,9 @@
         <div id="main">
             <div id="izquierda">
                 <h2 class="text-center">Datos</h2>
+                <div id="logout">
+                    <img src="Content/img/logout.svg" alt="Salida del Sistema" />
+                </div>
                 <div class="p-3 center mb-10" >
                     <div style="border: solid 1px; border-radius:4%;" class="col-md-12 col-lg-12 col-sm-12 px-3 mb-5">
                         <div class="form-group row m-3">
@@ -87,10 +90,6 @@
                                     </tbody>
                                 </table>
                             </div>
-                        <div class="table" style="text-align:right">
-                            <span class="col-1">TOTAL</span>
-                            <span id="precioTotal" class="col-1"></span>
-                        </div>
                         
                       </div>     
                 </div>
@@ -100,7 +99,7 @@
 
         <!-- MODAL PARA LA BUSQUEDA DEL PRODUCTO -->
         <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Productos</h5>
@@ -121,7 +120,7 @@
 
         <!-- MODAL PARA CONFIRMACION DE CIERRE-->
         <div class="modal fade" id="modalConfirmacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" >Confirmacion de Cierre</h5>
@@ -141,19 +140,20 @@
 
 
         <!-- MESAJE DE ALERTAS DE LOS DISTINTEOS SUCCESOS-->
-        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div style="position:absolute; bottom:1em;right:0px;z-index:100">
+            <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" >
           <div class="toast-header">
-            <img src="..." class="rounded mr-2" alt="...">
-            <strong class="mr-auto">Bootstrap</strong>
-            <small class="text-muted">just now</small>
+            <strong class="mr-auto contenido">Bootstrap</strong>
             <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="toast-body">
+          <div class="toast-body" style="background-color:dimgray">
             See? Just like this.
           </div>
         </div>
+        </div>
+        
 
         <div id="inactivo" >
             <div class="msg">
@@ -167,7 +167,9 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
     <script type="text/javascript" src="Scripts/sistema.js"></script>
+    
 
 </body>
 </html>

@@ -133,27 +133,6 @@ estado bit not null default 1
 )
 
 go
-CREATE TABLE pedidos(
-id	int primary key not null identity(1,1),
-fecha date not null default getdate(),
-idMesa int not null foreign key references mesas(id),
-idMesero int not null foreign key references personal(legajo),
-idEstado int not null  foreign key references estadosPedidos(id) default 1,
-estado bit not null default 1
-)
-
-go
-
-CREATE TABLE detallesPedidos(
-id int not null identity(1,1),
-idPedido int not null foreign key references pedidos(id),
-idInsumo  int not null foreign key references insumos(id),
-cantidad  int not null,
-precioUnit decimal(10,2) not null
-constraint pk_detallePedidoComida primary key(idPedido,idInsumo),
-)
-
-go
 CREATE TABLE franjasHorarias(
 id int primary key not null identity(1,1),
 descripcion varchar(20) not null unique
@@ -181,7 +160,30 @@ idJornada	int not null foreign key references jornadas(id),
 idInsumo	int null foreign key references insumos(id),
 cantidad	int not null default 5
 )
+
+go
+CREATE TABLE pedidos(
+id	int primary key not null identity(1,1),
+fecha date not null default getdate(),
+idMesa int not null foreign key references mesas(id),
+idMesero int not null foreign key references personal(legajo),
+idEstado int not null  foreign key references estadosPedidos(id) default 1,
+idJornada int not null foreign key references jornadas(id),
+estado bit not null default 1
+)
+go
+
+CREATE TABLE detallesPedidos(
+id int not null identity(1,1),
+idPedido int not null foreign key references pedidos(id),
+idInsumo  int not null foreign key references insumos(id),
+cantidad  int not null,
+precioUnit decimal(10,2) not null
+constraint pk_detallePedidoComida primary key(idPedido,idInsumo),
+)
 go 
+
+
 CREATE TRIGGER tr_insert_personal on personal
 after insert
 as 
@@ -275,6 +277,7 @@ INSERT [dbo].[personal] ([legajo], [nombre], [apellido], [dni], [sexo], [cargo],
 INSERT [dbo].[personal] ([legajo], [nombre], [apellido], [dni], [sexo], [cargo], [fechaNacimiento]) VALUES (3, N'Florencia ', N'Carambu', N'12312312', N'F', N'gerente', CAST(N'2019-05-02' AS Date))
 INSERT [dbo].[personal] ([legajo], [nombre], [apellido], [dni], [sexo], [cargo], [fechaNacimiento]) VALUES (4, N'Nicolas', N'Ruarte', N'23451232', N'M', N'mesero', CAST(N'2019-02-13' AS Date))
 INSERT [dbo].[personal] ([legajo], [nombre], [apellido], [dni], [sexo], [cargo], [fechaNacimiento]) VALUES (5, N'joaquin', N'ledesma', N'1231412', N'M', N'mesero', CAST(N'2000-02-08' AS Date))
+INSERT [dbo].[personal] ([legajo], [nombre], [apellido], [dni], [sexo], [cargo], [fechaNacimiento]) VALUES (0, N'joaquin', N'ledesma', N'admin', N'M', N'gerente', CAST(N'2000-02-08' AS Date))
 SET IDENTITY_INSERT [dbo].[personal] OFF
 
 INSERT [dbo].[estadosMesas] ([id], [descripcion]) VALUES (0, N'inactivo')

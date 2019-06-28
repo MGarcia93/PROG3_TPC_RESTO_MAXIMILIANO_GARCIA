@@ -94,3 +94,6 @@ C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWinForm\obj\Debug\Presentacio
 C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWinForm\obj\Debug\PresentacionWinForm.frmJornada.resources
 C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWinForm\obj\Debug\PresentacionWinForm.frmMensaje.resources
 C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWinForm\obj\Debug\PresentacionWinForm.frmInventario.resources
+C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWinForm\obj\Debug\PresentacionWinForm.frmInformes.resources
+C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWinForm\obj\Debug\PresentacionWinForm.frmTipoBebidaAgregar.resources
+C:\Users\maxim\Desktop\Prog3\tpc_resto\PresentacionWinForm\obj\Debug\PresentacionWinForm.frmTipoPlatoAgregar.resources

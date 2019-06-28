@@ -68,6 +68,12 @@ namespace PresentacionWinForm
 
         private void FrmBebidaLista_Load(object sender, EventArgs e)
         {
+            if (Grobales.usuario.datos.permiso.id == Constantes.GERENTE)
+            {
+                btnAgregar.Visible = true;
+                btnEliminar.Visible = true;
+                btnModificar.Visible = true;
+            }
             Grilla();
         }
 

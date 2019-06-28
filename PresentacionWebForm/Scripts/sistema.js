@@ -63,6 +63,8 @@ function ListarMesas() {
                     .addClass("mesa");
                 $(card).attr("id", this.id)
                     .addClass("col-sm-4 col-md-4 col-lg-3")
+                    .css("margin", "0px")
+                    .css("padding","0px")
                 $(card).attr("data-estado", this.estado.id)
                     .attr("role", "mesa");
                 $(card).append(imagen);
@@ -70,7 +72,7 @@ function ListarMesas() {
                 $(contenedor).append(card);
                 $(card).click(function () {
                     if ($(this).attr("data-estado") != 0) {
-
+                        
                         $("#panelMesa").find("[class*='activo']").removeClass("activo");
                         $(this).addClass("activo");
                         mesaSeleccionada($(this).attr("id"));
@@ -153,6 +155,7 @@ $("#Abrir").click((e) => {
                 $("#Cerrar").removeClass("hide").removeAttr("disabled");
                 $("#Abrir").addClass("hide").attr("disabled");
                 $("#Buscar").removeAttr("disabled");
+                ListarMesas();
             }
             else {
                 showToast("No se pudo abrir Pedido ", "Error");
@@ -185,7 +188,11 @@ $("#Agregar").click((e) => {
             if (response.d) {
 
                 showToast("Se agrego correctamente al pedido ", "Exito");
+                $("#codigo").val("");
+                $("#descripcion").val("");
+                $("#cantidad").html("");
                 listarDetallePedido();
+
             }
             else {
                 showToast("No se pudo agrego al Pedido ", "Error");
@@ -342,9 +349,6 @@ function CabeceraBebida() {
         $("<th>").html("Marca")
             .attr("scope", "col")
     ).append(
-        $("<th>").html("C/Alcochol")
-            .attr("scope", "col")
-    ).append(
         $("<th>").html("Cantidad Restante")
             .attr("scope", "col")
     ).attr("scope", "row");
@@ -401,9 +405,7 @@ function ContenidoBebida(dato) {
     ).append(
         $("<td>").html(dato.marca).attr("role", "marca")
     ).append(
-        $("<td>").html(dato.Alcochol).attr("role", "c/alcohol")
-    ).append(
-        $("<td>").html(dato.cantidad).attr("role", "cantidad")
+        $("<td>").html(dato.cantidad).attr("role", "cantidad").addClass("text-center")
     ).attr("scope", "row");
     return fila;
 }
@@ -467,50 +469,51 @@ function listarDetallePedido() {
                     var fila = document.createElement("tr");
                     $(fila).attr("scope", "row")
                         .append(
-                            $("<td>").html(this.producto.id)
+                            $("<td data-id=" + this.producto.id+">").html(this.producto.id)
                         ).append(
-                            $("<td>").html(this.producto.nombre)
+                            $("<td data-nombre=" + this.producto.nombre +">").html(this.producto.nombre)
                         ).append(
-                            $("<td>").html(this.tipo)
+                            $("<td data-tipo=" + this.tipo +">").html(this.tipo)
                         ).append(
-                            $("<td>").html(this.precioUnitario)
+                            $("<td data-precio=" + this.precioUnitario +">").html(this.precioUnitario)
                         ).append(
-                            $("<td>").html(this.cantidad)
+                            $("<td data-cantidad=" + this.canti +">").html(this.cantidad)
                         ).append(
                             $("<td>").html(this.precioTotal)
-                        ).append(
-                            $("<td>").append(
-                                $("<a>").attr("data-boton", "modificar")
-                                    .attr("data-idDetalle", this.producto.id)
-                                    .css("cursor", "pointer")
-                                    .html("<img src='./Content/img/edit.svg' class='icon'></img>")
-                            )
                         ).append(
                             $("<td>").append(
                                 $("<a>").attr("data-boton", "eliminar")
                                     .attr("data-idDetalle", this.producto.id)
                                     .css("cursor", "pointer")
                                     .html("<img src='./Content/img/delete.svg' class='icon'></img>")
-                            )
-                    );
+                            ).attr("role", "eliminar")
+                        );
                     var dato = this;
-                    $(fila).find("[data-boton='modificar']").click(function(){
-                        
-                        /*$("#Agregar").addClass("hide");
-                        $("#Cerrar").addClass("hide");
-                        $("#Modificar").removeClass("hide");
-                        $("#Modificar").attr("data-idDetalle", dato.id);
-                        $("#Cancelar").removeClass("hide");
-                        mostrarProducto(producto)*/
-                    })
-
+                   
                     $(fila).find("[data-boton='eliminar']").click(function () {
-                        VentanaConfirmacion("eliminarDetalle", dato.id);
+                        VentanaConfirmacion("eliminarDetalle", dato.producto.id);
                     })
                     $(detalle).append(fila);
                     total += this.precioTotal;
                 })
-                $("#precioTotal").html(total);
+                if (total != 0) {
+                    if ($(".totalPedido").html() != undefined) {
+                        $(".totalPedido").html("")
+                            .html("TOTAL: ").append(
+                                $("<strong>").html(total)
+                            )
+                    }
+                    else {
+                        $("#detallePedido").append(
+                            $("<div>").addClass("totalPedido").html("TOTAL: ").append(
+                                $("<strong>").html(total)
+                            )
+
+                        )
+                    }
+                    
+                }
+               
                 
             }
             else {
@@ -547,6 +550,8 @@ function VentanaConfirmacion(tipo, idDetalle = null) {
             break;
         case "modificarDetalle":
             modificarDetalle(titulo, contenido, botonera, idDetalle);
+        case "salir":
+            salida(titulo, contenido, botonera);
     }
     $(ventana).modal("show");
 }
@@ -556,18 +561,25 @@ function VentanaConfirmacion(tipo, idDetalle = null) {
 function CerrarPedido (titulo, contenido, botonera) {
 
     $(titulo).html("Confirmacion de cierre");
-    $(contenido).html("Estas Seguro de cerrar el pedido?");
-
+    var table = document.querySelector("#detallePedido").querySelector("[class='table']").cloneNode(true);
+    $(contenido).html("");
+    $(contenido).append(   
+                    $("<h3>").html("Detalle del Pedido a cerrar")
+                )
+        .append(table);
+    $(contenido).find("[role*='modificar']").remove();
+    $(contenido).find("[role*='eliminar']").remove();
     $(botonera).append(
         $("<button>").attr("id", "CerrarPedido")
             .addClass("btn btn-primary")
-            .html("Si")
+            .html("Cerrar")
     ).append(
         $("<button>").attr("data-dismiss", "modal")
             .addClass("btn btn-secondary")
             .html("cancelar")
     )
-    $("#CerrarPedido").click(function () {
+    $("#CerrarPedido").click(function (e) {
+        e.preventDefault();
         datos = { mesa: $("#Mesa").attr("data-mesa") };
         $.ajax({
             method: "POST",
@@ -578,8 +590,11 @@ function CerrarPedido (titulo, contenido, botonera) {
             success: (response) => {
                 if (response.d = "ok") {
                     showToast("El pedido se cerro correctamente", "Afirmacion");
+                    pruebaDivAPdf(document.querySelector("#detallePedido"));
+                    $("#modalConfirmacion").modal("hide");
                     $("tbody").html("");
                     ListarMesas();
+                    
                 }
                 else if (response.d = "noCierre") {
                     showToast("ERROR: no se pudo cerrar el pedido", "Error");
@@ -615,7 +630,8 @@ function modificarDetalle(titulo, contenido, botonera, idDetalle) {
             .addClass("btn btn-secondary")
             .html("cancelar")
     )
-    $("#ModificarDetalle").click(function () {
+    $("#ModificarDetalle").click(function (e) {
+        e.preventDefault();
         datos = {
             idInsumo: $("#codigo").val(),
             cantidad: $("#cantidad").val(),
@@ -665,7 +681,7 @@ function eliminarDetalle(titulo, contenido, botonera, idDetalle) {
     )
     $("#EliminacionDetalle").click(function (e) {
         e.preventDefault();
-        var datos = { detalle: $(this).attr("data-idDetalle") };
+        var datos = { idInsumo: $(this).attr("data-idDetalle") };
         $("#modalConfirmacion").modal("hide");
         $.ajax({
             method: "POST",
@@ -689,7 +705,75 @@ function eliminarDetalle(titulo, contenido, botonera, idDetalle) {
         });
     });
 }
+
+//ventana de confirmasion de salida
+function salida(titulo, contenido, botonera) {
+
+    $(titulo).html("Confirmacion de Salida");
+    $(contenido).html("Estas seguro que quiere salir del sistema?");
+
+    $(botonera).append(
+        $("<button>").attr("id", "Salir")
+            .addClass("btn btn-primary")
+            .html("Salir")
+    ).append(
+        $("<button>").attr("data-dismiss", "modal")
+            .addClass("btn btn-secondary")
+            .html("cancelar")
+    )
+    $("#Salir").click(function (e) {
+        e.preventDefault();
+        $.ajax({
+            method: "POST",
+            url: 'Sistema.aspx/Salir',
+            contentType: "application/json; charset=utf-8",
+            success: function () {
+                window.location = "Login.aspx";
+            },
+
+            dataType: "json",
+            error: (response) => {
+                showToast("Error: " + response.responseText, "Error");
+            }
+        });
+    });
+}
+
 ///Ventanas de confirmacion
 //////////////////////////////////////////////////////////////////////////////////
 
+///Boton deslogearse
+$("#logout").click(function () {
+    VentanaConfirmacion("salir")
+})
 
+
+function pruebaDivAPdf(table) {
+    var pdf = new jsPDF('p', 'pt', 'letter');
+    source = table;
+
+    specialElementHandlers = {
+        '#bypassme': function (element, renderer) {
+            return true
+        }
+    };
+    margins = {
+        top: 80,
+        bottom: 60,
+        left: 40,
+        width: 522
+    };
+
+    pdf.fromHTML(
+        source,
+        margins.left, // x coord
+        margins.top, { // y coord
+            'width': margins.width,
+            'elementHandlers': specialElementHandlers
+        },
+
+        function (dispose) {
+            pdf.save('Prueba.pdf');
+        }, margins
+    );
+}

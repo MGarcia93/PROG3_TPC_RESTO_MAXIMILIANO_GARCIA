@@ -18,14 +18,36 @@ namespace PresentacionWebForm
 
         }
 
-        public static Carta listarMenu()
+        [WebMethod]
+        public static List<DetalleMenu> listarMenu()
         {
-            Carta lista = new Carta();
-            ComidaNegocio negocio = new ComidaNegocio();
-            lista.comidas = negocio.listar();
-            lista.bebidas = BebidaNegocio.listar();
-            return lista;
+            return InsumoNegocio.Menu();
 
+        }
+
+        [WebMethod]
+        public static bool Acceso(string user, string pass)
+        {
+            bool valido = false;
+            try
+            {
+                Usuario dato = new Usuario();
+                dato = UsuarioNegocio.traer(user, pass);
+                if (dato != null)
+                {
+                    HttpContext.Current.Session.Add("user", dato.datos);
+                    HttpContext.Current.Session.Add("idUser", dato.userName);
+                    HttpContext.Current.Session.Add("permiso", dato.datos.permiso.id);
+                    valido = true;
+                }
+
+                return valido;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }
