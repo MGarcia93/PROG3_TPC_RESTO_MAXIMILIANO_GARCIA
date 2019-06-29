@@ -65,9 +65,13 @@ namespace PresentacionWinForm
         }
         public void MenuMesa(object sender, EventArgs e)
         {
-            if(menu.Items["Asignar"]!=null)
-                itemHabilitado();
-            menu.Show(this, new Point(this.Size.Width / 2, this.Size.Height / 2));
+            if (this.mesa.estado.id == Constantes.MESA_ACTIVA && Grobales.usuario.datos.permiso.id==Constantes.GERENTE)
+            {
+                if (menu.Items["Asignar"] != null)
+                    itemHabilitado();
+                menu.Show(this, new Point(this.Size.Width / 2, this.Size.Height / 2));
+            }
+            
 
         }
 

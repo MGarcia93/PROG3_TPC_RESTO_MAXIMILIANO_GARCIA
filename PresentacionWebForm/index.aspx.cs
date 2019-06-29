@@ -30,7 +30,7 @@ namespace PresentacionWebForm
         [WebMethod]
         public static string enviarMail(string name,string email,string consult)
         {
-            var fromAddress = new MailAddress("pruebacorreomg@gmail.com", "TPWEB");
+            var fromAddress = new MailAddress("pruebacorreomg@gmail.com", "Resto tpMaximilianoGarcia");
             var toAddress = new MailAddress(email, name);
             const string fromPassword = "prueba1234";
             const string subject = "Consulta";

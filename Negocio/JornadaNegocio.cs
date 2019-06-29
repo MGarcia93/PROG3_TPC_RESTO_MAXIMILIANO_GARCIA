@@ -72,7 +72,7 @@ namespace Negocio
                 sql += "left join marcas m on m.id=b.idMarca ";
                 sql += "inner join insumos  on insumos.id=i.idInsumo ";
                 sql += "inner join tiposInsumos ti on ti.id=insumos.idTipo ";
-                sql += "where  j.id=" + dia + " and ti.id="+ tipo;
+                sql += "where i.cantidad>0 and j.id=" + dia + " and ti.id="+ tipo;
                 db.setearConsulta(sql);
                 db.abrirConexion();
                 db.ejecutarConsulta();

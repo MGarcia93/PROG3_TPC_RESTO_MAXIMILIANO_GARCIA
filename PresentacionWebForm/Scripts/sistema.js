@@ -469,17 +469,17 @@ function listarDetallePedido() {
                     var fila = document.createElement("tr");
                     $(fila).attr("scope", "row")
                         .append(
-                            $("<td data-id=" + this.producto.id+">").html(this.producto.id)
+                            $("<td role='id'>").html(this.producto.id)
                         ).append(
-                            $("<td data-nombre=" + this.producto.nombre +">").html(this.producto.nombre)
+                            $("<td role='nombre'>").html(this.producto.nombre)
                         ).append(
-                            $("<td data-tipo=" + this.tipo +">").html(this.tipo)
+                            $("<td role='tipo'>").html(this.tipo)
                         ).append(
-                            $("<td data-precio=" + this.precioUnitario +">").html(this.precioUnitario)
+                            $("<td role='precioUnit'>").html(this.precioUnitario)
                         ).append(
-                            $("<td data-cantidad=" + this.canti +">").html(this.cantidad)
+                            $("<td role='cantidad'>").html(this.cantidad)
                         ).append(
-                            $("<td>").html(this.precioTotal)
+                            $("<td role='subtotal'>").html(this.precioTotal)
                         ).append(
                             $("<td>").append(
                                 $("<a>").attr("data-boton", "eliminar")
@@ -590,9 +590,10 @@ function CerrarPedido (titulo, contenido, botonera) {
             success: (response) => {
                 if (response.d = "ok") {
                     showToast("El pedido se cerro correctamente", "Afirmacion");
-                    pruebaDivAPdf(document.querySelector("#detallePedido"));
+                    comprobante();
                     $("#modalConfirmacion").modal("hide");
                     $("tbody").html("");
+                    $(".totalPedido").html("");
                     ListarMesas();
                     
                 }
@@ -747,33 +748,53 @@ $("#logout").click(function () {
     VentanaConfirmacion("salir")
 })
 
+function genPDF()
+  {
+   html2canvas(comprobante(),{
+   onrendered:function(canvas){
 
-function pruebaDivAPdf(table) {
-    var pdf = new jsPDF('p', 'pt', 'letter');
-    source = table;
+   var img=canvas.toDataURL("image/png");
+   var doc = new jsPDF('p', 'pt', 'letter');
+   doc.addImage(img,'png',20,20);
+   doc.save('test.pdf');
+   }
 
-    specialElementHandlers = {
-        '#bypassme': function (element, renderer) {
-            return true
-        }
-    };
-    margins = {
-        top: 80,
-        bottom: 60,
-        left: 40,
-        width: 522
-    };
+   });
 
-    pdf.fromHTML(
-        source,
-        margins.left, // x coord
-        margins.top, { // y coord
-            'width': margins.width,
-            'elementHandlers': specialElementHandlers
-        },
+  }
 
-        function (dispose) {
-            pdf.save('Prueba.pdf');
-        }, margins
+function comprobante() {
+
+
+    var contenido = $("#detallePedido").find("tbody");
+   
+
+    var item = $(contenido).find("tr");
+    contenido = [];
+    var total = 0;
+    $(item).each(function () {
+        var nombre = $(this).find("[role='nombre']").html();
+        var cantidad = $(this).find("[role='cantidad']").html();
+        var precio = $(this).find("[role='subtotal']").html();
+        total += Number(precio);
+        contenido.push([nombre, cantidad, precio])
+
+    });
+
+    var pdf = new jsPDF();
+    pdf.text(20, 20, "Comprobante de pago");
+
+    var columns = [ "Nombre", "Cantidad", "Subtotal"];
+    //contenido = JSON.stringify(contenido);
+    var data = contenido;
+
+    pdf.autoTable(columns, data,
+        {
+            margin: { top: 25 },
+            theme:'plain'}
     );
+    pdf.text(pdf.internal.pageSize.width-60, 20, "TOTAL "+total);
+
+    pdf.save('mipdf.pdf');
 }
+

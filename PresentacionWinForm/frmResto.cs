@@ -18,35 +18,46 @@ namespace PresentacionWinForm
         {
             InitializeComponent();
 
-            inicializar();
+          
             
             
         }
         private void inicializar()
         {
+            Grobales.iniciazion();
+            frmLogin login = new frmLogin();
+
+            login.ShowDialog();
+            if (Grobales.usuario == null)
+            {
+                this.Close();
+            }
+            else
+            {
+                tsmPedido.Enabled = false;
+                tsmMesas.Enabled = false;
+                tsmInsumos.Enabled = false;
+                tsmInformes.Enabled = false;
+                tsmDefiniciones.Enabled = false;
+                tsmJornada.Enabled = false;
+                Grobales.jornada = JornadaNegocio.numeroJornada();
+                if (Grobales.jornada == 0)
+                {
+                    MesaNegocio.inactivar();
+                    frmMensaje mensaje = new frmMensaje();
+                    mensaje.MdiParent = this;
+                    mensaje.Show();
+                }
+                tsmMesas.Enabled = true;
+                tsmInsumos.Enabled = true;
+                if (Grobales.usuario.datos.permiso.id == Constantes.GERENTE)
+                {
+                    tsmJornada.Enabled = true;
+                    tsmInformes.Enabled = true;
+                    tsmDefiniciones.Enabled = true;
+                }
+            }
             
-            tsmPedido.Enabled = false;
-            tsmMesas.Enabled = false;
-            tsmInsumos.Enabled = false;
-            tsmInformes.Enabled = false;
-            tsmDefiniciones.Enabled = false;
-            tsmJornada.Enabled = false;
-            Grobales.jornada = JornadaNegocio.numeroJornada();
-            if (Grobales.jornada == 0)
-            {
-                MesaNegocio.inactivar();
-                frmMensaje mensaje = new frmMensaje();
-                mensaje.MdiParent = this;
-                mensaje.Show();
-            }
-            tsmMesas.Enabled = true;
-            tsmInsumos.Enabled = true;
-            if (Grobales.usuario.datos.permiso.id == Constantes.GERENTE)
-            {
-                tsmJornada.Enabled = true;
-                tsmInformes.Enabled = true;
-                tsmDefiniciones.Enabled = true;
-            }
         }
        
 
@@ -162,15 +173,17 @@ namespace PresentacionWinForm
 
         private void FrmResto_Load(object sender, EventArgs e)
         {
-
+            inicializar();
         }
 
         private void TsmSalir_Click(object sender, EventArgs e)
         {
             if(MessageBox.Show("estas seguro que desa deconectarse?", "SALIDA", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                Grobales.usuario = null;
-                this.Close();
+                inicializar();
+                frmLogin login = new frmLogin();
+                login.FormClosing += new FormClosingEventHandler(login_closing);
+
             }
         }
 
@@ -205,6 +218,14 @@ namespace PresentacionWinForm
         {
             frmTipoPlatoAgregar tipo = new frmTipoPlatoAgregar();
             tipo.ShowDialog();
+        }
+
+        private void login_closing(object sender, EventArgs e)
+        {
+            if (Grobales.usuario == null)
+            {
+                Application.Exit();
+            }
         }
     }
 }

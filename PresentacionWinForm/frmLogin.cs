@@ -23,7 +23,7 @@ namespace PresentacionWinForm
 
         private void inicializar()
         {
-            Grobales.iniciazion();
+            
             txtLegajo.Text = "";
             txtPassword.Text = "";
         }
@@ -44,7 +44,7 @@ namespace PresentacionWinForm
         private void BtnSalir_Click(object sender, EventArgs e)
         {
 
-            Application.Exit();
+            this.Close();
         }
 
         private void TxtPassword_KeyPress(object sender, KeyPressEventArgs e)
@@ -65,10 +65,7 @@ namespace PresentacionWinForm
             Grobales.usuario = UsuarioNegocio.traer(txtLegajo.Text.Trim(), txtPassword.Text.Trim());
             if (Grobales.usuario != null)
             {
-                frmResto main = new frmResto();
-                main.FormClosing += new FormClosingEventHandler(main_closing);
-                main.Show();
-                this.Hide();
+                this.Close();
             }
             else
             {

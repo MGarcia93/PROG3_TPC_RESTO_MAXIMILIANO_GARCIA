@@ -135,7 +135,7 @@
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div id="success"></div>
-                                <button type="submit" class="btn btn-custom btn-lg">Send Message</button>
+                                <button type="submit" class="btn btn-custom btn-lg">Enviar Mensaje</button>
                             </form>
                         </div>
                     </div>
